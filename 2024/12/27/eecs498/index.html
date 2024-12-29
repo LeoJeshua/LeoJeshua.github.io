@@ -36,7 +36,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://leojeshua.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2024-12-27T10:54:58.000Z">
-<meta property="article:modified_time" content="2024-12-29T05:32:10.542Z">
+<meta property="article:modified_time" content="2024-12-29T11:20:08.553Z">
 <meta property="article:author" content="LIU JIAXU">
 <meta property="article:tag" content="CV">
 <meta property="article:tag" content="Notes">
@@ -374,8 +374,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-12-29 13:32:10</span>
-            <span class="mobile">2024-12-29 13:32:10</span>
+            <span class="desktop">2024-12-29 19:20:08</span>
+            <span class="mobile">2024-12-29 19:20:08</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -437,12 +437,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.6k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.5k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>7 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>11 Mins</span>
         </span>
     
     
@@ -746,7 +746,314 @@
                      data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241228183836.png"
                       alt="20241228183836"
                 ></p>
-<h2 id="2012-AlexNet"><a href="#2012-AlexNet" class="headerlink" title="(2012) AlexNet"></a>(2012) AlexNet</h2><h2 id="2013-ZFNet"><a href="#2013-ZFNet" class="headerlink" title="(2013) ZFNet"></a>(2013) ZFNet</h2><h2 id="2014-VGG"><a href="#2014-VGG" class="headerlink" title="(2014) VGG"></a>(2014) VGG</h2><h2 id="2014-GoogLeNet"><a href="#2014-GoogLeNet" class="headerlink" title="(2014) GoogLeNet"></a>(2014) GoogLeNet</h2><h2 id="2015-ResNet"><a href="#2015-ResNet" class="headerlink" title="(2015) ResNet"></a>(2015) ResNet</h2><h2 id="2016-Model-Ensembles"><a href="#2016-Model-Ensembles" class="headerlink" title="(2016) Model Ensembles"></a>(2016) Model Ensembles</h2><h2 id="2017-SENet"><a href="#2017-SENet" class="headerlink" title="(2017) SENet"></a>(2017) SENet</h2><h1 id="lecture-9-Hardware-and-Software（深度学习硬件与软件）"><a href="#lecture-9-Hardware-and-Software（深度学习硬件与软件）" class="headerlink" title="lecture 9: Hardware and Software（深度学习硬件与软件）"></a>lecture 9: Hardware and Software（深度学习硬件与软件）</h1><p>slide: <a class="link"   target="_blank" rel="noopener" href="https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture09.pdf" >https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture09.pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h2 id="2012-AlexNet"><a href="#2012-AlexNet" class="headerlink" title="(2012) AlexNet"></a>(2012) AlexNet</h2><p>2012年以前，conv-nets的结构都比较简单、层数比较浅，**AlexNet是第一个深度神经网络(DNN)**。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229182639.png"
+                      alt="20241229182639"
+                ></p>
+<ul>
+<li><strong>8 Layers</strong>:<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229182736.png"
+                      alt="20241229182736"
+                ><ul>
+<li>5 Convolutional Layers</li>
+<li>Max Pooling</li>
+<li>3 Fully Connected Layers</li>
+<li>ReLU Activation Function</li>
+</ul>
+</li>
+<li>Used “Local Response Normalization” (Not used anymore)</li>
+<li>Trained on two GTX580 GPUs (only 3GB of memory each! Model split over two GPUs)</li>
+<li>Citations: <code>46510</code> (As of 9&#x2F;30&#x2F;2019)<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229182916.png"
+                      alt="20241229182916"
+                ></li>
+<li>计算量低，参数量大<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190722.png"
+                      alt="20241229190722"
+                ></li>
+</ul>
+<h3 id="内存-参数量-计算量"><a href="#内存-参数量-计算量" class="headerlink" title="内存&#x2F;参数量&#x2F;计算量"></a>内存&#x2F;参数量&#x2F;计算量</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183040.png"
+                      alt="20241229183040"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183122.png"
+                      alt="20241229183122"
+                ><br>(start) 高分辨率的卷积层：</p>
+<ul>
+<li>内存占用大</li>
+<li>计算量大</li>
+<li>参数量小</li>
+</ul>
+<p>(end) 全连接层：</p>
+<ul>
+<li>内存占用小</li>
+<li>计算量小</li>
+<li>参数量大</li>
+</ul>
+<h2 id="2013-ZFNet"><a href="#2013-ZFNet" class="headerlink" title="(2013) ZFNet"></a>(2013) ZFNet</h2><p><strong>A Bigger AlexNet</strong><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183230.png"
+                      alt="20241229183230"
+                ></p>
+<ul>
+<li>8 Layers<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183320.png"
+                      alt="20241229183320"
+                ></li>
+</ul>
+<h2 id="2014-VGG"><a href="#2014-VGG" class="headerlink" title="(2014) VGG"></a>(2014) VGG</h2><p>VGG表示Visual Geometry Group，是提出该网络的实验室的名称。<br>2014年之前的网络都是手工设计的网络，从VGG开始，遵循一些 <strong>Design Rule</strong> 进行设计。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183359.png"
+                      alt="20241229183359"
+                ></p>
+<ul>
+<li>16&#x2F;19 Layers<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183503.png"
+                      alt="20241229183503"
+                ><ul>
+<li>VGG-16</li>
+<li>VGG-19</li>
+</ul>
+</li>
+<li>5 stages<ul>
+<li>Stage 1: conv-conv-pool</li>
+<li>Stage 2: conv-conv-pool</li>
+<li>Stage 3: conv-conv-pool</li>
+<li>Stage 4: conv-conv-conv-[conv]-pool</li>
+<li>Stage 5: conv-conv-conv-[conv]-pool</li>
+</ul>
+</li>
+<li>3 Fully Connected Layers</li>
+</ul>
+<p><strong>VGG的影响</strong>：</p>
+<ol>
+<li>证明了<strong>大的网络通常有更好的效果</strong></li>
+<li>给出了<strong>几个指导性原则</strong>，减少了超参量，使得网络结构的扩展变得方便</li>
+</ol>
+<p><strong>VGG的效率：内存占用高，计算量大</strong><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190503.png"
+                      alt="20241229190503"
+                ></p>
+<h3 id="VGG-Design-Rules"><a href="#VGG-Design-Rules" class="headerlink" title="VGG Design Rules"></a>VGG Design Rules</h3><ul>
+<li>All conv are 3x3 stride 1 pad 1（都是3x3卷积核）<ul>
+<li>VGG认为没有必要使用大的filter，将filter的大小固定为3x3。因为大的filter可以通过多层小filter组合得到，且参数量更少。</li>
+<li>eg: 2个3x3卷积核 &#x3D;&#x3D; 1个5x5卷积核<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183639.png"
+                      alt="20241229183639"
+                ></li>
+</ul>
+</li>
+<li>All max pool are 2x2 stride 2（都是2x2池化）</li>
+<li>After pool, double #channels （池化后，通道数变成原来的2倍） -&gt; 使不同大小的卷积层有相同的计算量<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183742.png"
+                      alt="20241229183742"
+                ></li>
+</ul>
+<h3 id="内存-参数量-计算量-1"><a href="#内存-参数量-计算量-1" class="headerlink" title="内存&#x2F;参数量&#x2F;计算量"></a>内存&#x2F;参数量&#x2F;计算量</h3><p>Much bigger than AlexNet<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183938.png"
+                      alt="20241229183938"
+                ></p>
+<h2 id="2014-GoogLeNet"><a href="#2014-GoogLeNet" class="headerlink" title="(2014) GoogLeNet"></a>(2014) GoogLeNet</h2><p>由Google团队提出，名称中的L大写以致敬LeNet<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184010.png"
+                      alt="20241229184010"
+                ></p>
+<ul>
+<li>22 Layers</li>
+<li>GoogLeNet核心目标 -&gt; 更高效（以便在数据中心和手机上运行）</li>
+</ul>
+<p>Many innovation for <strong>Effciency</strong>: reduce <code>parameter count</code>, <code>memory usage</code>, and <code>computation</code>.<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190939.png"
+                      alt="20241229190939"
+                ></p>
+<h3 id="1-Stem-network"><a href="#1-Stem-network" class="headerlink" title="1.Stem network"></a>1.Stem network</h3><p>开始时的 <code>Stem network</code> 对input进行积极的下采样 -&gt; 减少计算量<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184129.png"
+                      alt="20241229184129"
+                ></p>
+<h3 id="2-Inception-Module"><a href="#2-Inception-Module" class="headerlink" title="2.Inception Module"></a>2.Inception Module</h3><p>局部结构重复多次 -&gt; 把每种size的filter都加进去（解决超参的另一种思路）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184158.png"
+                      alt="20241229184158"
+                ></p>
+<h3 id="3-Global-Average-Pooling"><a href="#3-Global-Average-Pooling" class="headerlink" title="3.Global Average Pooling"></a>3.Global Average Pooling</h3><p>在FC层之前进行 <code>全局平均池化(Global Average Pooling)</code>  -&gt; 减少参数量<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184228.png"
+                      alt="20241229184228"
+                ></p>
+<h3 id="4-Auxiliary-Classifier"><a href="#4-Auxiliary-Classifier" class="headerlink" title="4.Auxiliary Classifier"></a>4.Auxiliary Classifier</h3><p>使用了 <code>辅助分类器(Auxiliary Classifier)</code> ，对三个分类器的输出进行组合获得结果。（更容易反向传播获取梯度 -&gt; 更新网络）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184416.png"
+                      alt="20241229184416"
+                ><br>因为GoogLeNet太deep了，所以需要这种trick。但在15年batch normlization出现后，就不需要这种trick了。</p>
+<h2 id="2015-ResNet"><a href="#2015-ResNet" class="headerlink" title="(2015) ResNet"></a>(2015) ResNet</h2><p>2015年的important news，席卷了imagenet数据集的所有赛道（classification，localization，detection），以及coco数据集的另一个比赛<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184510.png"
+                      alt="20241229184510"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185440.png"
+                      alt="20241229185440"
+                ></p>
+<p><strong>网络信息：</strong></p>
+<ul>
+<li>152 Layers<ul>
+<li>ResNet-18<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185156.png"
+                      alt="20241229185156"
+                ></li>
+</ul>
+</li>
+<li>借鉴了VGG和GoogLeNet的一些思想<ol>
+<li>卷积后通道数变为两倍</li>
+<li>使用 <code>stem network</code> 进行积极的下采样<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184932.png"
+                      alt="20241229184932"
+                ></li>
+<li>使用 <code>全局平均池化(Global Average Pooling)</code> 以减少参数量<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184956.png"
+                      alt="20241229184956"
+                ></li>
+</ol>
+</li>
+<li>和GoogleNet一样也非常高效<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190248.png"
+                      alt="20241229190248"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190433.png"
+                      alt="20241229190433"
+                ></li>
+</ul>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184606.png"
+                      alt="20241229184606"
+                ></p>
+<ul>
+<li>背景：人们发现太深的模型表现反而不如浅的模型</li>
+<li>原因：欠拟合(underfitting)，训练集和测试集的表现都不佳</li>
+<li>分析：<ul>
+<li>但是一个deeper model理论上可以模拟shallower model的（只需要- 复制前面的层，并让后面的层都是identity的就行）</li>
+<li>因此deeper model至少应该表现和shallower mode相当</li>
+</ul>
+</li>
+<li>猜想：这是一个优化问题 -&gt; deeper model 的优化比较难 -&gt; 需要改变网络结构，以学习 <strong>恒等函数(identity function)</strong></li>
+</ul>
+<h3 id="Residual-Block"><a href="#Residual-Block" class="headerlink" title="Residual Block"></a>Residual Block</h3><p>A Residual Network is a stack of <code>residual blocks</code>.<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184732.png"
+                      alt="20241229184732"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184816.png"
+                      alt="20241229184816"
+                ></p>
+<h4 id="Bottleneck-Block"><a href="#Bottleneck-Block" class="headerlink" title="Bottleneck Block"></a>Bottleneck Block</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185314.png"
+                      alt="20241229185314"
+                ></p>
+<ul>
+<li>ResNet-50提出</li>
+<li>更多的层和非线性，更少的计算量</li>
+</ul>
+<p>eg: 从ResNet-34到ResNet-50，在几乎不增加计算量的情况下，将性能大幅提高）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185348.png"
+                      alt="20241229185348"
+                ></p>
+<h4 id="“Pre-Activation”-CVPR’16"><a href="#“Pre-Activation”-CVPR’16" class="headerlink" title="“Pre-Activation” [CVPR’16]"></a>“Pre-Activation” [CVPR’16]</h4><p>预激活的残差块（能真正学习到identity function）</p>
+<ul>
+<li>He et al. CVPR2016</li>
+<li>先激活再卷积</li>
+<li>稍微提升了准确率</li>
+<li>但在实践中没有被使用</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185632.png"
+                      alt="20241229185632"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185713.png"
+                      alt="20241229185713"
+                ></p>
+<h4 id="ResNeXt-CVPR’17"><a href="#ResNeXt-CVPR’17" class="headerlink" title="ResNeXt [CVPR’17]"></a>ResNeXt [CVPR’17]</h4><p>G个并行的残差块</p>
+<ul>
+<li>Xie et al. CVPR2017</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185913.png"
+                      alt="20241229185913"
+                ></p>
+<h2 id="2016-Model-Ensembles"><a href="#2016-Model-Ensembles" class="headerlink" title="(2016) Model Ensembles"></a>(2016) Model Ensembles</h2><p>集成多个模型<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190050.png"
+                      alt="20241229190050"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190104.png"
+                      alt="20241229190104"
+                ></p>
+<h2 id="2017-SENet"><a href="#2017-SENet" class="headerlink" title="(2017) SENet"></a>(2017) SENet</h2><h1 id="lecture-9-Hardware-and-Software（深度学习硬件与软件）"><a href="#lecture-9-Hardware-and-Software（深度学习硬件与软件）" class="headerlink" title="lecture 9: Hardware and Software（深度学习硬件与软件）"></a>lecture 9: Hardware and Software（深度学习硬件与软件）</h1><p>slide: <a class="link"   target="_blank" rel="noopener" href="https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture09.pdf" >https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture09.pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <h1 id="lecture-10-Training-Neural-Networks（神经网络的训练）"><a href="#lecture-10-Training-Neural-Networks（神经网络的训练）" class="headerlink" title="lecture 10: Training Neural Networks（神经网络的训练）"></a>lecture 10: Training Neural Networks（神经网络的训练）</h1><p>slide: <a class="link"   target="_blank" rel="noopener" href="https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture10.pdf" >https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture10.pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <h1 id="lecture-11-Recurrent-Networks（RNN-上）"><a href="#lecture-11-Recurrent-Networks（RNN-上）" class="headerlink" title="lecture 11: Recurrent Networks（RNN-上）"></a>lecture 11: Recurrent Networks（RNN-上）</h1><p>slide: <a class="link"   target="_blank" rel="noopener" href="https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture11.pdf" >https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture11.pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <h1 id="lecture-12-Recurrent-Networks（RNN-下）"><a href="#lecture-12-Recurrent-Networks（RNN-下）" class="headerlink" title="lecture 12: Recurrent Networks（RNN-下）"></a>lecture 12: Recurrent Networks（RNN-下）</h1><p>slide: <a class="link"   target="_blank" rel="noopener" href="https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture12.pdf" >https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture12.pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
@@ -774,7 +1081,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-12-29 13:32:10
+                    :</strong> 2024-12-29 19:20:08
             </li>
         
         <li>
@@ -841,7 +1148,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">Notes of &#34;EECS498-007/598-005 Deep Learning for Computer Vision (2019)&#34;</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-1-Course-Introduction%EF%BC%88%E4%BB%8B%E7%BB%8D%EF%BC%89"><span class="nav-text">lecture 1: Course Introduction（介绍）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-2-Image-Classification%EF%BC%88%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%EF%BC%89"><span class="nav-text">lecture 2: Image Classification（图像分类）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-3-Linear-Classifiers%EF%BC%88%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8%EF%BC%89"><span class="nav-text">lecture 3: Linear Classifiers（线性分类器）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-4-Optimization%EF%BC%88%E8%AE%AD%E7%BB%83%E4%B8%8E%E4%BC%98%E5%8C%96%EF%BC%89"><span class="nav-text">lecture 4: Optimization（训练与优化）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-5-Neural-Networks%EF%BC%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D%EF%BC%89"><span class="nav-text">lecture 5: Neural Networks（神经网络介绍）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-6-Backpropagation%EF%BC%88%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%ADBP%EF%BC%89"><span class="nav-text">lecture 6: Backpropagation（反向传播BP）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-7-Convolutional-Networks%EF%BC%88CNN%EF%BC%89"><span class="nav-text">lecture 7: Convolutional Networks（CNN）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-Fully-Connected-Layer"><span class="nav-text">7.1 Fully-Connected Layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-Convolution-Layer"><span class="nav-text">7.2 Convolution Layer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-%E5%8D%B7%E7%A7%AF%E6%A0%B8-filter"><span class="nav-text">7.2.1 卷积核 (filter)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-2-%E5%8D%B7%E7%A7%AF%E6%93%8D%E4%BD%9C-Convolve"><span class="nav-text">7.2.2 卷积操作 (Convolve)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%B9%E7%BC%98%E5%A1%AB%E5%85%85-Padding"><span class="nav-text">边缘填充 (Padding)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%A8%E6%AD%A5%E5%8D%B7%E7%A7%AF-Strided-Convolution"><span class="nav-text">跨步卷积 (Strided Convolution)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-3-%E7%89%B9%E5%BE%81%E5%9B%BE-%E6%BF%80%E6%B4%BB%E5%9B%BE-Feature-Map-Activation-Map"><span class="nav-text">7.2.3 特征图&#x2F;激活图 (Feature Map&#x2F;Activation Map)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E8%A7%921%EF%BC%9A%E5%A4%9A%E4%B8%AA%E5%8D%95%E9%80%9A%E9%81%93-Feature-Map-Activation-Map"><span class="nav-text">视角1：多个单通道 Feature Map&#x2F;Activation Map</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E8%A7%922%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%A4%9A%E9%80%9A%E9%81%93-Feature-Map-Activation-Map"><span class="nav-text">视角2：一个多通道 Feature Map&#x2F;Activation Map</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-4-%E5%8D%B7%E7%A7%AF%E5%B1%82%E7%9A%84%E8%AE%AD%E7%BB%83%E8%AE%BE%E7%BD%AE"><span class="nav-text">7.2.4 卷积层的训练设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E8%BE%93%E5%85%A5"><span class="nav-text">批量输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E9%87%8F%E5%92%8C%E8%AE%A1%E7%AE%97%E9%87%8F"><span class="nav-text">参数量和计算量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B6%85%E5%8F%82%E7%9A%84%E4%B8%80%E8%88%AC%E9%80%89%E6%8B%A9"><span class="nav-text">超参的一般选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PyTorch%E5%AE%9E%E7%8E%B0"><span class="nav-text">PyTorch实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-5-%E7%BA%BF%E6%80%A7%E5%8D%B7%E7%A7%AF%E5%B1%82%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">7.2.5 线性卷积层的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-Activation-Function"><span class="nav-text">7.3 Activation Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-Pooling-Layer"><span class="nav-text">7.4 Pooling Layer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-1-Types-of-Pooling"><span class="nav-text">7.4.1 Types of Pooling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-2-%E5%8F%82%E6%95%B0%E9%87%8F-0"><span class="nav-text">7.4.2 参数量 &#x3D; 0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-2015-Normalization"><span class="nav-text">7.5 (2015) Normalization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Batch-Normalization"><span class="nav-text">Batch Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer-Normalization"><span class="nav-text">Layer Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Instance-Normalization"><span class="nav-text">Instance Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Group-Normalization"><span class="nav-text">Group Normalization</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-8-CNN-Architectures%EF%BC%88CNN%E7%BB%8F%E5%85%B8%E7%BB%93%E6%9E%84%EF%BC%89"><span class="nav-text">lecture 8: CNN Architectures（CNN经典结构）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1989-LeNet"><span class="nav-text">(1989) LeNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2012-AlexNet"><span class="nav-text">(2012) AlexNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2013-ZFNet"><span class="nav-text">(2013) ZFNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2014-VGG"><span class="nav-text">(2014) VGG</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2014-GoogLeNet"><span class="nav-text">(2014) GoogLeNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015-ResNet"><span class="nav-text">(2015) ResNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2016-Model-Ensembles"><span class="nav-text">(2016) Model Ensembles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2017-SENet"><span class="nav-text">(2017) SENet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-9-Hardware-and-Software%EF%BC%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%A1%AC%E4%BB%B6%E4%B8%8E%E8%BD%AF%E4%BB%B6%EF%BC%89"><span class="nav-text">lecture 9: Hardware and Software（深度学习硬件与软件）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-10-Training-Neural-Networks%EF%BC%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E8%AE%AD%E7%BB%83%EF%BC%89"><span class="nav-text">lecture 10: Training Neural Networks（神经网络的训练）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-11-Recurrent-Networks%EF%BC%88RNN-%E4%B8%8A%EF%BC%89"><span class="nav-text">lecture 11: Recurrent Networks（RNN-上）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-12-Recurrent-Networks%EF%BC%88RNN-%E4%B8%8B%EF%BC%89"><span class="nav-text">lecture 12: Recurrent Networks（RNN-下）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-13-Attention%EF%BC%88%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%EF%BC%89"><span class="nav-text">lecture 13: Attention（注意力机制）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-14-Visualizing-and-Understanding%EF%BC%88%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8E%E6%A8%A1%E5%9E%8B%E7%90%86%E8%A7%A3%EF%BC%89"><span class="nav-text">lecture 14: Visualizing and Understanding（可视化与模型理解）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-15-Object-Detection%EF%BC%88%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%EF%BC%89"><span class="nav-text">lecture 15: Object Detection（目标检测）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-16-Image-Segmentation%EF%BC%88%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%EF%BC%89"><span class="nav-text">lecture 16: Image Segmentation（目标检测与图像分割）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-17-3D-vision%EF%BC%883D%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%89"><span class="nav-text">lecture 17: 3D vision（3D计算机视觉）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-18-Videos%EF%BC%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%EF%BC%89"><span class="nav-text">lecture 18: Videos（深度学习中的视频处理）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-19-Generative-Models%EF%BC%88%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B-%E4%B8%8A%EF%BC%89"><span class="nav-text">lecture 19: Generative Models（生成模型-上）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-20-Generative-Models%EF%BC%88%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B-%E4%B8%8B%EF%BC%89"><span class="nav-text">lecture 20: Generative Models（生成模型-下）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-21-Reinforcement-Learning%EF%BC%88%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%89"><span class="nav-text">lecture 21: Reinforcement Learning（强化学习）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-22-Conclusion%EF%BC%88%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%89"><span class="nav-text">lecture 22: Conclusion（课程总结）</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-1-Course-Introduction%EF%BC%88%E4%BB%8B%E7%BB%8D%EF%BC%89"><span class="nav-text">lecture 1: Course Introduction（介绍）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-2-Image-Classification%EF%BC%88%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%EF%BC%89"><span class="nav-text">lecture 2: Image Classification（图像分类）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-3-Linear-Classifiers%EF%BC%88%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8%EF%BC%89"><span class="nav-text">lecture 3: Linear Classifiers（线性分类器）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-4-Optimization%EF%BC%88%E8%AE%AD%E7%BB%83%E4%B8%8E%E4%BC%98%E5%8C%96%EF%BC%89"><span class="nav-text">lecture 4: Optimization（训练与优化）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-5-Neural-Networks%EF%BC%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D%EF%BC%89"><span class="nav-text">lecture 5: Neural Networks（神经网络介绍）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-6-Backpropagation%EF%BC%88%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%ADBP%EF%BC%89"><span class="nav-text">lecture 6: Backpropagation（反向传播BP）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-7-Convolutional-Networks%EF%BC%88CNN%EF%BC%89"><span class="nav-text">lecture 7: Convolutional Networks（CNN）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-Fully-Connected-Layer"><span class="nav-text">7.1 Fully-Connected Layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-Convolution-Layer"><span class="nav-text">7.2 Convolution Layer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-%E5%8D%B7%E7%A7%AF%E6%A0%B8-filter"><span class="nav-text">7.2.1 卷积核 (filter)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-2-%E5%8D%B7%E7%A7%AF%E6%93%8D%E4%BD%9C-Convolve"><span class="nav-text">7.2.2 卷积操作 (Convolve)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%B9%E7%BC%98%E5%A1%AB%E5%85%85-Padding"><span class="nav-text">边缘填充 (Padding)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%A8%E6%AD%A5%E5%8D%B7%E7%A7%AF-Strided-Convolution"><span class="nav-text">跨步卷积 (Strided Convolution)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-3-%E7%89%B9%E5%BE%81%E5%9B%BE-%E6%BF%80%E6%B4%BB%E5%9B%BE-Feature-Map-Activation-Map"><span class="nav-text">7.2.3 特征图&#x2F;激活图 (Feature Map&#x2F;Activation Map)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E8%A7%921%EF%BC%9A%E5%A4%9A%E4%B8%AA%E5%8D%95%E9%80%9A%E9%81%93-Feature-Map-Activation-Map"><span class="nav-text">视角1：多个单通道 Feature Map&#x2F;Activation Map</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E8%A7%922%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%A4%9A%E9%80%9A%E9%81%93-Feature-Map-Activation-Map"><span class="nav-text">视角2：一个多通道 Feature Map&#x2F;Activation Map</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-4-%E5%8D%B7%E7%A7%AF%E5%B1%82%E7%9A%84%E8%AE%AD%E7%BB%83%E8%AE%BE%E7%BD%AE"><span class="nav-text">7.2.4 卷积层的训练设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E8%BE%93%E5%85%A5"><span class="nav-text">批量输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E9%87%8F%E5%92%8C%E8%AE%A1%E7%AE%97%E9%87%8F"><span class="nav-text">参数量和计算量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B6%85%E5%8F%82%E7%9A%84%E4%B8%80%E8%88%AC%E9%80%89%E6%8B%A9"><span class="nav-text">超参的一般选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PyTorch%E5%AE%9E%E7%8E%B0"><span class="nav-text">PyTorch实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-5-%E7%BA%BF%E6%80%A7%E5%8D%B7%E7%A7%AF%E5%B1%82%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">7.2.5 线性卷积层的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-Activation-Function"><span class="nav-text">7.3 Activation Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-Pooling-Layer"><span class="nav-text">7.4 Pooling Layer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-1-Types-of-Pooling"><span class="nav-text">7.4.1 Types of Pooling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-2-%E5%8F%82%E6%95%B0%E9%87%8F-0"><span class="nav-text">7.4.2 参数量 &#x3D; 0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-2015-Normalization"><span class="nav-text">7.5 (2015) Normalization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Batch-Normalization"><span class="nav-text">Batch Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer-Normalization"><span class="nav-text">Layer Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Instance-Normalization"><span class="nav-text">Instance Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Group-Normalization"><span class="nav-text">Group Normalization</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-8-CNN-Architectures%EF%BC%88CNN%E7%BB%8F%E5%85%B8%E7%BB%93%E6%9E%84%EF%BC%89"><span class="nav-text">lecture 8: CNN Architectures（CNN经典结构）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1989-LeNet"><span class="nav-text">(1989) LeNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2012-AlexNet"><span class="nav-text">(2012) AlexNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98-%E5%8F%82%E6%95%B0%E9%87%8F-%E8%AE%A1%E7%AE%97%E9%87%8F"><span class="nav-text">内存&#x2F;参数量&#x2F;计算量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2013-ZFNet"><span class="nav-text">(2013) ZFNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2014-VGG"><span class="nav-text">(2014) VGG</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG-Design-Rules"><span class="nav-text">VGG Design Rules</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98-%E5%8F%82%E6%95%B0%E9%87%8F-%E8%AE%A1%E7%AE%97%E9%87%8F-1"><span class="nav-text">内存&#x2F;参数量&#x2F;计算量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2014-GoogLeNet"><span class="nav-text">(2014) GoogLeNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Stem-network"><span class="nav-text">1.Stem network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Inception-Module"><span class="nav-text">2.Inception Module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Global-Average-Pooling"><span class="nav-text">3.Global Average Pooling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Auxiliary-Classifier"><span class="nav-text">4.Auxiliary Classifier</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015-ResNet"><span class="nav-text">(2015) ResNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Residual-Block"><span class="nav-text">Residual Block</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bottleneck-Block"><span class="nav-text">Bottleneck Block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%9CPre-Activation%E2%80%9D-CVPR%E2%80%9916"><span class="nav-text">“Pre-Activation” [CVPR’16]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ResNeXt-CVPR%E2%80%9917"><span class="nav-text">ResNeXt [CVPR’17]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2016-Model-Ensembles"><span class="nav-text">(2016) Model Ensembles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2017-SENet"><span class="nav-text">(2017) SENet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-9-Hardware-and-Software%EF%BC%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%A1%AC%E4%BB%B6%E4%B8%8E%E8%BD%AF%E4%BB%B6%EF%BC%89"><span class="nav-text">lecture 9: Hardware and Software（深度学习硬件与软件）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-10-Training-Neural-Networks%EF%BC%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E8%AE%AD%E7%BB%83%EF%BC%89"><span class="nav-text">lecture 10: Training Neural Networks（神经网络的训练）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-11-Recurrent-Networks%EF%BC%88RNN-%E4%B8%8A%EF%BC%89"><span class="nav-text">lecture 11: Recurrent Networks（RNN-上）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-12-Recurrent-Networks%EF%BC%88RNN-%E4%B8%8B%EF%BC%89"><span class="nav-text">lecture 12: Recurrent Networks（RNN-下）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-13-Attention%EF%BC%88%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%EF%BC%89"><span class="nav-text">lecture 13: Attention（注意力机制）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-14-Visualizing-and-Understanding%EF%BC%88%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8E%E6%A8%A1%E5%9E%8B%E7%90%86%E8%A7%A3%EF%BC%89"><span class="nav-text">lecture 14: Visualizing and Understanding（可视化与模型理解）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-15-Object-Detection%EF%BC%88%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%EF%BC%89"><span class="nav-text">lecture 15: Object Detection（目标检测）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-16-Image-Segmentation%EF%BC%88%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%EF%BC%89"><span class="nav-text">lecture 16: Image Segmentation（目标检测与图像分割）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-17-3D-vision%EF%BC%883D%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%89"><span class="nav-text">lecture 17: 3D vision（3D计算机视觉）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-18-Videos%EF%BC%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%EF%BC%89"><span class="nav-text">lecture 18: Videos（深度学习中的视频处理）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-19-Generative-Models%EF%BC%88%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B-%E4%B8%8A%EF%BC%89"><span class="nav-text">lecture 19: Generative Models（生成模型-上）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-20-Generative-Models%EF%BC%88%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B-%E4%B8%8B%EF%BC%89"><span class="nav-text">lecture 20: Generative Models（生成模型-下）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-21-Reinforcement-Learning%EF%BC%88%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%89"><span class="nav-text">lecture 21: Reinforcement Learning（强化学习）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-22-Conclusion%EF%BC%88%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%89"><span class="nav-text">lecture 22: Conclusion（课程总结）</span></a></li></ol>
 
 	</div>
 </div>
@@ -872,7 +1179,7 @@
                     </span>
                     
                         <span>
-                            1.9k words in total
+                            2.8k words in total
                         </span>
                     
                 </p>
