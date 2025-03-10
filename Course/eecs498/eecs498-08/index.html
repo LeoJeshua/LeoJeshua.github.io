@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="LIU JIAXU (刘家旭)">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://registry.npmmirror.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://leojeshua.github.io/course/eecs498/eecs498-08/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[EECS498&#x2F;598] lecture 08: CNN Architectures（CNN经典架构）">
+<meta property="og:url" content="https://leojeshua.github.io/Course/eecs498/eecs498-08/index.html">
+<meta property="og:site_name" content="The Blog of LIU JIAXU">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://leojeshua.github.io/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-01-01T00:08:00.000Z">
+<meta property="article:modified_time" content="2025-03-10T11:53:51.320Z">
+<meta property="article:author" content="LIU JIAXU">
+<meta property="article:tag" content="CV">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="CNN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://leojeshua.github.io/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/avatar.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/avatar.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            [EECS498/598] lecture 08: CNN Architectures（CNN经典架构） | Academic Blog of LIU JIAXU
+        
+    </title>
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"leojeshua.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"2px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.5rem","h3":"1.8rem","h4":"1.3rem","h5":"1.2rem","h6":"1.1rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":4,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1200px","sidebar_width":"30%","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"static","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"从-1开始的科研训练之路","subtitle":{"text":["If you shed tears when you miss the sun, you also miss the stars.","Reading maketh a full man; conference a ready man; and writing an exact man. (Francis Bacon)","Who drives me forward like fate? The Myself striding on my back."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/LeoJeshua","instagram":null,"zhihu":null,"twitter":null,"email":"jiaxu.liu.ai@gmail.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"Tags":{"icon":"fa-regular fa-tags","path":"/tags/"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":"Aspiring to contribute to cutting-edge AI security research with a focus on offensive strategies to uncover and mitigate AI vulnerabilities.","show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/12/20 21:33:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Academic Blog of LIU JIAXU
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">11</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">13</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241227205140.png" alt="[EECS498/598] lecture 08: CNN Architectures（CNN经典架构）" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">[EECS498/598] lecture 08: CNN Architectures（CNN经典架构）</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/avatar.png">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">LIU JIAXU (刘家旭)</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-01-01 08:08</span>
+        <span class="mobile">2025-01-01 08:08</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-03-10 19:53:51</span>
+            <span class="mobile">2025-03-10 19:53:51</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/AI/">AI</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/AI/Foundations/">Foundations</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/AI/Foundations/Computer-Vision/">Computer Vision</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/CV/">CV</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Notes/">Notes</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/CNN/">CNN</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.2k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>5 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p><a href="../eecs498/">Course Info</a></p>
+<h1 id="lecture-8-CNN-Architectures（CNN经典架构）"><a href="#lecture-8-CNN-Architectures（CNN经典架构）" class="headerlink" title="lecture 8: CNN Architectures（CNN经典架构）"></a>lecture 8: CNN Architectures（CNN经典架构）</h1><p>slide: <a class="link" target="_blank" rel="noopener" href="https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture08.pdf">https://web.eecs.umich.edu/~justincj/slides/eecs498/498_FA2019_lecture08.pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<ul>
+<li>AlexNet, VGG, ResNet</li>
+<li>Size vs Accuracy</li>
+<li>Grouped and Separable Convolutions</li>
+<li>Neural Architecture Search</li>
+</ul>
+<p>Problem: What is the right way to combine all these components?</p>
+<p>pretrained models in PyTorch:</p>
+<ul>
+<li>AlexNet: <a class="link" target="_blank" rel="noopener" href="https://pytorch.org/vision/main/models/alexnet.html">https://pytorch.org/vision/main/models/alexnet.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>VGG: <a class="link" target="_blank" rel="noopener" href="https://pytorch.org/vision/main/models/vgg.html">https://pytorch.org/vision/main/models/vgg.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>GoogLeNet: <a class="link" target="_blank" rel="noopener" href="https://pytorch.org/vision/main/models/googlenet.html">https://pytorch.org/vision/main/models/googlenet.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>ResNet: <a class="link" target="_blank" rel="noopener" href="https://pytorch.org/vision/main/models/resnet.html">https://pytorch.org/vision/main/models/resnet.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+<h2 id="1989-LeNet"><a href="#1989-LeNet" class="headerlink" title="(1989) LeNet"></a>(1989) LeNet</h2><ul>
+<li>1989年，LeCun等人提出LeNet-1，是第一个卷积神经网络。</li>
+<li>1998年，LeCun等人提出LeNet-5</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241228183836.png" alt="20241228183836"></p>
+<h2 id="2012-AlexNet"><a href="#2012-AlexNet" class="headerlink" title="(2012) AlexNet"></a>(2012) AlexNet</h2><p>2012年以前，conv-nets的结构都比较简单、层数比较浅，<strong>AlexNet是第一个深度神经网络(DNN)。</strong></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229182639.png" alt="20241229182639"></p>
+<ul>
+<li><strong>8 Layers</strong>:<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229182736.png" alt="20241229182736"><ul>
+<li>5 Convolutional Layers</li>
+<li>Max Pooling</li>
+<li>3 Fully Connected Layers</li>
+<li>ReLU Activation Function</li>
+</ul>
+</li>
+<li>Used “Local Response Normalization” (Not used anymore)</li>
+<li>Trained on two GTX580 GPUs (only 3GB of memory each! Model split over two GPUs)</li>
+<li>Citations: <code>46510</code> (As of 9/30/2019)<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229182916.png" alt="20241229182916"></li>
+<li>计算量低，参数量大<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190722.png" alt="20241229190722"></li>
+</ul>
+<h3 id="内存-参数量-计算量"><a href="#内存-参数量-计算量" class="headerlink" title="内存/参数量/计算量"></a>内存/参数量/计算量</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183040.png" alt="20241229183040"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183122.png" alt="20241229183122"><br>(start) 高分辨率的卷积层：</p>
+<ul>
+<li>内存占用大</li>
+<li>计算量大</li>
+<li>参数量小</li>
+</ul>
+<p>(end) 全连接层：</p>
+<ul>
+<li>内存占用小</li>
+<li>计算量小</li>
+<li>参数量大</li>
+</ul>
+<h2 id="2013-ZFNet"><a href="#2013-ZFNet" class="headerlink" title="(2013) ZFNet"></a>(2013) ZFNet</h2><p><strong>A Bigger AlexNet</strong><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183230.png" alt="20241229183230"></p>
+<ul>
+<li>8 Layers<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183320.png" alt="20241229183320"></li>
+</ul>
+<h2 id="2014-VGG"><a href="#2014-VGG" class="headerlink" title="(2014) VGG"></a>(2014) VGG</h2><p>VGG表示Visual Geometry Group，是提出该网络的实验室的名称。<br>2014年之前的网络都是手工设计的网络，从VGG开始，遵循一些 <strong>Design Rule</strong> 进行设计。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183359.png" alt="20241229183359"></p>
+<p><strong>网络信息：</strong></p>
+<ul>
+<li>16/19 Layers<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183503.png" alt="20241229183503"><ul>
+<li>VGG-16</li>
+<li>VGG-19</li>
+</ul>
+</li>
+<li>5 stages<ul>
+<li>Stage 1: conv-conv-pool</li>
+<li>Stage 2: conv-conv-pool</li>
+<li>Stage 3: conv-conv-pool</li>
+<li>Stage 4: conv-conv-conv-[conv]-pool</li>
+<li>Stage 5: conv-conv-conv-[conv]-pool</li>
+</ul>
+</li>
+<li>3 Fully Connected Layers</li>
+</ul>
+<p><strong>VGG的影响</strong>：</p>
+<ol>
+<li>证明了<strong>大的网络通常有更好的效果</strong></li>
+<li>给出了<strong>几个指导性原则</strong>，减少了超参量，使得网络结构的扩展变得方便</li>
+</ol>
+<p><strong>VGG的效率：内存占用高，计算量大</strong><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190503.png" alt="20241229190503"></p>
+<h3 id="VGG-Design-Rules"><a href="#VGG-Design-Rules" class="headerlink" title="VGG Design Rules"></a>VGG Design Rules</h3><ul>
+<li>All conv are 3x3 stride 1 pad 1（都是 <code>3x3卷积核</code>）<ul>
+<li>VGG认为没有必要使用大的filter，将filter的大小固定为3x3。因为大的filter可以通过多层小filter组合得到，且参数量更少。</li>
+<li>eg: 2个3x3卷积核 == 1个5x5卷积核<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183639.png" alt="20241229183639"></li>
+</ul>
+</li>
+<li>All max pool are 2x2 stride 2（都是 <code>2x2池化</code>）</li>
+<li>After pool, double #channels （池化后，<code>通道数变成原来的2倍</code>） -&gt; 使不同大小的卷积层有相同的计算量<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183742.png" alt="20241229183742"></li>
+</ul>
+<h3 id="内存-参数量-计算量-1"><a href="#内存-参数量-计算量-1" class="headerlink" title="内存/参数量/计算量"></a>内存/参数量/计算量</h3><p>Much bigger than AlexNet<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229183938.png" alt="20241229183938"></p>
+<h2 id="2014-GoogLeNet"><a href="#2014-GoogLeNet" class="headerlink" title="(2014) GoogLeNet"></a>(2014) GoogLeNet</h2><p>由Google团队提出，名称中的L大写以致敬LeNet<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184010.png" alt="20241229184010"></p>
+<ul>
+<li>22 Layers</li>
+<li><strong>GoogLeNet核心目标 -&gt; 更高效</strong> （以便在数据中心和手机上运行）</li>
+</ul>
+<p>Many innovation for <strong>Effciency</strong>: reduce <code>parameter count</code>, <code>memory usage</code>, and <code>computation</code>.<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190939.png" alt="20241229190939"></p>
+<h3 id="1-Stem-network"><a href="#1-Stem-network" class="headerlink" title="1.Stem network"></a>1.Stem network</h3><p>开始时的 <code>Stem network</code> 对input进行积极的下采样 -&gt; 减少计算量<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184129.png" alt="20241229184129"></p>
+<h3 id="2-Inception-Module"><a href="#2-Inception-Module" class="headerlink" title="2.Inception Module"></a>2.Inception Module</h3><p>局部结构重复多次 -&gt; 把每种size的filter都加进去（解决超参的另一种思路）<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184158.png" alt="20241229184158"></p>
+<h3 id="3-Global-Average-Pooling"><a href="#3-Global-Average-Pooling" class="headerlink" title="3.Global Average Pooling"></a>3.Global Average Pooling</h3><p>在FC层之前进行 <code>全局平均池化(Global Average Pooling)</code>  -&gt; 减少参数量<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184228.png" alt="20241229184228"></p>
+<h3 id="4-Auxiliary-Classifier"><a href="#4-Auxiliary-Classifier" class="headerlink" title="4.Auxiliary Classifier"></a>4.Auxiliary Classifier</h3><p>使用了 <code>辅助分类器(Auxiliary Classifier)</code> ，对三个分类器的输出进行组合获得结果。（更容易反向传播获取梯度 -&gt; 更新网络）<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184416.png" alt="20241229184416"><br>因为GoogLeNet太deep了，所以需要这种trick。但在15年batch normlization出现后，就不需要这种trick了。</p>
+<h2 id="2015-ResNet"><a href="#2015-ResNet" class="headerlink" title="(2015) ResNet"></a>(2015) ResNet</h2><p>2015年的important news，席卷了imagenet数据集的所有赛道（classification，localization，detection），以及coco数据集的另一个比赛<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184510.png" alt="20241229184510"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185440.png" alt="20241229185440"></p>
+<p><strong>网络信息：</strong></p>
+<ul>
+<li><strong>18/34/50/101/152 Layers</strong><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185348.png" alt="20241229185348"><ul>
+<li>ResNet-18</li>
+<li>ResNet-34</li>
+<li>ResNet-50</li>
+<li>ResNet-101</li>
+<li>ResNet-152</li>
+</ul>
+</li>
+<li>ResNet采用了残差结构，其中“ <code>残差块(Residual Block)</code> ”的设计 <strong>允许在不丢失特征的情况下进行高效学习。</strong><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185156.png" alt="20241229185156"></li>
+<li>借鉴了VGG和GoogLeNet的一些思想：<ol>
+<li>卷积后 <code>通道数变为两倍</code>（借鉴VGG。但VGG通道数的增加通常是在池化操作之后；而ResNet则是卷积操作之后，特别是在跨过“残差块”时）</li>
+<li>使用 <code>stem network</code> 进行积极的下采样（借鉴GoogLeNet）<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184932.png" alt="20241229184932"></li>
+<li>使用 <code>全局平均池化(Global Average Pooling)</code> 以减少参数量（借鉴GoogLeNet）<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184956.png" alt="20241229184956"></li>
+</ol>
+</li>
+<li>因此和GoogleNet一样也非常高效：<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190248.png" alt="20241229190248"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190433.png" alt="20241229190433"></li>
+</ul>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184606.png" alt="20241229184606"></p>
+<ul>
+<li>背景：人们发现太深的模型表现反而不如浅的模型</li>
+<li>原因：<strong>欠拟合(underfitting)</strong> ，训练集和测试集的表现都不佳</li>
+<li>分析：<ul>
+<li>但是一个deeper model理论上可以模拟shallower model的（只需要- 复制前面的层，并让后面的层都是identity的就行）</li>
+<li>因此deeper model至少应该表现和shallower mode相当</li>
+</ul>
+</li>
+<li>猜想：这是一个优化问题 -&gt; deeper model 的优化比较难 -&gt; 需要改变网络结构，以学习 <strong>恒等函数(identity function)</strong></li>
+</ul>
+<h3 id="Residual-Block"><a href="#Residual-Block" class="headerlink" title="Residual Block"></a>Residual Block</h3><p>A Residual Network is a stack of <code>Residual Blocks</code>.<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184732.png" alt="20241229184732"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229184816.png" alt="20241229184816"></p>
+<h4 id="Bottleneck-Block"><a href="#Bottleneck-Block" class="headerlink" title="Bottleneck Block"></a>Bottleneck Block</h4><p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185314.png" alt="20241229185314"></p>
+<ul>
+<li>ResNet-50提出</li>
+<li>更多的层和非线性，更少的计算量</li>
+</ul>
+<p>eg: 从ResNet-34到ResNet-50，在几乎不增加计算量的情况下，将性能大幅提高）<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185348.png" alt="20241229185348"></p>
+<h4 id="“Pre-Activation”-CVPR’16"><a href="#“Pre-Activation”-CVPR’16" class="headerlink" title="“Pre-Activation” [CVPR’16]"></a>“Pre-Activation” [CVPR’16]</h4><p>预激活的残差块（能真正学习到identity function）</p>
+<ul>
+<li>He et al. CVPR2016</li>
+<li>先激活再卷积</li>
+<li>稍微提升了准确率</li>
+<li>但在实践中没有被使用</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185632.png" alt="20241229185632"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185713.png" alt="20241229185713"></p>
+<h4 id="“ResNeXt”-CVPR’17"><a href="#“ResNeXt”-CVPR’17" class="headerlink" title="“ResNeXt” [CVPR’17]"></a>“ResNeXt” [CVPR’17]</h4><p>G个并行的残差块</p>
+<ul>
+<li>Xie et al. CVPR2017</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229185913.png" alt="20241229185913"></p>
+<h2 id="2016-Model-Ensembles"><a href="#2016-Model-Ensembles" class="headerlink" title="(2016) Model Ensembles"></a>(2016) Model Ensembles</h2><p>集成多个模型<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190050.png" alt="20241229190050"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20241229190104.png" alt="20241229190104"></p>
+<h2 id="2017-SENet"><a href="#2017-SENet" class="headerlink" title="(2017) SENet"></a>(2017) SENet</h2>
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> [EECS498/598] lecture 08: CNN Architectures（CNN经典架构）</li>
+        <li><strong>Author:</strong> LIU JIAXU (刘家旭)</li>
+        <li><strong>Created at
+                :</strong> 2025-01-01 08:08:00</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-03-10 19:53:51
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://leojeshua.github.io/Course/eecs498/eecs498-08/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/CV/">#CV</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Notes/">#Notes</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/CNN/">#CNN</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/Course/eecs498/eecs498-13/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">[EECS498/598] lecture 13: Attention（注意力机制）</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/Course/eecs498/eecs498-07/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">[EECS498/598] lecture 07: Convolutional Networks（CNN）</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">
+            [EECS498/598] lecture 08: CNN Architectures（CNN经典架构）
+        </div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-8-CNN-Architectures%EF%BC%88CNN%E7%BB%8F%E5%85%B8%E6%9E%B6%E6%9E%84%EF%BC%89"><span class="nav-text">lecture 8: CNN Architectures（CNN经典架构）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1989-LeNet"><span class="nav-text">(1989) LeNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2012-AlexNet"><span class="nav-text">(2012) AlexNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98-%E5%8F%82%E6%95%B0%E9%87%8F-%E8%AE%A1%E7%AE%97%E9%87%8F"><span class="nav-text">内存&#x2F;参数量&#x2F;计算量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2013-ZFNet"><span class="nav-text">(2013) ZFNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2014-VGG"><span class="nav-text">(2014) VGG</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG-Design-Rules"><span class="nav-text">VGG Design Rules</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98-%E5%8F%82%E6%95%B0%E9%87%8F-%E8%AE%A1%E7%AE%97%E9%87%8F-1"><span class="nav-text">内存&#x2F;参数量&#x2F;计算量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2014-GoogLeNet"><span class="nav-text">(2014) GoogLeNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Stem-network"><span class="nav-text">1.Stem network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Inception-Module"><span class="nav-text">2.Inception Module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Global-Average-Pooling"><span class="nav-text">3.Global Average Pooling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Auxiliary-Classifier"><span class="nav-text">4.Auxiliary Classifier</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015-ResNet"><span class="nav-text">(2015) ResNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Residual-Block"><span class="nav-text">Residual Block</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bottleneck-Block"><span class="nav-text">Bottleneck Block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%9CPre-Activation%E2%80%9D-CVPR%E2%80%9916"><span class="nav-text">“Pre-Activation” [CVPR’16]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%9CResNeXt%E2%80%9D-CVPR%E2%80%9917"><span class="nav-text">“ResNeXt” [CVPR’17]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2016-Model-Ensembles"><span class="nav-text">(2016) Model Ensembles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2017-SENet"><span class="nav-text">(2017) SENet</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-cog fa-spin" style="--fa-animation-duration:15s"></i>&nbsp;&nbsp;<a href="/">LIU JIAXU (刘家旭)</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        13 posts in total
+                    </span>
+                    
+                        <span>
+                            16.4k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+                
+
+                    
+                        <script data-swup-reload-script>var url_1736="https://api.cdnorg.cn:666";var token_1736="8d393e3086e1d2d48267460f67b7bf8d1a09f23f231d32de4f3fb3a12f3af020";var cltj_1736=document.createElement("script");cltj_1736.src=url_1736+"/tj/tongji.js?v=2.201";var s_1736=document.getElementsByTagName("script")[0];s_1736.parentNode.insertBefore(cltj_1736,s_1736);</script>
+                    
+        
+                
+
+                    
+                        <script data-swup-reload-script type="text/javascript">(function(){var baidu=document.createElement("script");baidu.src="//i.6v6.work/v/?uid=388547";var cnzz=document.getElementsByTagName("script")[0];cnzz.parentNode.insertBefore(baidu,cnzz)})();</script>
+                    
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Swup.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/utils.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/main.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/categoryList.js" ></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+</body>
+
+</html>
