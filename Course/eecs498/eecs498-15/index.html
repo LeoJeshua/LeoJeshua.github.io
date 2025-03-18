@@ -36,7 +36,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://leojeshua.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-01-01T00:15:00.000Z">
-<meta property="article:modified_time" content="2025-03-10T12:24:03.567Z">
+<meta property="article:modified_time" content="2025-03-11T08:24:40.673Z">
 <meta property="article:author" content="LIU JIAXU">
 <meta property="article:tag" content="CV">
 <meta property="article:tag" content="Notes">
@@ -487,8 +487,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-03-10 20:24:03</span>
-            <span class="mobile">2025-03-10 20:24:03</span>
+            <span class="desktop">2025-03-11 16:24:40</span>
+            <span class="mobile">2025-03-11 16:24:40</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -554,7 +554,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>679 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>778 Words</span>
         </span>
     
     
@@ -608,7 +608,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ol>
-<h2 id="早期探索"><a href="#早期探索" class="headerlink" title="早期探索"></a>早期探索</h2><p>（直观思路）</p>
+<h2 id="15-0-早期探索"><a href="#15-0-早期探索" class="headerlink" title="15.0 早期探索"></a>15.0 早期探索</h2><p>（直观思路）</p>
 <ol>
 <li>检测单个目标：加一个output<br>  <img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309131748271.png"><ul>
 <li>图像分类任务中feature vector代表了提取的图像特征，连接一个【分类器】即可实现分类任务，预测category label。我们再 <strong>给feature vector加一个【回归器】，以预测bounding box。</strong></li>
@@ -623,15 +623,15 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ol>
-<h2 id="R-CNN"><a href="#R-CNN" class="headerlink" title="R-CNN"></a>R-CNN</h2><p>Region Proposals</p>
+<h2 id="15-1-R-CNN"><a href="#15-1-R-CNN" class="headerlink" title="15.1 R-CNN"></a>15.1 R-CNN</h2><p>Region Proposals</p>
 <p>R-CNN: Region-Based CNN</p>
 <p>Comparing Boxes: <strong>Intersection over Union (IoU)</strong></p>
 <p>Overlapping Boxes: <strong>Non-Max Suppression (NMS)</strong></p>
 <p>Evaluating Object Detectors: <strong>Mean Average Precision (mAP)</strong></p>
-<h2 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast R-CNN"></a>Fast R-CNN</h2><p>Cropping Features: RoI Pool</p>
+<h2 id="15-2-Fast-R-CNN"><a href="#15-2-Fast-R-CNN" class="headerlink" title="15.2 Fast R-CNN"></a>15.2 Fast R-CNN</h2><p>Cropping Features: RoI Pool</p>
 <p>Cropping Features: RoI Align</p>
 <p>Fast R-CNN vs “Slow” R-CNN</p>
-<h2 id="Faster-R-CNN"><a href="#Faster-R-CNN" class="headerlink" title="Faster R-CNN"></a>Faster R-CNN</h2><p>Faster R-CNN: Learnable Region Proposals</p>
+<h2 id="15-3-Faster-R-CNN"><a href="#15-3-Faster-R-CNN" class="headerlink" title="15.3 Faster R-CNN"></a>15.3 Faster R-CNN</h2><p>Faster R-CNN: Learnable Region Proposals</p>
 <p>Region Proposal Network (RPN)</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Object Detection: Lots of variables!</p>
 <h2 id="常用数据集"><a href="#常用数据集" class="headerlink" title="*常用数据集"></a>*常用数据集</h2><p><a class="link" target="_blank" rel="noopener" href="https://paperswithcode.com/task/object-detection">https://paperswithcode.com/task/object-detection<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
@@ -645,11 +645,34 @@ mjx-container[display="true"] + br {
 <li><strong>Indoor</strong>: bottle, chair, dining table, potted plant, sofa, tv/monitor</li>
 </ul>
 </li>
+<li><code>xyxy</code> 标注格式：VOC的Bounding box是通过 <code>[xmin,ymin,xmax,ymax]</code> 标注的（框的左上角和右下角坐标）</li>
+<li>to <code>xywh</code> 格式：YOLO的Bounding box是通过 <code>[x, y, w, h]</code> 标注的（框的中心坐标和宽高）<ul>
+<li>yolo官方转换脚本 <a class="link" target="_blank" rel="noopener" href="https://pjreddie.com/media/files/voc_label.py">voc_label.py<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>使用：和数据集根目录 VOCdevkit 放在同一级，运行</li>
+<li>功能：<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250311162438798.png"><ol>
+<li>图片标注<ul>
+<li><code>VOCdevkit/VOC{year}/Annotations/{image_id}.xml</code> -&gt;  <code>VOCdevkit/VOC{year}/labels/{image_id}.txt</code></li>
+</ul>
+</li>
+<li>训练、验证、测试集划分（文件里记录了图片的绝对路径）<ul>
+<li><code>VOCdevkit/VOC{year}/ImageSets/Main/train.txt</code> -&gt; <code>{year}_train.txt</code></li>
+<li><code>VOCdevkit/VOC{year}/ImageSets/Main/val.txt</code> -&gt; <code>{year}_val.txt</code></li>
+<li><code>VOCdevkit/VOC{year}/ImageSets/Main/test.txt</code> -&gt; <code>{year}_test.txt</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>参考文章：<ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/LgKlW7jInooR1K7kV_xUKw">推文：YOLO、VOC数据集格式介绍及相互转化<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/047_yPuy_HGpGeHLYXuEJg">推文：VOC与YOLO数据格式的相互转换，附详细代码<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
 </ul>
 <h4 id="VOC2007"><a href="#VOC2007" class="headerlink" title="VOC2007"></a>VOC2007</h4><ul>
 <li>The PASCAL Visual Object Classes Challenge 2007</li>
 <li>link: <a class="link" target="_blank" rel="noopener" href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/">http://host.robots.ox.ac.uk/pascal/VOC/voc2007/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
-<li>ref:<div class="code-container" data-rel="Latex"><figure class="iseeu highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@misc{pascal-voc-2007,</span><br><span class="line">	author = "Everingham, M. and Van~Gool, L. and Williams, C. K. I. and Winn, J. and Zisserman, A.",</span><br><span class="line">	title = "The {PASCAL} {V}isual {O}bject {C}lasses {C}hallenge 2007 {(VOC2007)} {R}esults",</span><br><span class="line">	howpublished = "http://www.pascal-network.org/challenges/VOC/voc2007/workshop/index.html"}	</span><br></pre></td></tr></table></figure></div></li>
 <li>数据统计 <a class="link" target="_blank" rel="noopener" href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/dbstats.html">link<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><ul>
 <li>数据被分成 50% (5011个样本) 用于训练/验证，50% (4952个样本) 用于测试。训练/验证集和测试集中图像和对象的类别分布大致相等。</li>
 <li>总共有 <strong>9,963</strong> 张图像，标注了 <strong>24,640</strong> 个objects</li>
@@ -659,7 +682,6 @@ mjx-container[display="true"] + br {
 <h4 id="VOC2012"><a href="#VOC2012" class="headerlink" title="VOC2012"></a>VOC2012</h4><ul>
 <li>Visual Object Classes Challenge 2012 (VOC2012)</li>
 <li>link: <a class="link" target="_blank" rel="noopener" href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html">http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
-<li>ref:<div class="code-container" data-rel="Latex"><figure class="iseeu highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@misc{pascal-voc-2012,</span><br><span class="line">	author = "Everingham, M. and Van~Gool, L. and Williams, C. K. I. and Winn, J. and Zisserman, A.",</span><br><span class="line">	title = "The {PASCAL} {V}isual {O}bject {C}lasses {C}hallenge 2012 {(VOC2012)} {R}esults",</span><br><span class="line">	howpublished = "http://www.pascal-network.org/challenges/VOC/voc2012/workshop/index.html"}</span><br></pre></td></tr></table></figure></div></li>
 </ul>
 <h3 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h3><p>MicroSoft COCO</p>
 
@@ -676,7 +698,7 @@ mjx-container[display="true"] + br {
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-03-10 20:24:03
+                    :</strong> 2025-03-11 16:24:40
             </li>
         
         <li>
@@ -761,7 +783,7 @@ mjx-container[display="true"] + br {
         <div class="page-title">
             [EECS498/598] lecture 15: Object Detection（目标检测）
         </div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-15-Object-Detection%EF%BC%88%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%EF%BC%89"><span class="nav-text">lecture 15: Object Detection（目标检测）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A9%E6%9C%9F%E6%8E%A2%E7%B4%A2"><span class="nav-text">早期探索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R-CNN"><span class="nav-text">R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fast-R-CNN"><span class="nav-text">Fast R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Faster-R-CNN"><span class="nav-text">Faster R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">*常用数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PASCAL-VOC"><span class="nav-text">PASCAL VOC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VOC2007"><span class="nav-text">VOC2007</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VOC2012"><span class="nav-text">VOC2012</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MS-COCO"><span class="nav-text">MS COCO</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-15-Object-Detection%EF%BC%88%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%EF%BC%89"><span class="nav-text">lecture 15: Object Detection（目标检测）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#15-0-%E6%97%A9%E6%9C%9F%E6%8E%A2%E7%B4%A2"><span class="nav-text">15.0 早期探索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-1-R-CNN"><span class="nav-text">15.1 R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-2-Fast-R-CNN"><span class="nav-text">15.2 Fast R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-3-Faster-R-CNN"><span class="nav-text">15.3 Faster R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">*常用数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PASCAL-VOC"><span class="nav-text">PASCAL VOC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VOC2007"><span class="nav-text">VOC2007</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VOC2012"><span class="nav-text">VOC2012</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MS-COCO"><span class="nav-text">MS COCO</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
@@ -792,7 +814,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            16.4k words in total
+                            16.9k words in total
                         </span>
                     
                 </p>
