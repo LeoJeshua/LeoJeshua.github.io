@@ -36,7 +36,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://leojeshua.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-01-01T00:15:00.000Z">
-<meta property="article:modified_time" content="2025-03-11T08:24:40.673Z">
+<meta property="article:modified_time" content="2025-03-31T12:07:14.137Z">
 <meta property="article:author" content="LIU JIAXU">
 <meta property="article:tag" content="CV">
 <meta property="article:tag" content="Notes">
@@ -487,8 +487,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-03-11 16:24:40</span>
-            <span class="mobile">2025-03-11 16:24:40</span>
+            <span class="desktop">2025-03-31 20:07:14</span>
+            <span class="mobile">2025-03-31 20:07:14</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -554,12 +554,12 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>778 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.2k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>3 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>9 Mins</span>
         </span>
     
     
@@ -592,7 +592,7 @@ mjx-container[display="true"] + br {
 </ul>
 <p><strong>目标检测</strong></p>
 <ol>
-<li>定义<br>  <img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309125957253.png"><ul>
+<li>任务定义<br>  <img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309125957253.png"><ul>
 <li>Input: 一张RGB图像</li>
 <li>Output: 检测到的Objects的集合。每个Object包含：<ul>
 <li><code>Category label</code> 从已知的【固定类别集合】里选择的一个【类别标签】</li>
@@ -610,30 +610,206 @@ mjx-container[display="true"] + br {
 </ol>
 <h2 id="15-0-早期探索"><a href="#15-0-早期探索" class="headerlink" title="15.0 早期探索"></a>15.0 早期探索</h2><p>（直观思路）</p>
 <ol>
-<li>检测单个目标：加一个output<br>  <img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309131748271.png"><ul>
+<li><strong>检测单个目标</strong>：加一个output head<br>  <img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309131748271.png"><ul>
 <li>图像分类任务中feature vector代表了提取的图像特征，连接一个【分类器】即可实现分类任务，预测category label。我们再 <strong>给feature vector加一个【回归器】，以预测bounding box。</strong></li>
 <li>变为<strong>Multitask Loss</strong>：【分类器】的Softmax Loss + 【回归器】的L2 Loss</li>
-<li>迁移学习思想：feature vector之前的CNN叫做<code>骨架网络(Backbone network)</code>（<strong>通常是在ImageNet上先预训练的</strong>）</li>
+<li>迁移学习思想：feature vector前面的CNN叫做<code>骨架网络(Backbone network)</code>（<strong>通常是在ImageNet上先预训练的</strong>）</li>
 <li>问题：<strong>无法检测多个objects！</strong><br>  <img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309132846880.png"></li>
 </ul>
 </li>
-<li>检测多个目标：<code>滑动窗口(Sliding Window)</code> + 检测单个目标<ul>
+<li><strong>检测多个目标</strong>：<code>滑动窗口(Sliding Window)</code> + 检测单个目标<ul>
 <li>滑动窗口：以不同大小的box窗口，暴力遍历整个图像。<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309133117062.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309133138588.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309133208108.png"></li>
 <li>问题：计算量太大。框的大小有 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="26.286ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 11618.2 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(389,0)"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mo" transform="translate(1659.2,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(2659.4,0)"><path data-c="1D464" d="M580 385Q580 406 599 424T641 443Q659 443 674 425T690 368Q690 339 671 253Q656 197 644 161T609 80T554 12T482 -11Q438 -11 404 5T355 48Q354 47 352 44Q311 -11 252 -11Q226 -11 202 -5T155 14T118 53T104 116Q104 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 293 29 315T52 366T96 418T161 441Q204 441 227 416T250 358Q250 340 217 250T184 111Q184 65 205 46T258 26Q301 26 334 87L339 96V119Q339 122 339 128T340 136T341 143T342 152T345 165T348 182T354 206T362 238T373 281Q402 395 406 404Q419 431 449 431Q468 431 475 421T483 402Q483 389 454 274T422 142Q420 131 420 107V100Q420 85 423 71T442 42T487 26Q558 26 600 148Q609 171 620 213T632 273Q632 306 619 325T593 357T580 385Z"></path></g><g data-mml-node="mo" transform="translate(3597.7,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(4597.9,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(5097.9,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(5709.1,0)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g><g data-mml-node="mo" transform="translate(6431.3,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(6820.3,0)"><path data-c="1D43B" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 219 683Q260 681 355 681Q389 681 418 681T463 682T483 682Q499 682 499 672Q499 670 497 658Q492 641 487 638H485Q483 638 480 638T473 638T464 637T455 637Q416 636 405 634T387 623Q384 619 355 500Q348 474 340 442T328 395L324 380Q324 378 469 378H614L615 381Q615 384 646 504Q674 619 674 627T617 637Q594 637 587 639T580 648Q580 650 582 660Q586 677 588 679T604 682Q609 682 646 681T740 680Q802 680 835 681T871 682Q888 682 888 672Q888 645 876 638H874Q872 638 869 638T862 638T853 637T844 637Q805 636 794 634T776 623Q773 618 704 340T634 58Q634 51 638 51Q646 48 692 46H723Q729 38 729 37T726 19Q722 6 716 0H701Q664 2 567 2Q533 2 504 2T458 2T437 1Q420 1 420 10Q420 15 423 24Q428 43 433 45Q437 46 448 46H454Q481 46 514 49Q520 50 522 50T528 55T534 64T540 82T547 110T558 153Q565 181 569 198Q602 330 602 331T457 332H312L279 197Q245 63 245 58Q245 51 253 49T303 46H334Q340 38 340 37T337 19Q333 6 327 0H312Q275 2 178 2Q144 2 115 2T69 2T48 1Q31 1 31 10Q31 12 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mo" transform="translate(7930.6,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(8930.8,0)"><path data-c="210E" d="M137 683Q138 683 209 688T282 694Q294 694 294 685Q294 674 258 534Q220 386 220 383Q220 381 227 388Q288 442 357 442Q411 442 444 415T478 336Q478 285 440 178T402 50Q403 36 407 31T422 26Q450 26 474 56T513 138Q516 149 519 151T535 153Q555 153 555 145Q555 144 551 130Q535 71 500 33Q466 -10 419 -10H414Q367 -10 346 17T325 74Q325 90 361 192T398 345Q398 404 354 404H349Q266 404 205 306L198 293L164 158Q132 28 127 16Q114 -11 83 -11Q69 -11 59 -2T48 16Q48 30 121 320L195 616Q195 629 188 632T149 637H128Q122 643 122 645T124 664Q129 683 137 683Z"></path></g><g data-mml-node="mo" transform="translate(9729,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(10729.2,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(11229.2,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container> 种可能性！<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250309133643330.png"></li>
 </ul>
 </li>
 </ol>
-<h2 id="15-1-R-CNN"><a href="#15-1-R-CNN" class="headerlink" title="15.1 R-CNN"></a>15.1 R-CNN</h2><p>Region Proposals</p>
-<p>R-CNN: Region-Based CNN</p>
-<p>Comparing Boxes: <strong>Intersection over Union (IoU)</strong></p>
-<p>Overlapping Boxes: <strong>Non-Max Suppression (NMS)</strong></p>
-<p>Evaluating Object Detectors: <strong>Mean Average Precision (mAP)</strong></p>
-<h2 id="15-2-Fast-R-CNN"><a href="#15-2-Fast-R-CNN" class="headerlink" title="15.2 Fast R-CNN"></a>15.2 Fast R-CNN</h2><p>Cropping Features: RoI Pool</p>
-<p>Cropping Features: RoI Align</p>
-<p>Fast R-CNN vs “Slow” R-CNN</p>
-<h2 id="15-3-Faster-R-CNN"><a href="#15-3-Faster-R-CNN" class="headerlink" title="15.3 Faster R-CNN"></a>15.3 Faster R-CNN</h2><p>Faster R-CNN: Learnable Region Proposals</p>
-<p>Region Proposal Network (RPN)</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Object Detection: Lots of variables!</p>
+<h2 id="15-1-R-CNN"><a href="#15-1-R-CNN" class="headerlink" title="15.1 R-CNN"></a>15.1 R-CNN</h2><p>R-CNN: Region-Based CNN</p>
+<h3 id="区域提案-Region-Proposals"><a href="#区域提案-Region-Proposals" class="headerlink" title="区域提案 | Region Proposals"></a>区域提案 | Region Proposals</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331174741357.png"><br>找到很可能覆盖所有objects的小box集合（<code>感兴趣区域|Regions of Interest(RoI)</code>），属于【选择性搜索】方法。</p>
+<ul>
+<li>通常是启发式的；</li>
+<li>通常是利用一些low-level的图像处理方法（比如边缘特征）；</li>
+<li>大幅降低region数量，相对sliding window运行很快；</li>
+</ul>
+<p>不用深究，后续也会被NN取代。</p>
+<h3 id="R-CNN步骤"><a href="#R-CNN步骤" class="headerlink" title="R-CNN步骤"></a>R-CNN步骤</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331174916419.png"></p>
+<ol>
+<li>Region Proposals: 给出约2k个大小不同的 <code>Regions of Interest(RoI)</code> ；</li>
+<li>wraping: 把 <code>image regions</code> 都warp/resize成相同大小（例如224x224）；<ul>
+<li>得到<code>warped image regions</code></li>
+</ul>
+</li>
+<li>对每个 <code>warped image regions</code>，分别输入CNN；<ul>
+<li>Class头：得到预测的 <code>分类得分|Class scores</code></li>
+<li>Bbox头：得到预测的 <code>边界框变换|Bbox transform</code></li>
+</ul>
+</li>
+<li>输出目标检测结果，可以基于：<ul>
+<li>【background类的阈值】或者【每个类设定的阈值】</li>
+<li>【最终输出的proposals个数】（比如置信度最高的前10个区域？）</li>
+</ul>
+</li>
+</ol>
+<h3 id="关键问题"><a href="#关键问题" class="headerlink" title="关键问题"></a>关键问题</h3><h4 id="IoU"><a href="#IoU" class="headerlink" title="IoU"></a>IoU</h4><p>如何定义“预测正确”？框与框之间的相似度？| Comparing Boxes<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331175209345.png"></p>
+<p>答：计算 <strong>交并比|Intersection over Union (IoU)</strong></p>
+<p><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.016ex;" xmlns="http://www.w3.org/2000/svg" width="26.976ex" height="5.165ex" role="img" focusable="false" viewBox="0 -1392 11923.6 2283"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtext"><path data-c="49" d="M328 0Q307 3 180 3T32 0H21V46H43Q92 46 106 49T126 60Q128 63 128 342Q128 620 126 623Q122 628 118 630T96 635T43 637H21V683H32Q53 680 180 680T328 683H339V637H317Q268 637 254 634T234 623Q232 620 232 342Q232 63 234 60Q238 55 242 53T264 48T317 46H339V0H328Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(361,0)"></path><path data-c="55" d="M128 622Q121 629 117 631T101 634T58 637H25V683H36Q57 680 180 680Q315 680 324 683H335V637H302Q262 636 251 634T233 622L232 418V291Q232 189 240 145T280 67Q325 24 389 24Q454 24 506 64T571 183Q575 206 575 410V598Q569 608 565 613T541 627T489 637H472V683H481Q496 680 598 680T715 683H724V637H707Q634 633 622 598L621 399Q620 194 617 180Q617 179 615 171Q595 83 531 31T389 -22Q304 -22 226 33T130 192Q129 201 128 412V622Z" transform="translate(861,0)"></path></g><g data-mml-node="mo" transform="translate(1888.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(2944.6,0)"><g data-mml-node="mtext" transform="translate(220,676)"><path data-c="41" d="M255 0Q240 3 140 3Q48 3 39 0H32V46H47Q119 49 139 88Q140 91 192 245T295 553T348 708Q351 716 366 716H376Q396 715 400 709Q402 707 508 390L617 67Q624 54 636 51T687 46H717V0H708Q699 3 581 3Q458 3 437 0H427V46H440Q510 46 510 64Q510 66 486 138L462 209H229L209 150Q189 91 189 85Q189 72 209 59T259 46H264V0H255ZM447 255L345 557L244 256Q244 255 345 255H447Z"></path><path data-c="72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z" transform="translate(750,0)"></path><path data-c="65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z" transform="translate(1142,0)"></path><path data-c="61" d="M137 305T115 305T78 320T63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59Q481 29 455 12T400 -6T353 12T329 54V58L327 55Q325 52 322 49T314 40T302 29T287 17T269 6T247 -2T221 -8T190 -11Q130 -11 82 20T34 107Q34 128 41 147T68 188T116 225T194 253T304 268H318V290Q318 324 312 340Q290 411 215 411Q197 411 181 410T156 406T148 403Q170 388 170 359Q170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175Q318 233 317 233Q309 233 296 232T251 223T193 203T147 166T126 106Z" transform="translate(1586,0)"></path><path data-c="20" d="" transform="translate(2086,0)"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(2336,0)"></path><path data-c="66" d="M273 0Q255 3 146 3Q43 3 34 0H26V46H42Q70 46 91 49Q99 52 103 60Q104 62 104 224V385H33V431H104V497L105 564L107 574Q126 639 171 668T266 704Q267 704 275 704T289 705Q330 702 351 679T372 627Q372 604 358 590T321 576T284 590T270 627Q270 647 288 667H284Q280 668 273 668Q245 668 223 647T189 592Q183 572 182 497V431H293V385H185V225Q185 63 186 61T189 57T194 54T199 51T206 49T213 48T222 47T231 47T241 46T251 46H282V0H273Z" transform="translate(2836,0)"></path><path data-c="20" d="" transform="translate(3142,0)"></path><path data-c="49" d="M328 0Q307 3 180 3T32 0H21V46H43Q92 46 106 49T126 60Q128 63 128 342Q128 620 126 623Q122 628 118 630T96 635T43 637H21V683H32Q53 680 180 680T328 683H339V637H317Q268 637 254 634T234 623Q232 620 232 342Q232 63 234 60Q238 55 242 53T264 48T317 46H339V0H328Z" transform="translate(3392,0)"></path><path data-c="6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z" transform="translate(3753,0)"></path><path data-c="74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z" transform="translate(4309,0)"></path><path data-c="65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z" transform="translate(4698,0)"></path><path data-c="72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z" transform="translate(5142,0)"></path><path data-c="73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z" transform="translate(5534,0)"></path><path data-c="65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z" transform="translate(5928,0)"></path><path data-c="63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z" transform="translate(6372,0)"></path><path data-c="74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z" transform="translate(6816,0)"></path><path data-c="69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z" transform="translate(7205,0)"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(7483,0)"></path><path data-c="6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z" transform="translate(7983,0)"></path></g><g data-mml-node="mrow" transform="translate(1475.5,-686)"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="mi" transform="translate(750,0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(1201,0)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="mi" transform="translate(1667,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g><g data-mml-node="mi" transform="translate(2196,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(2681,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mi" transform="translate(3231,0)"><path data-c="1D448" d="M107 637Q73 637 71 641Q70 643 70 649Q70 673 81 682Q83 683 98 683Q139 681 234 681Q268 681 297 681T342 682T362 682Q378 682 378 672Q378 670 376 658Q371 641 366 638H364Q362 638 359 638T352 638T343 637T334 637Q295 636 284 634T266 623Q265 621 238 518T184 302T154 169Q152 155 152 140Q152 86 183 55T269 24Q336 24 403 69T501 205L552 406Q599 598 599 606Q599 633 535 637Q511 637 511 648Q511 650 513 660Q517 676 519 679T529 683Q532 683 561 682T645 680Q696 680 723 681T752 682Q767 682 767 672Q767 650 759 642Q756 637 737 637Q666 633 648 597Q646 592 598 404Q557 235 548 205Q515 105 433 42T263 -22Q171 -22 116 34T60 167V183Q60 201 115 421Q164 622 164 628Q164 635 107 637Z"></path></g><g data-mml-node="mi" transform="translate(3998,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(4598,0)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(4943,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(5428,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g><rect width="8739" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container></p>
+<p>设定一个超参【IoU阈值】(e.g. 0.7)，当计算得到的 IoU 超过这个阈值时，表示预测正确。</p>
+<ul>
+<li>IoU &gt; 0.5 is “decent”<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331175425758.png"></li>
+<li>IoU &gt; 0.7 is “pretty good”<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331175442468.png"></li>
+<li>IoU &gt; 0.9 is “almost perfect”<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331175502044.png"></li>
+</ul>
+<h4 id="NMS"><a href="#NMS" class="headerlink" title="NMS"></a>NMS</h4><p>如何解决“框的重叠问题”？| Overlapping Boxes<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331175729338.png"><br>答：采用 <strong>非极大值抑制|Non-Max Suppression (NMS)</strong> 方法</p>
+<ol>
+<li>从最高得分的框开始遍历；</li>
+<li>消除 <strong>与这个框的IoU &gt; 【IoU阈值】</strong> 的boxes；</li>
+<li>重复1-2过程，直到所有框遍历完成；</li>
+</ol>
+<p>eg:</p>
+<ul>
+<li>对最高得分的蓝色框 P(dog)，消除重叠的橙色框<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331175800852.png"></li>
+<li>对次高得分的紫色框 P(dog)，消除重叠的黄色框<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331175913750.png"></li>
+<li>最终效果<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331180202864.png"></li>
+</ul>
+<p><strong>NMS的问题</strong>：<br>当图像中的很多object重叠时，NMS很可能会消除正常的框。（截止19年，还没有很好的解决办法）<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331180242397.png"></p>
+<h3 id="Object-Detector-的评估指标：mAP"><a href="#Object-Detector-的评估指标：mAP" class="headerlink" title="Object Detector 的评估指标：mAP"></a>Object Detector 的评估指标：mAP</h3><p>如何评估测试集上的“目标检测效果”？| Evaluating Object Detectors</p>
+<p>答：计算 <strong>Mean Average Precision (mAP)</strong> = 每个category/class的AP取平均</p>
+<p>前置概念：<strong>PR曲线</strong> 和 <strong>AP</strong></p>
+<ul>
+<li><code>PR曲线|Precision vs Recall Curve</code>：纵坐标为精度Precision，横坐标为召回率Recall。<ul>
+<li>precision = TP/(TP + FP) -&gt; 表示预测的positive examples中有多少是正确的</li>
+<li>recall = TP/(TP + FN) -&gt; 表示真正的positive examples有多少被预测到</li>
+<li>TP的条件：【预测的box】和【ground-truth box】的IoU &gt; 【IoU阈值】</li>
+<li>绘制方法：遍历加入每个【预测的box】，绘制当前的(Recall, Precision)坐标。eg:<ul>
+<li>对第1个预测结果<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331180405351.png"></li>
+<li>对第2个预测结果<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331180436366.png"></li>
+<li>对第3个预测结果<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331180502159.png"></li>
+<li>对第4个预测结果<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331180546430.png"></li>
+<li>对第5个预测结果<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331180606415.png"></li>
+</ul>
+</li>
+<li>意义：不同的下游任务又不同的需求，比如：<ul>
+<li>自动驾驶场景希望Recall高（所有正样本都被预测出来）</li>
+<li>某些场景只是希望Precision高（预测样本正确率高）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>平均精度|Average Precision (AP)</code>：PR曲线与坐标轴围成的面积 | area under Precision vs Recall Curve<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331181638036.png"></li>
+</ul>
+<p><strong>mAP计算步骤：</strong></p>
+<ol>
+<li>（前置步骤）对所有test images进行目标检测，并对结果进行NMS；</li>
+<li>求 【每个category的AP】：对每个category，计算 <code>平均精度|Average Precision (AP)</code> ；<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331180631119.png"></li>
+<li>求 <strong>mAP</strong>：对 【每个category的AP】 取平均。例如：<ul>
+<li>Car AP = 0.65</li>
+<li>Cat AP = 0.80</li>
+<li>Dog AP = 0.86</li>
+<li>因此 <a class="link" href="mailto:&#109;&#65;&#80;&#64;&#x30;&#46;&#x35;">mAP@0.5<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> = 0.77</li>
+</ul>
+</li>
+</ol>
+<p><strong>常见形式：</strong><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331181418670.png"></p>
+<ul>
+<li><strong>mAP@{IoU threshould}</strong> 标明使用的【IoU阈值】</li>
+<li><strong>COCO mAP</strong> <code>torch.arange(start=0.5, end=1.0, step=0.05)</code> 集合内的【IoU阈值】的mAP 取平均</li>
+</ul>
+<h2 id="15-2-Fast-R-CNN"><a href="#15-2-Fast-R-CNN" class="headerlink" title="15.2 Fast R-CNN"></a>15.2 Fast R-CNN</h2><p>R-CNN的问题：先warping再卷积，非常慢！对~2k个image regions都要单独卷积计算<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331182017395.png"></p>
+<ul>
+<li>思考：在不同的image regions中会有重复的计算</li>
+<li>解决方案：<strong>先卷积再warping</strong>，提取 <code>image features</code></li>
+</ul>
+<h3 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331181828344.png"></p>
+<ol>
+<li>使用 【骨架网络|Backbone network】 对整个图像提取特征 -&gt; 得到 <code>Image features</code></li>
+<li>从 <code>Image features</code> 中【裁剪crop + 调整大小resize】RoI -&gt; 得到 <code>Crop+Resize features</code></li>
+<li>每个region经过【Per-Region Network】 -&gt; 得到每个region的 <code>Class scores</code> 和 <code>Bbox transform</code></li>
+</ol>
+<h3 id="Backbone和Per-Region-Network"><a href="#Backbone和Per-Region-Network" class="headerlink" title="Backbone和Per-Region Network"></a>Backbone和Per-Region Network</h3><p>Backbone提特征，Per-Region Network用于下游任务输出</p>
+<ul>
+<li>AlexNet<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331194756919.png"></li>
+<li>ResNet<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331194832737.png"></li>
+</ul>
+<h3 id="Cropping-features"><a href="#Cropping-features" class="headerlink" title="Cropping features"></a>Cropping features</h3><p><strong>如何根据RoI，从image feature中crop</strong> 得到 相同大小的<code>region features</code>？（反向传播需要该操作是可微的）</p>
+<h4 id="RoI池化"><a href="#RoI池化" class="headerlink" title="RoI池化"></a>RoI池化</h4><p>Girshick, <em>“Fast R-CNN”</em>, ICCV 2015</p>
+<ol>
+<li>从原始image 投射proposal到 <code>image features</code></li>
+<li>对每个 <code>subregion</code> 进行 <strong>最大池化(Max-pool)</strong></li>
+</ol>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331194136461.png"></p>
+<h4 id="RoI对齐"><a href="#RoI对齐" class="headerlink" title="RoI对齐"></a>RoI对齐</h4><p>He et al, <em>“Mask R-CNN”</em>, ICCV 2017</p>
+<ol>
+<li>从原始image 投射proposal到 <code>image features</code></li>
+<li>对每个 <code>subregion</code> 进行 <strong>双线性插值(bilinear interpolation)</strong></li>
+</ol>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331194410619.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331194332124.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331194256557.png"></p>
+<h3 id="Fast-R-CNN-vs-“Slow”-R-CNN"><a href="#Fast-R-CNN-vs-“Slow”-R-CNN" class="headerlink" title="Fast R-CNN vs “Slow” R-CNN"></a>Fast R-CNN vs “Slow” R-CNN</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331191634947.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331191723645.png"></p>
+<p>Fast R-CNN的问题：<strong>Runtime受Region Proposal支配！</strong></p>
+<h2 id="15-3-Faster-R-CNN"><a href="#15-3-Faster-R-CNN" class="headerlink" title="15.3 Faster R-CNN"></a>15.3 Faster R-CNN</h2><p>Faster R-CNN: Learnable Region Proposals<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331192525661.png"></p>
+<h3 id="Region-Proposal-Network-RPN"><a href="#Region-Proposal-Network-RPN" class="headerlink" title="Region Proposal Network (RPN)"></a>Region Proposal Network (RPN)</h3><p>代替传统方法预测Region Proposals</p>
+<ul>
+<li>思路：对feature map每个点为中心的，固定size的 <code>anchor box</code> 中<ul>
+<li><strong>RPN classification</strong>: 判断 <code>是否有object</code> （二分类问题）<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331192146826.png"></li>
+<li><strong>RPN regression</strong>: 预测 <code>box transforms</code> （框的修正，把 anchor box 转换成 proposal box）<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331192208522.png"></li>
+</ul>
+</li>
+<li>每个点对应k个 <code>anchor box</code><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331192254964.png"></li>
+<li>联合Loss<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331192036985.png"></li>
+<li>大大加速<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331192711925.png"></li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="Lots-of-variables"><a href="#Lots-of-variables" class="headerlink" title="Lots of variables!"></a>Lots of variables!</h3><p>变量太多，尽量不要尝试自己训练，尽量使用预训练模型<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331173858009.png"></p>
+<h3 id="训练trick"><a href="#训练trick" class="headerlink" title="训练trick"></a>训练trick</h3><p>Huang et al, “Speed/accuracy trade-offs for modern convolutional object detectors”, CVPR 2017</p>
+<p>通过以下方法获得更好的模型表现：</p>
+<ul>
+<li>更长的训练</li>
+<li>多尺度Backbone：FPN（特征金字塔网络）</li>
+<li>更好的Backbone：ResNeXt</li>
+<li>one-stage方法有提升</li>
+<li>scaling up</li>
+<li>Test-time增强</li>
+<li>更大的模型集成，更多的数据<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331174554125.png"></li>
+</ul>
+<h3 id="从Two-Stage到One-Stage"><a href="#从Two-Stage到One-Stage" class="headerlink" title="从Two-Stage到One-Stage"></a>从Two-Stage到One-Stage</h3><p><strong>Two-Stage</strong><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331192811207.png"><br>Stage 1:</p>
+<ul>
+<li>分类器：anchor box 是否有object</li>
+<li>回归器：box transform (anchor box -&gt; proposal box)</li>
+</ul>
+<p>Stage 2:</p>
+<ul>
+<li>分类器：object 之于 每个class类别/background 的得分</li>
+<li>回归器：Bbox transform (proposal box -&gt; Bounding box)</li>
+</ul>
+<p><strong>One-Stage</strong><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331193218378.png"><br>两个Stage的分类器合并，回归器也合并。直接预测：</p>
+<ul>
+<li>分类器：anchor box 之于 每个class类别/background 的得分</li>
+<li>回归器：Bbox transform (anchor box -&gt; Bounding box)</li>
+</ul>
+<p><strong>Two-Stage v.s. One-Stage</strong></p>
+<ul>
+<li>Two-Stage：更准<ul>
+<li>Faster R-CNN</li>
+</ul>
+</li>
+<li>One-Stage：更快<ul>
+<li>YOLO (You-Only-Look-Once)</li>
+<li>SSD</li>
+<li>RetinaNet</li>
+</ul>
+</li>
+<li>Hybrid: R-FCN</li>
+</ul>
+<h3 id="开源框架"><a href="#开源框架" class="headerlink" title="开源框架"></a>开源框架</h3><p>Object detection is hard! Don’t implement it yourself<br>(Unless you are working on A5…)</p>
+<p><strong>TensorFlow Detection API</strong>:</p>
+<ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://github.com/tensorflow/models/tree/master/research/object_detection">https://github.com/tensorflow/models/tree/master/research/object_detection<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>Faster R-CNN, SSD, RFCN, Mask R-CNN</li>
+</ul>
+<p><strong>Detectron2</strong> (PyTorch):</p>
+<ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://github.com/facebookresearch/detectron2">https://github.com/facebookresearch/detectron2<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>Fast / Faster / Mask R-CNN, RetinaNet</li>
+</ul>
+<h2 id="DETR-DEtection-TRansformer"><a href="#DETR-DEtection-TRansformer" class="headerlink" title="*DETR (DEtection TRansformer)"></a>*DETR (DEtection TRansformer)</h2><p>[ECCV’20] <em>End-to-End Object Detection with Transformers</em> <a class="link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2005.12872">pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331173356132.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250331173254024.png"></p>
 <h2 id="常用数据集"><a href="#常用数据集" class="headerlink" title="*常用数据集"></a>*常用数据集</h2><p><a class="link" target="_blank" rel="noopener" href="https://paperswithcode.com/task/object-detection">https://paperswithcode.com/task/object-detection<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <h3 id="PASCAL-VOC"><a href="#PASCAL-VOC" class="headerlink" title="PASCAL VOC"></a>PASCAL VOC</h3><p>The PASCAL Visual Object Classes</p>
 <ul>
@@ -683,8 +859,11 @@ mjx-container[display="true"] + br {
 <li>Visual Object Classes Challenge 2012 (VOC2012)</li>
 <li>link: <a class="link" target="_blank" rel="noopener" href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html">http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 </ul>
-<h3 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h3><p>MicroSoft COCO</p>
-
+<h3 id="MS-COCO"><a href="#MS-COCO" class="headerlink" title="MS COCO"></a>MS COCO</h3><p>MicroSoft Common Objects in Context</p>
+<ul>
+<li>page: <a class="link" target="_blank" rel="noopener" href="https://cocodataset.org/">https://cocodataset.org/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+<h4 id="COCO2014"><a href="#COCO2014" class="headerlink" title="COCO2014"></a>COCO2014</h4><h4 id="COCO2015"><a href="#COCO2015" class="headerlink" title="COCO2015"></a>COCO2015</h4><h4 id="COCO2017"><a href="#COCO2017" class="headerlink" title="COCO2017"></a>COCO2017</h4>
 		</div>
 
 		
@@ -698,7 +877,7 @@ mjx-container[display="true"] + br {
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-03-11 16:24:40
+                    :</strong> 2025-03-31 20:07:14
             </li>
         
         <li>
@@ -783,7 +962,7 @@ mjx-container[display="true"] + br {
         <div class="page-title">
             [EECS498/598] lecture 15: Object Detection（目标检测）
         </div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-15-Object-Detection%EF%BC%88%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%EF%BC%89"><span class="nav-text">lecture 15: Object Detection（目标检测）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#15-0-%E6%97%A9%E6%9C%9F%E6%8E%A2%E7%B4%A2"><span class="nav-text">15.0 早期探索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-1-R-CNN"><span class="nav-text">15.1 R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-2-Fast-R-CNN"><span class="nav-text">15.2 Fast R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-3-Faster-R-CNN"><span class="nav-text">15.3 Faster R-CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">*常用数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PASCAL-VOC"><span class="nav-text">PASCAL VOC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VOC2007"><span class="nav-text">VOC2007</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VOC2012"><span class="nav-text">VOC2012</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MS-COCO"><span class="nav-text">MS COCO</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture-15-Object-Detection%EF%BC%88%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%EF%BC%89"><span class="nav-text">lecture 15: Object Detection（目标检测）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#15-0-%E6%97%A9%E6%9C%9F%E6%8E%A2%E7%B4%A2"><span class="nav-text">15.0 早期探索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-1-R-CNN"><span class="nav-text">15.1 R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E6%8F%90%E6%A1%88-Region-Proposals"><span class="nav-text">区域提案 | Region Proposals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#R-CNN%E6%AD%A5%E9%AA%A4"><span class="nav-text">R-CNN步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98"><span class="nav-text">关键问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IoU"><span class="nav-text">IoU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NMS"><span class="nav-text">NMS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-Detector-%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%EF%BC%9AmAP"><span class="nav-text">Object Detector 的评估指标：mAP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-2-Fast-R-CNN"><span class="nav-text">15.2 Fast R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4"><span class="nav-text">详细步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backbone%E5%92%8CPer-Region-Network"><span class="nav-text">Backbone和Per-Region Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cropping-features"><span class="nav-text">Cropping features</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RoI%E6%B1%A0%E5%8C%96"><span class="nav-text">RoI池化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RoI%E5%AF%B9%E9%BD%90"><span class="nav-text">RoI对齐</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fast-R-CNN-vs-%E2%80%9CSlow%E2%80%9D-R-CNN"><span class="nav-text">Fast R-CNN vs “Slow” R-CNN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-3-Faster-R-CNN"><span class="nav-text">15.3 Faster R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Region-Proposal-Network-RPN"><span class="nav-text">Region Proposal Network (RPN)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lots-of-variables"><span class="nav-text">Lots of variables!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83trick"><span class="nav-text">训练trick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8ETwo-Stage%E5%88%B0One-Stage"><span class="nav-text">从Two-Stage到One-Stage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6"><span class="nav-text">开源框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DETR-DEtection-TRansformer"><span class="nav-text">*DETR (DEtection TRansformer)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">*常用数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PASCAL-VOC"><span class="nav-text">PASCAL VOC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VOC2007"><span class="nav-text">VOC2007</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VOC2012"><span class="nav-text">VOC2012</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MS-COCO"><span class="nav-text">MS COCO</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#COCO2014"><span class="nav-text">COCO2014</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#COCO2015"><span class="nav-text">COCO2015</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#COCO2017"><span class="nav-text">COCO2017</span></a></li></ol></li></ol></li></ol></li></ol>
 
     </div>
 </div>
@@ -814,7 +993,7 @@ mjx-container[display="true"] + br {
                     </span>
                     
                         <span>
-                            16.9k words in total
+                            19.1k words in total
                         </span>
                     
                 </p>
