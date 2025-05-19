@@ -19,7 +19,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://leojeshua.github.io/tags/huggingface/"/>
+    <link rel="canonical" href="https://leojeshua.github.io/multimodal/multimodal/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -28,14 +28,18 @@
     
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Blog of LeoJeshua">
-<meta property="og:url" content="https://leojeshua.github.io/tags/HuggingFace/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多模态(Multimodal) 学习笔记">
+<meta property="og:url" content="https://leojeshua.github.io/Multimodal/Multimodal/index.html">
 <meta property="og:site_name" content="The Blog of LeoJeshua">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://leojeshua.github.io/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-05-19T03:31:00.000Z">
+<meta property="article:modified_time" content="2025-05-19T05:06:14.854Z">
 <meta property="article:author" content="LeoJeshua">
+<meta property="article:tag" content="Multimodal">
+<meta property="article:tag" content="MLLMs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://leojeshua.github.io/images/redefine-og.webp">
     
@@ -49,7 +53,7 @@
     
     <title>
         
-            Tag: HuggingFace | Academic Blog of LeoJeshua
+            多模态(Multimodal) 学习笔记 | Academic Blog of LeoJeshua
         
     </title>
 
@@ -97,7 +101,119 @@
     
     
     
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 
@@ -191,7 +307,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/tags/"
                                         >
                                     <i class="fa-regular fa-tags fa-fw"></i>
@@ -285,7 +401,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/tags/"
                         >
                             <span>
@@ -332,65 +448,283 @@
 			
 
 			<div class="main-content">
-				<div class="page-template-container">
-	
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
 
-	
-	<div class="tag-name">
-    <i class="fa-solid fa-tag"></i>&nbsp;HuggingFace
-</div>
-<div class="tag-post-list">
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250519113741236.png" alt="多模态(Multimodal) 学习笔记" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">多模态(Multimodal) 学习笔记</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/avatar.png">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">LeoJeshua</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-05-19 11:31</span>
+        <span class="mobile">2025-05-19 11:31</span>
+        <span class="hover-info">Created</span>
+    </span>
     
-<div class="archive-list-container">
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-05-19 13:06:14</span>
+            <span class="mobile">2025-05-19 13:06:14</span>
+            <span class="hover-info">Updated</span>
+        </span>
     
-        <section class="archive-item mb-spacing-unit last:mb-0">
-            <div class="archive-item-header flex flex-row items-center mb-2">
-                <span class="archive-year font-semibold text-3xl mr-2">2025</span>
-                <span class="archive-year-post-count text-xs md:text-sm font-bold rounded-small bg-third-background-color py-[2px] px-[10px] border border-border-color">2</span>
-            </div>
-            
-            <ul class="article-list pl-0 md:pl-8 text-lg leading-[1.5]">
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
                 
                     
+                        
+                        <li>
+                            <a href="/categories/AI/">AI</a>&nbsp;
+                        </li>
                     
-                         <!-- Close the previous LI if not the first item -->
-                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='02-14'>
-                    
-                    <a href="/HuggingFace/HuggingFace-Diffusers/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">HugginFace系列：diffusers库</span>
-                    </a>
                     
                 
                     
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/AI/Foundations/">Foundations</a>&nbsp;
+                        </li>
                     
-                    <a href="/HuggingFace/HuggingFace-Transformers/" class="block w-fit">
-                        <span class="article-title my-0.5 text-2xl">HugginFace系列：transformers库</span>
-                    </a>
                     
                 
-                </li> <!-- Ensure the last item is properly closed -->
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/AI/Foundations/Multimodal/">Multimodal</a>&nbsp;
+                        </li>
+                    
+                    
+                
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Multimodal/">Multimodal</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/MLLMs/">MLLMs</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>355 Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="多模态基础-Multimodal"><a href="#多模态基础-Multimodal" class="headerlink" title="多模态基础 | Multimodal"></a>多模态基础 | Multimodal</h1><p><strong>Keywords：</strong></p>
+<ul>
+<li>早期<ul>
+<li>VLP(Vision-and-Language Pre-training) | “视觉-语言”预训练</li>
+<li>VLMs(Vision Language Models) | 视觉语言模型</li>
+</ul>
+</li>
+<li>当前：<ul>
+<li>Multimodal Pre-training | 多模态预训练</li>
+</ul>
+</li>
+</ul>
+<p><strong>Architectures:</strong></p>
+<ul>
+<li>dual-encoder | 双编码器<ul>
+<li>适合理解任务，侧重模态特征提取(Features Extraction)</li>
+<li>eg: CLIP</li>
+</ul>
+</li>
+<li>encoder-decoder | 编码器-解码器<ul>
+<li>适合生成任务，侧重模态交互(Modality Interaction)</li>
+<li>eg: SimVLM, AlBeF, BLIP</li>
+</ul>
+</li>
+<li>fusion-encoder | 混合编码器<ul>
+<li>eg: ViLT, VLMo, BEiT-3</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li>Vision</li>
+<li>Language</li>
+<li>Vision-Language</li>
+</ul>
+<h2 id="Tutorials"><a href="#Tutorials" class="headerlink" title="Tutorials"></a>Tutorials</h2><ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16o5QzKEBw/">bilibili: DeepFinder/多模态经典论文集<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><ul>
+<li>配套博客：<a class="link" target="_blank" rel="noopener" href="https://www.gnn.club/?cat=29">gnn.club: 多模态算法专栏<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Milestones"><a href="#Milestones" class="headerlink" title="Milestones"></a>Milestones</h2><h3 id="CLIP-2102"><a href="#CLIP-2102" class="headerlink" title="CLIP (2102)"></a>CLIP (2102)</h3><p><em>Learning Transferable Visual Models From Natural Language Supervision</em><br><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.00020">https://arxiv.org/abs/2103.00020<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250519113741236.png"></p>
+<h3 id="ViLT-2102"><a href="#ViLT-2102" class="headerlink" title="ViLT (2102)"></a>ViLT (2102)</h3><p><em>ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision</em><br><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.03334">https://arxiv.org/abs/2102.03334<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="AlBeF-2107"><a href="#AlBeF-2107" class="headerlink" title="AlBeF (2107)"></a>AlBeF (2107)</h3><p><em>Align before Fuse: Vision and Language Representation Learning with Momentum Distillation</em><br><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.07651">https://arxiv.org/abs/2107.07651<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="VLMo-2111"><a href="#VLMo-2111" class="headerlink" title="VLMo (2111)"></a>VLMo (2111)</h3><p><em>VLMo: Unified Vision-Language Pre-Training with Mixture-of-Modality-Experts</em><br><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2111.02358">https://arxiv.org/abs/2111.02358<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="BLIP-2201"><a href="#BLIP-2201" class="headerlink" title="BLIP (2201)"></a>BLIP (2201)</h3><p><em>BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation</em><br><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.12086">https://arxiv.org/abs/2201.12086<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="CoCa-2205"><a href="#CoCa-2205" class="headerlink" title="CoCa (2205)"></a>CoCa (2205)</h3><p><em>CoCa: Contrastive Captioners are Image-Text Foundation Models</em><br><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.01917">https://arxiv.org/abs/2205.01917<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="BEiT-3-2208"><a href="#BEiT-3-2208" class="headerlink" title="BEiT-3 (2208)"></a>BEiT-3 (2208)</h3><p><em>Image as a Foreign Language: BEiT Pretraining for All Vision and Vision-Language Tasks</em><br><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2208.10442">https://arxiv.org/abs/2208.10442<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="Uni-perceiver-2112"><a href="#Uni-perceiver-2112" class="headerlink" title="Uni-perceiver (2112)"></a>Uni-perceiver (2112)</h3><p><em>Uni-Perceiver: Pre-training Unified Architecture for Generic Perception for Zero-shot and Few-shot Tasks</em><br><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2112.01522">https://arxiv.org/abs/2112.01522<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h1 id="多模态大语言模型-MLLMs"><a href="#多模态大语言模型-MLLMs" class="headerlink" title="多模态大语言模型 | MLLMs"></a>多模态大语言模型 | MLLMs</h1><h2 id="Survey"><a href="#Survey" class="headerlink" title="Survey"></a>Survey</h2><h3 id="A-Survey-on-Multimodal-Large-Language-Models"><a href="#A-Survey-on-Multimodal-Large-Language-Models" class="headerlink" title="A Survey on Multimodal Large Language Models"></a>A Survey on Multimodal Large Language Models</h3><p><em>A Survey on Multimodal Large Language Models</em></p>
+<ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.13549">https://arxiv.org/abs/2306.13549<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><ul>
+<li>The first comprehensive survey for Multimodal Large Language Models (MLLMs). ✨</li>
+</ul>
+</li>
+<li>code: <a class="link" target="_blank" rel="noopener" href="https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models">https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250519122552717.png" alt="MiG: Multimodal intelligence Group | 南京大学-多模态智能（米格）小组"><br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250519121758702.png" alt="A timeline of representative MLLMs"></li>
+</ul>
+<h3 id="MME-Survey-A-Comprehensive-Survey-on-Evaluation-of-Multimodal-LLMs"><a href="#MME-Survey-A-Comprehensive-Survey-on-Evaluation-of-Multimodal-LLMs" class="headerlink" title="MME-Survey: A Comprehensive Survey on Evaluation of Multimodal LLMs"></a>MME-Survey: A Comprehensive Survey on Evaluation of Multimodal LLMs</h3><p><em>MME-Survey: A Comprehensive Survey on Evaluation of Multimodal LLMs</em></p>
+<ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2411.15296">https://arxiv.org/abs/2411.15296<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 多模态(Multimodal) 学习笔记</li>
+        <li><strong>Author:</strong> LeoJeshua</li>
+        <li><strong>Created at
+                :</strong> 2025-05-19 11:31:00</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-05-19 13:06:14
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://leojeshua.github.io/Multimodal/Multimodal/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
 </div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Multimodal/">#Multimodal</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/MLLMs/">#MLLMs</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/NLP/LLM/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">LLM(Large Language Model) 学习笔记</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
 	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">
+            多模态(Multimodal) 学习笔记
+        </div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E5%9F%BA%E7%A1%80-Multimodal"><span class="nav-text">多模态基础 | Multimodal</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tutorials"><span class="nav-text">Tutorials</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Milestones"><span class="nav-text">Milestones</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CLIP-2102"><span class="nav-text">CLIP (2102)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ViLT-2102"><span class="nav-text">ViLT (2102)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlBeF-2107"><span class="nav-text">AlBeF (2107)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VLMo-2111"><span class="nav-text">VLMo (2111)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BLIP-2201"><span class="nav-text">BLIP (2201)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CoCa-2205"><span class="nav-text">CoCa (2205)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BEiT-3-2208"><span class="nav-text">BEiT-3 (2208)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uni-perceiver-2112"><span class="nav-text">Uni-perceiver (2112)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B-MLLMs"><span class="nav-text">多模态大语言模型 | MLLMs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Survey"><span class="nav-text">Survey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Survey-on-Multimodal-Large-Language-Models"><span class="nav-text">A Survey on Multimodal Large Language Models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MME-Survey-A-Comprehensive-Survey-on-Evaluation-of-Multimodal-LLMs"><span class="nav-text">MME-Survey: A Comprehensive Survey on Evaluation of Multimodal LLMs</span></a></li></ol></li></ol></li></ol>
 
-	<div class="page-template-content markdown-body">
-		
-
-		
-	</div>
-
-	<div class="page-template-comments">
-		
-	</div>
+    </div>
 </div>
-
-<div class="paginator">
-	<span class="page-number current">1</span>
+	</div>
+	
 </div>
-  
 			</div>
 
 			
@@ -490,6 +824,22 @@
 	</div>
 
 	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
 
 	<div class="right-side-tools-container">
 		<div class="side-tools-container">
@@ -559,6 +909,7 @@
         containers: ["#swup"],
     });
 </script>
+
 
 
 
