@@ -36,7 +36,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://leojeshua.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-03-08T02:32:00.000Z">
-<meta property="article:modified_time" content="2025-03-25T08:50:14.455Z">
+<meta property="article:modified_time" content="2025-06-08T15:37:26.948Z">
 <meta property="article:author" content="LeoJeshua">
 <meta property="article:tag" content="NLP">
 <meta property="article:tag" content="LLM">
@@ -423,7 +423,7 @@ mjx-container[display="true"] + br {
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">19</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
@@ -431,7 +431,7 @@ mjx-container[display="true"] + br {
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">14</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">15</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -486,8 +486,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-03-25 16:50:14</span>
-            <span class="mobile">2025-03-25 16:50:14</span>
+            <span class="desktop">2025-06-08 23:37:26</span>
+            <span class="mobile">2025-06-08 23:37:26</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -549,12 +549,12 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.9k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.3k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>7 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>9 Mins</span>
         </span>
     
     
@@ -601,7 +601,7 @@ mjx-container[display="true"] + br {
 <li>vedio: 未公开</li>
 </ul>
 </li>
-<li><p><strong>Andrej Karpathy</strong> 大师 (ps: 师从李飞飞，斯坦福cs231n设计者，openai联创，特斯拉自动驾驶系统高级总监)</p>
+<li><p><strong>Andrej Karpathy</strong> (ps: 师从李飞飞，斯坦福cs231n设计者，openai联创，特斯拉自动驾驶系统高级总监)</p>
 <ul>
 <li>课程计划（未上线）：<a class="link" target="_blank" rel="noopener" href="https://github.com/karpathy/LLM101n">LLM101n<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>youtube主页：<a class="link" target="_blank" rel="noopener" href="https://www.youtube.com/@AndrejKarpathy">https://www.youtube.com/@AndrejKarpathy<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><ul>
@@ -746,7 +746,97 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
-
+<h1 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h1><h2 id="LLaMA系列"><a href="#LLaMA系列" class="headerlink" title="LLaMA系列"></a>LLaMA系列</h2><ul>
+<li>web: <a class="link" target="_blank" rel="noopener" href="https://www.llama.com/">https://www.llama.com/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>Meta AI</li>
+<li>models:<ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.llama.com/models/llama-3/">LLaMA 3<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.llama.com/models/llama-4/">LLaMA 4<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="LLaMA"><a href="#LLaMA" class="headerlink" title="LLaMA"></a>LLaMA</h3><p><em>LLaMA: Open and Efficient Foundation Language Models</em></p>
+<ul>
+<li>arXiv: 2302.13971v1 [cs.CL] 27 Feb 2023</li>
+<li>核心Idea：<ul>
+<li>计算成本重要性：推理时 &gt; 训练时</li>
+<li>因此 <strong>对于一定参数量的模型，用更多data训练出更好的表现</strong>（同样表现的下的模型更小）<ul>
+<li>训练成本变大</li>
+<li>推理成本变小 ⭐</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据集大小：1.4T tokens</li>
+<li>模型大小：<ul>
+<li>7B</li>
+<li>13B（比175B的GPT-3表现好）</li>
+<li>33B</li>
+<li>65B（对标Chinchilla-70B和PaLM-540B）</li>
+</ul>
+</li>
+<li>训练成本(65B)：<ul>
+<li>2048张A100(80G of RAM)</li>
+<li>21 days</li>
+<li>380 tokens/sec/GPU</li>
+</ul>
+</li>
+</ul>
+<h4 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h4><h5 id="Pre-training-Data"><a href="#Pre-training-Data" class="headerlink" title="Pre-training Data"></a>Pre-training Data</h5><ul>
+<li>数据集总tokens：1.4T</li>
+<li>除了Wikipedia和Books的数据（2个epoch），大多token在训练中只用一次（1个epoch）</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250608230251095.png"></p>
+<h5 id="Architecture-⭐"><a href="#Architecture-⭐" class="headerlink" title="Architecture ⭐"></a>Architecture ⭐</h5><p>基于transformer架构，并借鉴之前一些工作的改进方案</p>
+<ol>
+<li><strong>Pre-norm</strong> &amp; <strong>RMSNorm</strong><ul>
+<li>借鉴自 GPT-3，替换 After-norm 和 LayerNorm</li>
+</ul>
+</li>
+<li><strong>SwiGLU</strong> activation function<ul>
+<li>借鉴自 PaLM，替换 ReLU</li>
+<li>a dimension of <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.816ex;" xmlns="http://www.w3.org/2000/svg" width="4.103ex" height="2.773ex" role="img" focusable="false" viewBox="0 -864.9 1813.6 1225.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(220,394) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mn" transform="translate(220,-345) scale(0.707)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></g><rect width="553.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mn" transform="translate(793.6,0)"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g><g data-mml-node="mi" transform="translate(1293.6,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g></g></g></svg></mjx-container> instead of <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.023ex;" xmlns="http://www.w3.org/2000/svg" width="2.308ex" height="1.593ex" role="img" focusable="false" viewBox="0 -694 1020 704"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g></g></g></svg></mjx-container> as in PaLM</li>
+</ul>
+</li>
+<li><strong>Rotary Position Embeddings (RoPE)</strong><ul>
+<li>借鉴自 GPTNeo，替换 absolute positional embeddings</li>
+</ul>
+</li>
+</ol>
+<p>不同size的模型的超参细节<br><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250608231142370.png"></p>
+<h5 id="Optimizer"><a href="#Optimizer" class="headerlink" title="Optimizer"></a>Optimizer</h5><ul>
+<li>标准优化器: AdamW optimizer(β1 = 0.9, β2 = 0.95)</li>
+<li>a cosine learning rate schedule | 余弦学习率策略<ul>
+<li>最终学习率降至最大学习率的10%</li>
+</ul>
+</li>
+<li>weight decay: 0.1</li>
+<li>gradient clipping: 1.0</li>
+<li>warmup steps: 2000</li>
+<li>learning rate和batch size也随模型大小而改变（见Table 2）</li>
+</ul>
+<h5 id="Efficient-implementation"><a href="#Efficient-implementation" class="headerlink" title="Efficient implementation"></a>Efficient implementation</h5><p>高效实现模型计算/训练时间</p>
+<ol>
+<li>高效实现 causal Multi-Head Attention 来 减小runtime的memory<ul>
+<li>通过：不存储/计算 mask部分的 key/query scores</li>
+<li>代码：available in <code>xformers</code> library</li>
+</ul>
+</li>
+<li>减少重复计算的activations数量<ul>
+<li>通过：保存activations that are expensive to compute（例如the outputs of linear layers）</li>
+<li>代码：手工实现transformer layers的 <code>backward function</code></li>
+</ul>
+</li>
+<li>减少model的内存占用<ul>
+<li>通过：model并行 / sequence并行</li>
+</ul>
+</li>
+<li>同时进行 activation计算 和 GPU通信<ul>
+<li>通过：<code>all_reduce</code> 操作</li>
+</ul>
+</li>
+</ol>
+<h4 id="Main-Results-TBD"><a href="#Main-Results-TBD" class="headerlink" title="Main Results (TBD)"></a>Main Results (TBD)</h4><h4 id="Instruction-Finetuning-TBD"><a href="#Instruction-Finetuning-TBD" class="headerlink" title="Instruction Finetuning (TBD)"></a>Instruction Finetuning (TBD)</h4><h4 id="Bias-Toxicity-and-Misinformation-TBD"><a href="#Bias-Toxicity-and-Misinformation-TBD" class="headerlink" title="Bias, Toxicity and Misinformation (TBD)"></a>Bias, Toxicity and Misinformation (TBD)</h4><h3 id="LLaMA-3"><a href="#LLaMA-3" class="headerlink" title="LLaMA 3"></a>LLaMA 3</h3><h3 id="LLaMA-4"><a href="#LLaMA-4" class="headerlink" title="LLaMA 4"></a>LLaMA 4</h3>
 		</div>
 
 		
@@ -760,7 +850,7 @@ mjx-container[display="true"] + br {
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-03-25 16:50:14
+                    :</strong> 2025-06-08 23:37:26
             </li>
         
         <li>
@@ -807,7 +897,7 @@ mjx-container[display="true"] + br {
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">多模态(Multimodal) 学习笔记</span>
+						<span class="post-nav-title-item">多模态(Multimodal) 及 多模态大语言模型(MLLMs) 学习笔记</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -841,7 +931,7 @@ mjx-container[display="true"] + br {
         <div class="page-title">
             LLM(Large Language Model) 学习笔记
         </div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-text">信息收集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%8E%A8%E6%96%87"><span class="nav-text">参考推文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%96%99%E6%80%BB%E7%BB%93"><span class="nav-text">资料总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM%E5%85%A8%E6%A0%88%EF%BC%88%E8%AF%BE%E7%A8%8B%E8%A7%86%E9%A2%91%EF%BC%89"><span class="nav-text">LLM全栈（课程视频）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM%E5%85%A8%E6%A0%88%EF%BC%88%E6%96%87%E6%9C%AC%E8%B5%84%E6%96%99%EF%BC%89"><span class="nav-text">LLM全栈（文本资料）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B"><span class="nav-text">提示词工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83"><span class="nav-text">分布式训练</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM%E5%AE%89%E5%85%A8"><span class="nav-text">LLM安全</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-text">信息收集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%8E%A8%E6%96%87"><span class="nav-text">参考推文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%96%99%E6%80%BB%E7%BB%93"><span class="nav-text">资料总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM%E5%85%A8%E6%A0%88%EF%BC%88%E8%AF%BE%E7%A8%8B%E8%A7%86%E9%A2%91%EF%BC%89"><span class="nav-text">LLM全栈（课程视频）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM%E5%85%A8%E6%A0%88%EF%BC%88%E6%96%87%E6%9C%AC%E8%B5%84%E6%96%99%EF%BC%89"><span class="nav-text">LLM全栈（文本资料）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B"><span class="nav-text">提示词工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83"><span class="nav-text">分布式训练</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLM%E5%AE%89%E5%85%A8"><span class="nav-text">LLM安全</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Models"><span class="nav-text">Models</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LLaMA%E7%B3%BB%E5%88%97"><span class="nav-text">LLaMA系列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LLaMA"><span class="nav-text">LLaMA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Approach"><span class="nav-text">Approach</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Main-Results-TBD"><span class="nav-text">Main Results (TBD)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Instruction-Finetuning-TBD"><span class="nav-text">Instruction Finetuning (TBD)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bias-Toxicity-and-Misinformation-TBD"><span class="nav-text">Bias, Toxicity and Misinformation (TBD)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLaMA-3"><span class="nav-text">LLaMA 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LLaMA-4"><span class="nav-text">LLaMA 4</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
@@ -868,11 +958,11 @@ mjx-container[display="true"] + br {
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        14 posts in total
+                        15 posts in total
                     </span>
                     
                         <span>
-                            20.6k words in total
+                            22.8k words in total
                         </span>
                     
                 </p>
