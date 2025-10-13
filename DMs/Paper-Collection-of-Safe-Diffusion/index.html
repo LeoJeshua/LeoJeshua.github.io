@@ -36,7 +36,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://leojeshua.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2024-12-21T07:49:09.000Z">
-<meta property="article:modified_time" content="2025-03-10T12:23:42.160Z">
+<meta property="article:modified_time" content="2025-10-07T16:53:01.265Z">
 <meta property="article:author" content="LeoJeshua">
 <meta property="article:tag" content="DMs">
 <meta property="article:tag" content="Paper Collection">
@@ -370,8 +370,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-03-10 20:23:42</span>
-            <span class="mobile">2025-03-10 20:23:42</span>
+            <span class="desktop">2025-10-08 00:53:01</span>
+            <span class="mobile">2025-10-08 00:53:01</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -457,7 +457,8 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="NeurIPS2024"><a href="#NeurIPS2024" class="headerlink" title="NeurIPS2024"></a>NeurIPS2024</h2><p>Source: </p>
+			<h1 id="NeurIPS2024"><a href="#NeurIPS2024" class="headerlink" title="NeurIPS2024"></a>NeurIPS2024</h1><p>Submission Deadline: 2024.05.23</p>
+<p>Official Site: </p>
 <ul>
 <li><a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/papers.html?filter=titles&search=diffusion" >NeurIPS 2024 Papers<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li><a class="link"   target="_blank" rel="noopener" href="https://safegenaiworkshop.github.io/" >Safe Generative AI Workshop @ NeurIPS 2024<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><ul>
@@ -470,7 +471,7 @@
 <li><a class="link"   target="_blank" rel="noopener" href="https://neurips.exa.ai/" >neurips.exa.ai<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li><a class="link"   target="_blank" rel="noopener" href="https://papers.cool/arxiv/search?highlight=1&query=attack+on+diffusion+model" >papers.cool<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 </ul>
-<h3 id="1-Attack"><a href="#1-Attack" class="headerlink" title="1.Attack"></a>1.Attack</h3><h4 id="Backdoors-Attack"><a href="#Backdoors-Attack" class="headerlink" title="Backdoors Attack"></a>Backdoors Attack</h4><h5 id="BiBadDiff"><a href="#BiBadDiff" class="headerlink" title="BiBadDiff"></a>BiBadDiff</h5><ul>
+<h2 id="Attack"><a href="#Attack" class="headerlink" title="Attack"></a>Attack</h2><h3 id="Backdoors-Attack"><a href="#Backdoors-Attack" class="headerlink" title="Backdoors Attack"></a>Backdoors Attack</h3><h4 id="BiBadDiff"><a href="#BiBadDiff" class="headerlink" title="BiBadDiff"></a>BiBadDiff</h4><ul>
 <li>From Trojan Horses to Castle Walls: Unveiling Bilateral Data Poisoning Effects in Diffusion Models<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2311.02373" >https://arxiv.org/pdf/2311.02373<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/OPTML-Group/BiBadDiff" >https://github.com/OPTML-Group/BiBadDiff<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -484,7 +485,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="Privacy-Backdoors"><a href="#Privacy-Backdoors" class="headerlink" title="Privacy Backdoors"></a>Privacy Backdoors</h5><p>idea: 后门攻击 + 隐私保护</p>
+<h4 id="Privacy-Backdoors"><a href="#Privacy-Backdoors" class="headerlink" title="Privacy Backdoors"></a>Privacy Backdoors</h4><p>idea: 后门攻击 + 隐私保护</p>
 <ul>
 <li>Privacy Backdoors: Enhancing Membership Inference through Poisoning Pre-trained Models<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2404.01231" >https://arxiv.org/pdf/2404.01231<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -499,7 +500,7 @@
 </li>
 </ul>
 <p>现在，通过使用小型定制数据集对大型预先训练的模型进行微调来生成特定于领域的模型是很常见的。但是从网上选择众多基础模型中的一个会带来相当大的风险，包括这个模型被后门处理的可能性。本文介绍了一种新的后门模型： <strong>隐私后门攻击</strong>。这种黑匣子隐私攻击的目的是放大在微调模型时出现的隐私泄漏： 当受害者微调一个后门模型时，他们的训练数据泄漏的速度会比微调一个典型模型时高得多。我们在各种数据集和模型上进行了广泛的实验，包括视觉语言模型 (CLIP) 和大型语言模型，证明了这种攻击的广泛适用性和有效性。此外，我们采用不同的微调方法和推理策略进行多重消融研究，以深入分析这一新的威胁。我们的研究结果突出了机器学习社区中的一个关键隐私问题，并呼吁重新评估使用开源预训模型的安全协议。</p>
-<h4 id="Adversarial-Attack"><a href="#Adversarial-Attack" class="headerlink" title="Adversarial Attack"></a>Adversarial Attack</h4><h5 id="PAP"><a href="#PAP" class="headerlink" title="PAP"></a>PAP</h5><ul>
+<h3 id="Adversarial-Attack"><a href="#Adversarial-Attack" class="headerlink" title="Adversarial Attack"></a>Adversarial Attack</h3><h4 id="PAP"><a href="#PAP" class="headerlink" title="PAP"></a>PAP</h4><ul>
 <li>Prompt-Agnostic Adversarial Perturbation for Customized Diffusion Models<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2408.10571v1" >https://arxiv.org/pdf/2408.10571v1<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>project-page: <a class="link"   target="_blank" rel="noopener" href="https://vancyland.github.io/PAP.github.io/" >https://vancyland.github.io/PAP.github.io/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -515,7 +516,7 @@
 </ul>
 <p>扩散模型彻底改变了定制文本到图像的生成，允许高效地从带有文本描述的个人数据合成照片。然而，这些进步带来了风险，包括隐私泄露和未经授权的艺术品复制。先前的研究主要围绕使用特定于提示的方法来生成对抗性示例以保护个人图像，但现有方法的有效性受到对不同提示的适应性限制的阻碍。</p>
 <p>在本文中，我们介绍了一种用于定制扩散模型的 <code>prompt不可知对抗扰动 (PAP)</code>  方法。PAP 首先使用拉普拉斯近似对prompt分布进行建模，然后通过基于建模分布最大化扰动期望来产生即时不可知扰动。这种方法有效地解决了prompt不可知攻击，从而提高了防御稳定性。在人脸隐私和艺术风格保护方面的大量实验表明，与现有技术相比，我们的方法具有更优越的泛化能力。</p>
-<h5 id="AdvAD"><a href="#AdvAD" class="headerlink" title="AdvAD"></a>AdvAD</h5><ul>
+<h4 id="AdvAD"><a href="#AdvAD" class="headerlink" title="AdvAD"></a>AdvAD</h4><ul>
 <li>AdvAD: Exploring Non-Parametric Diffusion for Imperceptible Adversarial Attacks<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/pdf/edd586d663019327dfd268abca5445420d0591fa.pdf" >https://openreview.net/pdf/edd586d663019327dfd268abca5445420d0591fa.pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/XianguiKang/AdvAD" >https://github.com/XianguiKang/AdvAD<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -530,7 +531,7 @@
 </li>
 </ul>
 <p>探索非参数扩散以实现不可察觉的对抗性攻击</p>
-<h5 id="其他：LLM对抗攻击相关"><a href="#其他：LLM对抗攻击相关" class="headerlink" title="其他：LLM对抗攻击相关"></a>其他：LLM对抗攻击相关</h5><ul>
+<h4 id="其他：LLM对抗攻击相关"><a href="#其他：LLM对抗攻击相关" class="headerlink" title="其他：LLM对抗攻击相关"></a>其他：LLM对抗攻击相关</h4><ul>
 <li>Query-Based Adversarial Prompt Generation<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2402.12329" >https://arxiv.org/pdf/2402.12329<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/93975" >https://nips.cc/virtual/2024/poster/93975<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -538,7 +539,7 @@
 </li>
 </ul>
 <p>最近的工作已经表明，有可能构建对抗性的例子，导致对齐的语言模型发出有害的字符串或执行有害的行为。现有的攻击要么在白盒设置 (完全访问模型权重) 中起作用，要么通过可转移性起作用： 在一个模型上精心制作的对抗性示例在其他模型上通常仍然有效。我们改进了以前的工作，使用 <code>基于查询的攻击</code>，利用对远程语言模型的 API 访问来构造对抗性的例子，这些例子导致模型发出有害字符串的概率 (远远) 高于仅传输攻击。我们验证了我们对 GPT-3.5 和 OpenAI 的安全分类器的攻击；我们可以导致 GPT-3.5 发出有害的字符串，当前的转移攻击会失败，我们可以以几乎 100% 的概率规避 OpenAI 和美洲驼警卫的安全分类器。</p>
-<h4 id="MIA-Member-Inference-Attack"><a href="#MIA-Member-Inference-Attack" class="headerlink" title="MIA (Member Inference Attack)"></a>MIA (Member Inference Attack)</h4><h5 id="CLiD"><a href="#CLiD" class="headerlink" title="CLiD"></a>CLiD</h5><ul>
+<h3 id="MIA-Member-Inference-Attack"><a href="#MIA-Member-Inference-Attack" class="headerlink" title="MIA (Member Inference Attack)"></a>MIA (Member Inference Attack)</h3><h4 id="CLiD"><a href="#CLiD" class="headerlink" title="CLiD"></a>CLiD</h4><ul>
 <li>Membership Inference on Text-to-Image Diffusion Models via Conditional Likelihood Discrepancy<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2405.14800" >https://arxiv.org/pdf/2405.14800<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/zhaisf/CLiD" >https://github.com/zhaisf/CLiD<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -554,7 +555,7 @@
 </ul>
 <p>基于条件似然差异的T2I扩散模型的成员推断</p>
 <p>文本 - 图像扩散模型在可控图像生成领域取得了巨大的成功，同时也伴随着隐私泄露和数据版权问题。在这些上下文中，成员推断作为一种潜在的审计方法，用于检测未经授权的数据使用。尽管在扩散模型方面已经做了一些努力，但由于计算开销较大和泛化能力增强，它们不适用于文本到图像的扩散模型。在本文中，我们首先确定了文本到图像扩散模型中的条件过拟合现象，表明这些模型倾向于过拟合给定相应文本的图像的条件分布，而不仅仅是图像的边缘分布。在此基础上，我们推导出一个分析指标，即 <code>条件似然差异 (CLiD)</code> ，以执行成员推理，从而降低了估计个体样本记忆的随机性。实验结果表明，该方法在不同的数据分布和数据集尺度上都明显优于以前的方法。此外，我们的方法显示出优越的抵抗过度拟合缓解策略，如早期停止和数据增强。</p>
-<h4 id="Watermark"><a href="#Watermark" class="headerlink" title="Watermark"></a>Watermark</h4><h5 id="ZoDiac"><a href="#ZoDiac" class="headerlink" title="ZoDiac"></a>ZoDiac</h5><ul>
+<h3 id="Watermark"><a href="#Watermark" class="headerlink" title="Watermark"></a>Watermark</h3><h4 id="ZoDiac"><a href="#ZoDiac" class="headerlink" title="ZoDiac"></a>ZoDiac</h4><ul>
 <li>Attack-Resilient Image Watermarking Using Stable Diffusion<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2401.04247" >https://arxiv.org/pdf/2401.04247<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/zhanglijun95/ZoDiac" >https://github.com/zhanglijun95/ZoDiac<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -569,7 +570,7 @@
 </li>
 </ul>
 <p>水印图像是跟踪图像来源和证明所有权的关键。随着生成模型的出现，如稳定扩散，可以创建虚假但真实的图像，水印已成为特别重要的，使人类创建的图像可靠识别。不幸的是，非常稳定的扩散技术可以消除水印注入使用现有的方法。<br>为了解决这个问题，我们提出了 <code>ZoDiac 算法</code>，该算法使用一个预先训练好的稳定扩散模型<strong>将水印注入到可训练的潜在空间中，从而在潜在向量中即使受到攻击也能可靠地检测到水印。</strong> 我们对 ZoDiac 进行了三个基准的评估： MS-COCO、 DisversionDB 和 WikiArt，发现 ZoDiac 对最先进的水印攻击有很强的抵抗力，水印检测率高于 98% ，假阳性率低于 6.4% ，表现优于最先进的水印方法。我们假设扩散模型中的往复去噪过程可以内在地增强水印在面对强攻击时的鲁棒性，并验证了这一假设。我们的研究表明，稳定扩散是一种有前途的鲁棒水印方法，能够承受甚至稳定扩散的攻击方法。</p>
-<h4 id="Federated-Learning"><a href="#Federated-Learning" class="headerlink" title="Federated Learning"></a>Federated Learning</h4><h5 id="DataStealing"><a href="#DataStealing" class="headerlink" title="DataStealing"></a>DataStealing</h5><ul>
+<h3 id="Federated-Learning"><a href="#Federated-Learning" class="headerlink" title="Federated Learning"></a>Federated Learning</h3><h4 id="DataStealing"><a href="#DataStealing" class="headerlink" title="DataStealing"></a>DataStealing</h4><ul>
 <li>DataStealing: Steal Data from Diffusion Models in Federated Learning with Multiple Trojans<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/pdf?id=792txRlKit" >https://openreview.net/pdf?id=792txRlKit<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/yuangan/DataStealing" >https://github.com/yuangan/DataStealing<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -584,7 +585,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="2-Defence"><a href="#2-Defence" class="headerlink" title="2.Defence"></a>2.Defence</h3><h4 id="Anti-Adversarial-Prompt"><a href="#Anti-Adversarial-Prompt" class="headerlink" title="Anti-Adversarial Prompt"></a>Anti-Adversarial Prompt</h4><h5 id="GuardT2I"><a href="#GuardT2I" class="headerlink" title="GuardT2I"></a>GuardT2I</h5><ul>
+<h2 id="Defence"><a href="#Defence" class="headerlink" title="Defence"></a>Defence</h2><h3 id="Anti-Adversarial-Prompt"><a href="#Anti-Adversarial-Prompt" class="headerlink" title="Anti-Adversarial Prompt"></a>Anti-Adversarial Prompt</h3><h4 id="GuardT2I"><a href="#GuardT2I" class="headerlink" title="GuardT2I"></a>GuardT2I</h4><ul>
 <li>GuardT2I: Defending Text-to-Image Models from Adversarial Prompts<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2403.01446" >https://arxiv.org/pdf/2403.01446<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/cure-lab/GuardT2I" >https://github.com/cure-lab/GuardT2I<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -634,7 +635,7 @@
 </li>
 </ul>
 <p>实验部分，也对MMA-Diffusion做了针对性改进，以测试GuardT2I的面对Adaptive Attacks时的能力。</p>
-<h5 id="AdvUnlearn"><a href="#AdvUnlearn" class="headerlink" title="AdvUnlearn"></a>AdvUnlearn</h5><p>idea: 对抗性训练 + Unlearning</p>
+<h3 id="Unlearn"><a href="#Unlearn" class="headerlink" title="Unlearn"></a>Unlearn</h3><h4 id="AdvUnlearn"><a href="#AdvUnlearn" class="headerlink" title="AdvUnlearn"></a>AdvUnlearn</h4><p>idea: 对抗性训练 + Unlearning</p>
 <ul>
 <li>Defensive Unlearning with Adversarial Training for Robust Concept Erasure in Diffusion Models<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2405.15234" >https://arxiv.org/pdf/2405.15234<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -652,7 +653,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="Unlearn"><a href="#Unlearn" class="headerlink" title="Unlearn"></a>Unlearn</h4><h5 id="Leveraging-Catastrophic-Forgetting"><a href="#Leveraging-Catastrophic-Forgetting" class="headerlink" title="Leveraging Catastrophic Forgetting"></a>Leveraging Catastrophic Forgetting</h5><ul>
+<h4 id="Leveraging-Catastrophic-Forgetting"><a href="#Leveraging-Catastrophic-Forgetting" class="headerlink" title="Leveraging Catastrophic Forgetting"></a>Leveraging Catastrophic Forgetting</h4><ul>
 <li>Leveraging Catastrophic Forgetting to Develop Safe Diffusion Models against Malicious Finetuning<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/pdf?id=pR37AmwbOt" >https://openreview.net/pdf?id=pR37AmwbOt<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>openreview: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/forum?id=pR37AmwbOt" >https://openreview.net/forum?id=pR37AmwbOt<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -666,13 +667,13 @@
 </ul>
 </li>
 </ul>
-<h4 id="Memory-Editing"><a href="#Memory-Editing" class="headerlink" title="Memory Editing"></a>Memory Editing</h4><p><img  
+<h3 id="Memory-Editing"><a href="#Memory-Editing" class="headerlink" title="Memory Editing"></a>Memory Editing</h3><p><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/%E5%9B%BE%E7%89%871.png"
                       alt="图片1"
                 ></p>
-<h5 id="Finding-NeMo"><a href="#Finding-NeMo" class="headerlink" title="Finding NeMo"></a>Finding NeMo</h5><ul>
+<h4 id="Finding-NeMo"><a href="#Finding-NeMo" class="headerlink" title="Finding NeMo"></a>Finding NeMo</h4><ul>
 <li>Finding NeMo: Localizing Neurons Responsible For Memorization in Diffusion Models<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2406.02366" >https://arxiv.org/pdf/2406.02366<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>project page: <a class="link"   target="_blank" rel="noopener" href="https://ml-research.github.io/localizing_memorization_in_diffusion_models/" >https://ml-research.github.io/localizing_memorization_in_diffusion_models/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -703,7 +704,7 @@
 <li>方法：随机停用（先随机停用layer筛选出可能的layer，然后对可能的layer随机停用神经元，筛选出可能的memory neuron）</li>
 <li>most training data samples are memorized by just <strong>a few or even a single neuron</strong>.</li>
 </ul>
-<h5 id="P-ESD-P-AC-SGAW-Wrokshop"><a href="#P-ESD-P-AC-SGAW-Wrokshop" class="headerlink" title="P-ESD&#x2F;P-AC [SGAW Wrokshop]"></a>P-ESD&#x2F;P-AC [SGAW Wrokshop]</h5><ul>
+<h4 id="P-ESD-P-AC-SGAW-Wrokshop"><a href="#P-ESD-P-AC-SGAW-Wrokshop" class="headerlink" title="P-ESD&#x2F;P-AC [SGAW Wrokshop]"></a>P-ESD&#x2F;P-AC [SGAW Wrokshop]</h4><ul>
 <li>Pruning for Robust Concept Erasing in Diffusion Models<ul>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/pdf?id=jD1eWpUMOf" >https://openreview.net/pdf?id=jD1eWpUMOf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>openreview(8-5-8): <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/forum?id=jD1eWpUMOf" >https://openreview.net/forum?id=jD1eWpUMOf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -742,8 +743,8 @@
                      data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250110160709.png"
                       alt="20250110160709"
                 ></p>
-<h3 id="3-Diffusion"><a href="#3-Diffusion" class="headerlink" title="3.Diffusion"></a>3.Diffusion</h3><p>Diffusion相关的paper很多，这里只是列出了笔者survey的一些paper。</p>
-<h5 id="Stylus"><a href="#Stylus" class="headerlink" title="Stylus"></a>Stylus</h5><ul>
+<h2 id="DMs"><a href="#DMs" class="headerlink" title="DMs"></a>DMs</h2><p>Diffusion相关的paper很多…</p>
+<h4 id="Stylus"><a href="#Stylus" class="headerlink" title="Stylus"></a>Stylus</h4><ul>
 <li>Stylus: Automatic Adapter Selection for Diffusion Models<ul>
 <li>project page: <a class="link"   target="_blank" rel="noopener" href="https://stylus-diffusion.github.io/" >https://stylus-diffusion.github.io/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/96747" >https://nips.cc/virtual/2024/poster/96747<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/96747.png) -->
@@ -756,7 +757,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="Score-Distillation-via-Reparametrized-DDIM"><a href="#Score-Distillation-via-Reparametrized-DDIM" class="headerlink" title="Score Distillation via Reparametrized DDIM"></a>Score Distillation via Reparametrized DDIM</h5><ul>
+<h4 id="Score-Distillation-via-Reparametrized-DDIM"><a href="#Score-Distillation-via-Reparametrized-DDIM" class="headerlink" title="Score Distillation via Reparametrized DDIM"></a>Score Distillation via Reparametrized DDIM</h4><ul>
 <li>Score Distillation via Reparametrized DDIM<ul>
 <li>project page: <a class="link"   target="_blank" rel="noopener" href="https://lukoianov.com/sdi" >https://lukoianov.com/sdi<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2405.15891" >https://arxiv.org/pdf/2405.15891<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -773,6 +774,46 @@
 <p>虽然二维扩散模型产生真实的高细节的图像，，但3D形状生成方法，如Score Distillation Sampling (SDS)，则基于这些2D扩散模型生成类似卡通的、过度平滑的形状。<br>为了帮助解释这种差异，我们表明分数蒸馏中使用的图像引导可以被理解为二维去噪生成过程的速度场，直到噪声项的选择。特别是，在变量变化之后，SDS类似于高方差版本的去噪扩散隐式模型（DDIM），具有不同采样的噪声项：SDS在每一步随机引入噪声i.i.d，而DDIM则从之前的噪声预测中推断出来。这种过度的差异可能导致过度平滑和不现实的输出。我们表明，通过在每个SDS更新步骤中反转DDIM，可以恢复更好的噪声近似。这种修改使得SDS的2D图像生成过程几乎与DDIM相同。在3D中，它消除了过度平滑，保留了更高频率的细节，并使生成质量更接近于2D采样器。在实验中，我们的方法与其他最先进的Score Distillation方法相比，实现了更好或相似的3D生成质量，所有这些都不需要训练额外的神经网络或多视图监督，并且通过扩散模型为2D和3D资产生成之间的关系提供了有用的见解。</p>
 <p>分数蒸馏采样 (SDS) 是一种很有前途的技术，它允许使用预先训练的 2D 扩散模型进行 3D 生成。然而，生成的 3D 资产的质量有限。</p>
 <p>在这项工作中我们：<br>🔎 从理论上证明 SDS ≈ 2D 扩散<br>🚨 揭示 SDS 中的噪声项是过度平滑的原因<br>🛠️ 提出修复建议<br>✅ 提高 3D 生成的质量</p>
+<h1 id="CVPR-2025"><a href="#CVPR-2025" class="headerlink" title="CVPR 2025"></a>CVPR 2025</h1><p>Submission Deadline: 2024.11.15</p>
+<p>Official Site:</p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://cvpr.thecvf.com/virtual/2025/papers.html" >CVPR 2025 Papers<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+<h2 id="Attack-1"><a href="#Attack-1" class="headerlink" title="Attack"></a>Attack</h2><h3 id="Bias"><a href="#Bias" class="headerlink" title="Bias"></a>Bias</h3><h4 id="IBI-Implicit-Bias-Injection-Attacks"><a href="#IBI-Implicit-Bias-Injection-Attacks" class="headerlink" title="IBI (Implicit Bias Injection Attacks)"></a>IBI (Implicit Bias Injection Attacks)</h4><ul>
+<li>Implicit Bias Injection Attacks against Text-to-Image Diffusion Models<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://cvpr.thecvf.com/virtual/2025/poster/34474" >page<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Huang_Implicit_Bias_Injection_Attacks_against_Text-to-Image_Diffusion_Models_CVPR_2025_paper.pdf" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202025/34474.png" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251008004029738.png"
+                     
+                ></p>
+<h2 id="Defence-1"><a href="#Defence-1" class="headerlink" title="Defence"></a>Defence</h2><h3 id="Guidence-Unlern"><a href="#Guidence-Unlern" class="headerlink" title="Guidence&#x2F;Unlern"></a>Guidence&#x2F;Unlern</h3><h4 id="Detect-and-Guide"><a href="#Detect-and-Guide" class="headerlink" title="Detect-and-Guide"></a>Detect-and-Guide</h4><ul>
+<li>Detect-and-Guide: Self-regulation of Diffusion Models for Safe Text-to-Image Generation<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://cvpr.thecvf.com/virtual/2025/poster/32690" >page<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Li_Detect-and-Guide_Self-regulation_of_Diffusion_Models_for_Safe_Text-to-Image_Generation_via_CVPR_2025_paper.pdf" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
+</ul>
+<h4 id="EraseDiff"><a href="#EraseDiff" class="headerlink" title="EraseDiff"></a>EraseDiff</h4><ul>
+<li>Erasing Undesirable Influence in Diffusion Models<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://cvpr.thecvf.com/virtual/2025/poster/33939" >page<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Wu_Erasing_Undesirable_Influence_in_Diffusion_Models_CVPR_2025_paper.pdf" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202025/33939.png" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251008005106312.png"
+                     
+                ></p>
 
 		</div>
 
@@ -787,7 +828,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-03-10 20:23:42
+                    :</strong> 2025-10-08 00:53:01
             </li>
         
         <li>
@@ -868,7 +909,7 @@
         <div class="page-title">
             Paper Collection of Safe Diffusion
         </div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NeurIPS2024"><span class="nav-text">NeurIPS2024</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Attack"><span class="nav-text">1.Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Backdoors-Attack"><span class="nav-text">Backdoors Attack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adversarial-Attack"><span class="nav-text">Adversarial Attack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MIA-Member-Inference-Attack"><span class="nav-text">MIA (Member Inference Attack)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Watermark"><span class="nav-text">Watermark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Federated-Learning"><span class="nav-text">Federated Learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Defence"><span class="nav-text">2.Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Anti-Adversarial-Prompt"><span class="nav-text">Anti-Adversarial Prompt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unlearn"><span class="nav-text">Unlearn</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Memory-Editing"><span class="nav-text">Memory Editing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Diffusion"><span class="nav-text">3.Diffusion</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NeurIPS2024"><span class="nav-text">NeurIPS2024</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack"><span class="nav-text">Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Backdoors-Attack"><span class="nav-text">Backdoors Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BiBadDiff"><span class="nav-text">BiBadDiff</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Privacy-Backdoors"><span class="nav-text">Privacy Backdoors</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adversarial-Attack"><span class="nav-text">Adversarial Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PAP"><span class="nav-text">PAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AdvAD"><span class="nav-text">AdvAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%EF%BC%9ALLM%E5%AF%B9%E6%8A%97%E6%94%BB%E5%87%BB%E7%9B%B8%E5%85%B3"><span class="nav-text">其他：LLM对抗攻击相关</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MIA-Member-Inference-Attack"><span class="nav-text">MIA (Member Inference Attack)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CLiD"><span class="nav-text">CLiD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermark"><span class="nav-text">Watermark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZoDiac"><span class="nav-text">ZoDiac</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Federated-Learning"><span class="nav-text">Federated Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DataStealing"><span class="nav-text">DataStealing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defence"><span class="nav-text">Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anti-Adversarial-Prompt"><span class="nav-text">Anti-Adversarial Prompt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GuardT2I"><span class="nav-text">GuardT2I</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlearn"><span class="nav-text">Unlearn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AdvUnlearn"><span class="nav-text">AdvUnlearn</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Leveraging-Catastrophic-Forgetting"><span class="nav-text">Leveraging Catastrophic Forgetting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-Editing"><span class="nav-text">Memory Editing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Finding-NeMo"><span class="nav-text">Finding NeMo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#P-ESD-P-AC-SGAW-Wrokshop"><span class="nav-text">P-ESD&#x2F;P-AC [SGAW Wrokshop]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DMs"><span class="nav-text">DMs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stylus"><span class="nav-text">Stylus</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Score-Distillation-via-Reparametrized-DDIM"><span class="nav-text">Score Distillation via Reparametrized DDIM</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CVPR-2025"><span class="nav-text">CVPR 2025</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack-1"><span class="nav-text">Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias"><span class="nav-text">Bias</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IBI-Implicit-Bias-Injection-Attacks"><span class="nav-text">IBI (Implicit Bias Injection Attacks)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defence-1"><span class="nav-text">Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Guidence-Unlern"><span class="nav-text">Guidence&#x2F;Unlern</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Detect-and-Guide"><span class="nav-text">Detect-and-Guide</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EraseDiff"><span class="nav-text">EraseDiff</span></a></li></ol></li></ol></li></ol></li></ol>
 
     </div>
 </div>
