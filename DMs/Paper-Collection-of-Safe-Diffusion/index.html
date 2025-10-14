@@ -146,7 +146,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://leojeshua.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2024-12-21T07:49:09.000Z">
-<meta property="article:modified_time" content="2025-10-14T08:36:08.981Z">
+<meta property="article:modified_time" content="2025-10-14T12:00:32.013Z">
 <meta property="article:author" content="LeoJeshua">
 <meta property="article:tag" content="DMs">
 <meta property="article:tag" content="Paper Collection">
@@ -480,8 +480,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-10-14 16:36:08</span>
-            <span class="mobile">2025-10-14 16:36:08</span>
+            <span class="desktop">2025-10-14 20:32</span>
+            <span class="mobile">2025-10-14 20:32</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -543,12 +543,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>13.4k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>17.9k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>49 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>65 Mins</span>
         </span>
     
     
@@ -861,6 +861,21 @@
                      data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014135435022.png"
                      
                 ></p>
+<h4 id="I2VGuard"><a href="#I2VGuard" class="headerlink" title="I2VGuard"></a>I2VGuard</h4><p><em>I2VGuard: Safeguarding Images against Misuse in Diffusion-based Image-to-Video Models</em></p>
+<ul>
+<li>TL;DR: 针对T2V DMs, 在空间和时间两个维度，利用对抗攻击保护图像（降低生成Video的质量）</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Gui_I2VGuard_Safeguarding_Images_against_Misuse_in_Diffusion-based_Image-to-Video_Models_CVPR_2025_paper.pdf" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://cvpr.thecvf.com/virtual/2025/poster/35251" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>图像转视频生成领域的最新进展使得静态图像的动画化成为可能，并提供了像素级的可控性。虽然这些模型在将单幅图像转换为生动动态视频方面拥有巨大潜力，但它们也存在滥用风险，可能影响隐私、安全和版权保护。<br>本文提出了一种新颖的方法，<strong>对图像施加难以察觉的扰动来降低生成视频的质量，从而保护图像免遭白盒图像转视频扩散模型的滥用。</strong> 具体而言，我们将该方法作为一种对抗性攻击，结合了空间、时间和扩散攻击模块。<strong>空间攻击</strong> 将图像特征从其原始分布转移到质量较低的目标分布，从而降低了视觉保真度。<strong>时间攻击</strong> 通过干扰引导运动生成的时间注意力图来破坏连贯运动。<br>为了增强我们的方法在不同模型中的鲁棒性，我们进一步提出了 <strong>一个利用对比损失的扩散攻击模块</strong> 。我们的方法可以轻松地与主流的基于扩散的 I2V 模型集成。<br>在 SVD、CogVideoX 和 ControlNeXt 上进行的大量实验表明，我们的方法会显著降低生成质量（包括视觉清晰度和运动一致性），同时仅会在图像中引入极少的伪影。据我们所知，我们是首个出于安全目的探索T2V对抗攻击的团队。</p>
+</blockquote>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014190103177.png"
+                     
+                ></p>
 <h3 id="Data-Poisoning-Attack"><a href="#Data-Poisoning-Attack" class="headerlink" title="Data Poisoning Attack"></a>Data Poisoning Attack</h3><h4 id="Silent-Branding-Attack"><a href="#Silent-Branding-Attack" class="headerlink" title="Silent Branding Attack"></a>Silent Branding Attack</h4><p><em>Silent Branding Attack: Trigger-free Data Poisoning Attack on Text-to-Image Diffusion Models</em></p>
 <ul>
 <li>TL;DR: 一种数据投毒方法，让模型生成的图片包含 specific brand logo，并且不需要 text trigger。</li>
@@ -1128,13 +1143,64 @@
 <ul>
 <li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/papers.html" >ICCV 2025 Papers<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 </ul>
-<h2 id="Attack-2"><a href="#Attack-2" class="headerlink" title="Attack"></a>Attack</h2><h3 id="Adversarial-Attack-2"><a href="#Adversarial-Attack-2" class="headerlink" title="Adversarial Attack"></a>Adversarial Attack</h3><h4 id="DIA"><a href="#DIA" class="headerlink" title="DIA"></a>DIA</h4><p><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/1951" >https://iccv.thecvf.com/virtual/2025/poster/1951<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<h4 id="ZIUM"><a href="#ZIUM" class="headerlink" title="ZIUM"></a>ZIUM</h4><p><em>ZIUM: Zero-Shot Intent-Aware Adversarial Attack on Unlearned Models</em></p>
+<h2 id="Attack-2"><a href="#Attack-2" class="headerlink" title="Attack"></a>Attack</h2><h3 id="Adversarial-Attack-2"><a href="#Adversarial-Attack-2" class="headerlink" title="Adversarial Attack"></a>Adversarial Attack</h3><h4 id="DIA-DDIM-Inversion-Attack"><a href="#DIA-DDIM-Inversion-Attack" class="headerlink" title="DIA (DDIM Inversion Attack)"></a>DIA (DDIM Inversion Attack)</h4><p><em>DIA: The Adversarial Exposure of Deterministic Inversion in Diffusion Models</em></p>
 <ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/1002" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2510.00778" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/1951" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/sohn1029/DIA" >code<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>扩散模型已被证明是强大的表征学习器，在多个领域展现出最佳性能。除了加速采样之外，DDIM 还能将真实图像反转回其潜在代码。此反转操作的一个直接继承应用是真实图像编辑，其中反转产生的潜在轨迹可用于编辑图像的合成。不幸的是，这种实用工具使恶意用户能够更轻松地自由合成虚假信息或深度伪造内容，从而助长了不道德、滥用以及侵犯隐私和版权内容的传播。<br>虽然 AdvDM 和 Photoguard 等防御性算法已被证明可以破坏这些图像的扩散过程，但它们的目标与测试时的迭代去噪轨迹之间的不一致导致了较弱的破坏性能。<br>在本文中，我们提出了一种 **攻击 integrated DDIM trajectory path 的 DDIM Inversion Attack (DIA)**。<br>我们的研究结果支持了这种有效的破坏方法，其性能超越了以往各种编辑方法的防御方法。我们相信，我们的框架和结果可以为业界和研究界提供切实可行的防御方法，以抵御人工智能的恶意使用。</p>
+</blockquote>
+</li>
 </ul>
-<h3 id="Backdoor-Attack"><a href="#Backdoor-Attack" class="headerlink" title="Backdoor Attack"></a>Backdoor Attack</h3><h4 id="BadVideo"><a href="#BadVideo" class="headerlink" title="BadVideo"></a>BadVideo</h4><p><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/833" >https://iccv.thecvf.com/virtual/2025/poster/833<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<h2 id="Defence-2"><a href="#Defence-2" class="headerlink" title="Defence"></a>Defence</h2><h3 id="Anomaly-Detection-for-Adversarial-and-Backdoor-Attacks"><a href="#Anomaly-Detection-for-Adversarial-and-Backdoor-Attacks" class="headerlink" title="Anomaly Detection for Adversarial and Backdoor Attacks"></a>Anomaly Detection for Adversarial and Backdoor Attacks</h3><h4 id="DADet"><a href="#DADet" class="headerlink" title="DADet"></a>DADet</h4><p><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/1812" >https://iccv.thecvf.com/virtual/2025/poster/1812<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014182737040.png"
+                     
+                ></p>
+<h4 id="ZIUM-Zero-shot-Intent-aware-adversarial-attack-on-Unlearned-Models"><a href="#ZIUM-Zero-shot-Intent-aware-adversarial-attack-on-Unlearned-Models" class="headerlink" title="ZIUM (Zero-shot Intent-aware adversarial attack on Unlearned Models)"></a>ZIUM (Zero-shot Intent-aware adversarial attack on Unlearned Models)</h4><p><em>ZIUM: Zero-Shot Intent-Aware Adversarial Attack on Unlearned Models</em></p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2507.21985" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/1002" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://youtu.be/IUtjhI5zsZ0" >video<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>机器学习 (MU) 会从深度学习模型中移除特定数据点或概念，以增强隐私保护并防止生成敏感内容。对抗性提示可以利用 Unlearn Models(UMs) 生成包含已移除概念的内容，从而构成重大安全风险。<br>然而，现有的对抗性攻击方法仍然难以生成符合攻击者意图的内容，同时识别 successful prompts 的计算成本也很高。<br>为了应对这些挑战，我们提出了 <strong>ZIUM (a Zero-shot Intent-aware adversarial attack on Unlearned Models)</strong> ，它能够 <strong>灵活地定制目标攻击图像</strong> 以反映攻击者的意图。此外，ZIUM 支持 <strong>Zero-shot对抗攻击</strong>，而无需针对先前攻击过的遗忘概念进行进一步优化。<br>在各种 MU 场景下的评估表明，ZIUM 能够 <strong>有效地根据用户意图提示成功定制内容，同时获得比现有方法更高的攻击成功率</strong> 。此外，其零样本对抗攻击 <strong>显著缩短了针对先前攻击过的未学习概念的攻击时间。</strong></p>
+</blockquote>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014183655722.png"
+                     
+                ></p>
+<h3 id="Backdoor-Attack"><a href="#Backdoor-Attack" class="headerlink" title="Backdoor Attack"></a>Backdoor Attack</h3><h4 id="BadVideo"><a href="#BadVideo" class="headerlink" title="BadVideo"></a>BadVideo</h4><p><em>BadVideo: Stealthy Backdoor Attack against Text-to-Video Generation</em></p>
+<ul>
+<li><a href="">pdf</a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/833" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>文本转视频 (T2V) 生成模型发展迅速，并在娱乐、教育和市场营销等领域得到了广泛应用。然而，这些模型的对抗性漏洞却鲜少被深入研究。<br>我们观察到，<strong>在 T2V 生成任务中，生成的视频通常包含大量文本提示中未明确指定的冗余信息，例如环境元素、次要对象和其他细节，这为恶意攻击者嵌入隐藏的有害内容提供了机会。</strong> 利用这种固有的冗余性，我们推出了 <strong>BadVideo</strong>，这是第一个专为 T2V 生成量身定制的后门攻击框架。<br>我们的攻击专注于通过两种关键策略设计目标对抗性输出：**(1) 时空组合，结合不同的时空特征** 来编码恶意信息； <strong>(2) 动态元素变换，通过引入冗余元素随时间的变化</strong> 来传达恶意信息。基于这些策略，攻击者的恶意目标可以 <strong>与用户的文本指令无缝集成，从而提供高度的隐蔽性。</strong><br>此外，<strong>通过利用视频的时间维度，我们的攻击成功规避了主要分析单帧空间信息的传统内容审核系统。</strong><br>大量实验表明， <strong>BadVideo 在保留原始语义并在干净输入上保持优异性能的同时，实现了较高的攻击成功率。</strong> 总而言之，我们的工作揭示了 T2V 模型的对抗性弱点，并提醒人们注意潜在的风险和误用。</p>
+</blockquote>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014184206208.png"
+                     
+                ></p>
+<h2 id="Defence-2"><a href="#Defence-2" class="headerlink" title="Defence"></a>Defence</h2><h3 id="Anomaly-Detection-for-Adversarial-and-Backdoor-Attacks"><a href="#Anomaly-Detection-for-Adversarial-and-Backdoor-Attacks" class="headerlink" title="Anomaly Detection for Adversarial and Backdoor Attacks"></a>Anomaly Detection for Adversarial and Backdoor Attacks</h3><h4 id="DADet-Diffusion-Anomaly-Detection"><a href="#DADet-Diffusion-Anomaly-Detection" class="headerlink" title="DADet (Diffusion Anomaly Detection)"></a>DADet (Diffusion Anomaly Detection)</h4><p><em>DADet: Safeguarding Image Conditional Diffusion Models against Adversarial and Backdoor Attacks via Diffusion Anomaly Detection</em></p>
+<ul>
+<li>暂无公开pdf</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/1812" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>图像条件扩散模型虽然展现出卓越的生成能力，但在面对后门攻击和对抗攻击时却表现出极高的脆弱性。<br>本文定义了一种名为 <strong>扩散异常(diffusion anomaly)</strong> 的场景，即 <strong>在受到攻击的情况下，反向去噪过程的生成结果与正常结果存在显著偏差。</strong><br>通过分析扩散异常的形成机制，我们揭示了 <strong>扰动如何在反向去噪过程(reverse process)中被放大并在结果中累积</strong>。基于分析，我们揭示了 <strong>发散性和同质性(divergence and homogeneity)现象，这导致扩散过程(diffusion process)显著偏离正常过程，多样性下降</strong> 。利用这两种现象，我们提出了一种名为 <strong>扩散异常检测(DADet)</strong> 的方法，可以 <strong>有效地检测后门攻击和对抗攻击</strong> 。<br>大量实验表明，我们的方案对后门攻击和对抗攻击均具有优异的防御性能。具体而言，对于后门攻击检测，我们的方法在包括MS COCO和CIFAR-10在内的不同数据集上获得了99%的F1分数。对于对抗样本的检测，在 MS COCO 和 Places365 数据集上分别评估的三次对抗攻击和两项不同任务中，F1 分数超过 84%。</p>
+</blockquote>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014185534336.png"
+                     
+                ></p>
 <h3 id="Unlearn-1"><a href="#Unlearn-1" class="headerlink" title="Unlearn"></a>Unlearn</h3><h4 id="TRCE-Towards-Reliable-Malicious-Concept-Erasure"><a href="#TRCE-Towards-Reliable-Malicious-Concept-Erasure" class="headerlink" title="TRCE (Towards Reliable Malicious Concept Erasure)"></a>TRCE (Towards Reliable Malicious Concept Erasure)</h4><p><em>TRCE: Towards Reliable Malicious Concept Erasure in Text-to-Image Diffusion Models</em></p>
 <ul>
 <li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2503.07389" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
@@ -1166,23 +1232,25 @@
                      data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014155700535.png"
                      
                 ></p>
-<h4 id="MUNBa-Machine-Unlearning-via-Nash-Bargaining"><a href="#MUNBa-Machine-Unlearning-via-Nash-Bargaining" class="headerlink" title="MUNBa (Machine Unlearning via Nash Bargaining)"></a>MUNBa (Machine Unlearning via Nash Bargaining)</h4><p><em>MUNBa: Machine Unlearning via Nash Bargaining</em></p>
-<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/224" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
-</ul>
-<h4 id="Water4MU"><a href="#Water4MU" class="headerlink" title="Water4MU"></a>Water4MU</h4><p><em>Invisible Watermarks, Visible Gains: Steering Machine Unlearning with Bi-Level Watermarking Design</em></p>
-<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/517" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
-</ul>
 <h4 id="Meta-Unlearning"><a href="#Meta-Unlearning" class="headerlink" title="Meta-Unlearning"></a>Meta-Unlearning</h4><p><em>Meta-Unlearning on Diffusion Models: Preventing Relearning Unlearned Concepts</em></p>
 <ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/2472" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2410.12777" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/2472" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>随着扩散模型 (DMs) 的快速发展，人们正在做出巨大努力来从预训练的 DMs 中清除有害或受版权保护的概念，以防止潜在的模型滥用。然而，据观察，即使 DMs 在发布前已正确清除，恶意的微调也会破坏这一过程，导致 DM重新学习 Unlearn的概念。<br>发生这种情况的部分原因是 DM 中保留的某些良性概念（例如“皮肤”）与 Unlearn的概念（例如“裸体”）相关，从而有助于通过微调进行重新学习。<br>为了解决这个问题，我们提出 <strong>meta-unlearning</strong> on DMs。直观地说，meta-unlearned DMs <strong>在按原样使用时应该表现得像 unlearned DMs；</strong> 此外，如果 meta-unlearned DMs **对未学习的概念进行恶意微调时，其中保留的相关良性概念则将触发自毁(self-destruct)**，从而阻碍对 unlearned concepts 的重新学习。<br>我们的 <strong>meta-unlearning 框架与大多数现有的 Unlearn 方法兼容，只需添加一个易于实现的元目标(meta objective)即可。</strong><br>我们通过对稳定扩散模型（SD-v1-4 和 SDXL）中的元反学习概念进行实证实验来验证我们的方法，并得到了大量消融研究的支持。</p>
+</blockquote>
+</li>
 </ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014193128529.png"
+                     
+                ></p>
 <h4 id="EraseBench"><a href="#EraseBench" class="headerlink" title="EraseBench"></a>EraseBench</h4><p><em>Erasing More Than Intended? How Concept Erasure Degrades the Generation of Non-Target Concepts</em></p>
 <ul>
 <li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2501.09833v2" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/1222" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
-<p>概念擦除技术因其从文本转图像模型中移除不想要概念的潜力而备受关注。虽然这些方法在受控环境中通常表现出良好的效果，但它们在实际应用中的稳健性和部署适用性仍不确定。<br>在本研究中，我们 <strong>(1) 发现了 评估 净化模型 的关键缺陷</strong> ，尤其是在评估其在不同概念维度上的表现方面；**(2) 系统地分析了 擦除后文本转图像模型的失效模式** 。我们重点研究了概念移除对不同层次互联关系（包括视觉相似、二项式和语义相关概念）中的非目标概念造成的意外后果。<br>为了更全面地评估概念擦除，我们引入了 <strong>EraseBench</strong>，这是 <strong>一个多维框架，旨在严格评估擦除后的文本转图像模型</strong> 。它包含 <strong>100</strong> 多个不同的概念、精心策划的种子提示以确保可重复的图像生成，以及用于基于模型评估的专用评估提示。我们的框架 <strong>与一套强大的评估指标相结合</strong> ，对 <strong>概念擦除的有效性及其对模型行为的长期影响</strong> 进行了全面而深入的分析。<br>我们的研究结果揭示了 <strong>概念纠缠现象，其中擦除导致非目标概念的意外抑制，导致溢出退化，表现为扭曲和生成质量下降</strong>。</p>
+<p>概念擦除技术因其从文本转图像模型中移除不想要概念的潜力而备受关注。虽然这些方法在受控环境中通常表现出良好的效果，但它们在实际应用中的稳健性和部署适用性仍不确定。<br>在本研究中，我们 <strong>(1) 发现了 评估 净化模型 的关键缺陷</strong> ，尤其是在评估其在不同概念维度上的表现方面； <strong>(2) 系统地分析了 擦除后文本转图像模型的失效模式</strong> 。我们重点研究了概念移除对不同层次互联关系（包括视觉相似、二项式和语义相关概念）中的非目标概念造成的意外后果。<br>为了更全面地评估概念擦除，我们引入了 <strong>EraseBench</strong>，这是 <strong>一个多维框架，旨在严格评估擦除后的文本转图像模型</strong> 。它包含 <strong>100</strong> 多个不同的概念、精心策划的种子提示以确保可重复的图像生成，以及用于基于模型评估的专用评估提示。我们的框架 <strong>与一套强大的评估指标相结合</strong> ，对 <strong>概念擦除的有效性及其对模型行为的长期影响</strong> 进行了全面而深入的分析。<br>我们的研究结果揭示了 <strong>概念纠缠现象，其中擦除导致非目标概念的意外抑制，导致溢出退化，表现为扭曲和生成质量下降</strong>。</p>
 </blockquote>
 </li>
 </ul>
@@ -1194,18 +1262,105 @@
                 ></p>
 <h4 id="Holistic-Unlearning-Benchmark"><a href="#Holistic-Unlearning-Benchmark" class="headerlink" title="Holistic Unlearning Benchmark"></a>Holistic Unlearning Benchmark</h4><p><em>Holistic Unlearning Benchmark: A Multi-Faceted Evaluation for Text-to-Image Diffusion Model Unlearning</em></p>
 <ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2410.05664" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
 <li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/546" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://saemi410.github.io/HUB/" >webpage<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>随着文本到图像的传播模型获得广泛的商业应用，人们越来越担心不道德或有害的使用，包括未经授权生成受版权保护的内容或敏感内容。Concept unlearning 已成为应对这些挑战的一种有前途的解决方案，它从预训练模型中去除不需要的和有害的信息。<br>然而， <strong>之前的评估主要关注是否在保留图像质量的同时删除了目标概念，而忽略了更广泛的影响，例如意想不到的副作用。</strong><br>在本文中，我们提出了 <strong>Holistic Unlearning Benchmark (HUB)</strong> ，这是一个全面的框架，用于评估Unlearn方法的 <strong>6个关键维度：faithfulness, alignment, pinpoint-ness, multilingual robustness, attack robustness</strong><br>我们的基准涵盖 <strong>33 个目标概念，每个概念包含 16,000 个提示</strong> ，涵盖 <strong>4个类别：Celebrity, Style, Intellectual Property, and NSFW</strong><br>我们的调查显示，没有一种方法在所有评估标准上都表现出色。通过发布我们的评估代码和数据集，我们希望激发该领域的进一步研究，从而产生更可靠、更有效的Unlearn方法。</p>
+</blockquote>
+</li>
 </ul>
-<h3 id="Watermark-1"><a href="#Watermark-1" class="headerlink" title="Watermark"></a>Watermark</h3><h4 id="PlugMark"><a href="#PlugMark" class="headerlink" title="PlugMark"></a>PlugMark</h4><p><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/356" >https://iccv.thecvf.com/virtual/2025/poster/356<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<h3 id="Copyright"><a href="#Copyright" class="headerlink" title="Copyright"></a>Copyright</h3><h4 id="CopyrightShield"><a href="#CopyrightShield" class="headerlink" title="CopyrightShield"></a>CopyrightShield</h4><p><em>CopyrightShield: Enhancing Diffusion Model Security Against Copyright Infringement Attacks</em><br><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/1902" >https://iccv.thecvf.com/virtual/2025/poster/1902<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><h3 id="Unlearn-2"><a href="#Unlearn-2" class="headerlink" title="Unlearn"></a>Unlearn</h3><h4 id="Learning-to-Unlearn-while-Retaining"><a href="#Learning-to-Unlearn-while-Retaining" class="headerlink" title="Learning to Unlearn while Retaining"></a>Learning to Unlearn while Retaining</h4><p><em>Learning to Unlearn while Retaining: Combating Gradient Conflicts in Machine Unlearning</em></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014193755432.png"
+                     
+                ></p>
+<h3 id="Watermark-1"><a href="#Watermark-1" class="headerlink" title="Watermark"></a>Watermark</h3><h4 id="PlugMark"><a href="#PlugMark" class="headerlink" title="PlugMark"></a>PlugMark</h4><p><em>PlugMark: A Plug-in Zero-Watermarking Framework for Diffusion Models</em></p>
 <ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/2659" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>暂无公开pdf</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/356" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://youtu.be/jDn0tr5EjWM" >video<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>扩散模型极大地推动了图像合成领域的发展，其知识产权 (IP) 的保护也成为至关重要的问题。<br>现有的 IP 保护方法主要集中在 通过改变扩散过程的结构来将水印嵌入到生成的图像中。然而，这些方法不可避免地会 <strong>损害生成图像的质量，并且特别容易受到微调攻击，尤其是对于稳定扩散 (SD) 等开源模型。</strong><br>本文提出了 <strong>PlugMark，一个用于扩散模型的新型插件式零水印框架</strong> 。PlugMark 的核心思想基于 <strong>两个观察结果：分类器可以通过其决策边界唯一地表征，扩散模型可以通过从训练数据中获得的知识唯一地表示。</strong> 在此基础上，我们引入了一个<strong>扩散知识提取器，它可以插入到扩散模型中以提取其知识并输出分类结果。</strong> 随后，PlugMark 基于该分类结果生成边界表示，作为零失真水印，唯一地表示决策边界，进而表示扩散模型的知识。<strong>由于只有提取器需要训练，因此原始扩散模型的性能不受影响。</strong><br>大量实验结果表明，PlugMark 可以从原始模型及其后处理版本中稳健地提取高置信度零水印，同时有效地将它们与非后处理的扩散模型区分开来。</p>
+</blockquote>
+</li>
 </ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014193836627.png"
+                     
+                ></p>
+<h3 id="Copyright"><a href="#Copyright" class="headerlink" title="Copyright"></a>Copyright</h3><h4 id="CopyrightShield"><a href="#CopyrightShield" class="headerlink" title="CopyrightShield"></a>CopyrightShield</h4><p><em>CopyrightShield: Enhancing Diffusion Model Security Against Copyright Infringement Attacks</em></p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2412.01528" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/1902" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>扩散模型因其在图像合成等领域卓越的数据生成能力而备受关注。然而，近期研究表明，扩散模型易受版权侵权攻击。 <strong>攻击者会将经过策略性修改的非侵权图像注入训练集，诱导模型在特定“毒害”字幕的提示下生成侵权内容。</strong><br>针对此问题，我们首先提出了一个防御框架—— <strong>CopyrightShield</strong> ，以防御上述攻击。具体而言，我们 <strong>分析了扩散模型的记忆机制，发现攻击利用模型对特定空间位置和提示的过拟合，导致其在后门触发下生成毒害样本。</strong><br>基于此，我们提出了 <strong>一种基于空间掩蔽和数据归因的毒害样本检测方法，以量化毒害风险并准确识别隐藏的后门样本。</strong> 为了进一步降低对毒害特征的记忆，我们引入了 <strong>一种自适应优化策略，将动态惩罚项集成到训练损失中，在保持生成性能的同时降低对侵权特征的依赖。</strong><br>实验结果表明，CopyrightShield在两种攻击场景下显著提升了中毒样本的检测性能，平均F1-scores达到0.665，首次攻击时间（FAE）延迟115.2%，版权侵权率（CIR）降低56.7%。相比于扩散模型中的SoTA后门防御，防御效果提升约25%，展现了其在提升扩散模型安全性方面的优越性和实用性。</p>
+</blockquote>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014195000515.png"
+                     
+                ></p>
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><h3 id="Unlearn-2"><a href="#Unlearn-2" class="headerlink" title="Unlearn"></a>Unlearn</h3><p>趋势：解决 Machine Unlearn 的两个目标的优化冲突问题</p>
+<ul>
+<li>遗忘特定概念&#x2F;数据</li>
+<li>保持总体性能（减小对其他概念的干扰）</li>
+</ul>
+<h4 id="MUNBa-Machine-Unlearning-via-Nash-Bargaining"><a href="#MUNBa-Machine-Unlearning-via-Nash-Bargaining" class="headerlink" title="MUNBa (Machine Unlearning via Nash Bargaining)"></a>MUNBa (Machine Unlearning via Nash Bargaining)</h4><p><em>MUNBa: Machine Unlearning via Nash Bargaining</em></p>
+<ul>
+<li>TL;DR: 用纳什谈判解的方法，优化MU的两个目标</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2411.15537" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/224" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>机器遗忘（MU）旨在有选择性地清除模型中的有害行为，同时保留模型的整体效用。作为一个多任务学习问题，MU 需要在 <strong>遗忘特定概念&#x2F;数据</strong> 和 <strong>保持总体性能</strong> 这两个目标之间取得平衡。<br>为了解决梯度冲突和优势问题，我们 <strong>将 MU 重新表述为双人合作博弈</strong> ，即遗忘博弈者和保留博弈者通过梯度建议来最大化他们的整体收益并平衡他们的贡献。<br>我们对 MU 的表述 <strong>保证了均衡解，任何偏离最终状态的情况都会导致双方总体目标的降低，从而确保每个目标的最优性。</strong><br>我们用 ResNet、视觉语言模型 CLIP 和文本到图像扩散模型进行了大量实验，结果表明我们的方法优于最先进的 MU 算法，在遗忘和保持之间实现了更好的权衡。</p>
+</blockquote>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014191014208.png"
+                     
+                ></p>
+<h4 id="Water4MU"><a href="#Water4MU" class="headerlink" title="Water4MU"></a>Water4MU</h4><p><em>Invisible Watermarks, Visible Gains: Steering Machine Unlearning with Bi-Level Watermarking Design</em></p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2508.10065" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/517" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>随着人们对被遗忘权的需求日益增长，Machine Unlearn (MU) 已成为增强信任和法规遵从性的重要工具，因为它能够从机器学习 (ML) 模型中消除敏感数据的影响。然而，大多数 MU 算法主要依靠 <strong>in-training methods</strong> 来调整模型权重，而对 <strong>data-level adjustments</strong> 的探索有限。<br>为了弥补这一差距，我们提出了一种新颖的方法，<strong>利用 digital watermarking 策略性地修改数据内容，来促进 MU。</strong> 通过集成 watermarking，我们建立了 <strong>一种受控的Unlearn机制，该机制能够精确删除指定数据，同时保持不相关任务的模型效用。</strong><br>我们首先研究了带水印的数据对 MU 的影响，发现 MU 可以有效地推广到带水印的数据。在此基础上，我们引入了 <strong>一个有利于反学习的水印框架，称为 Water4MU，以提高反学习的有效性。</strong> Water4MU 的核心是 <strong>一个双层优化 (bi-level optimization, BLO) 框架：在上层，水印网络经过优化以最小化遗忘难度；而在下层，模型本身则独立于水印进行训练。</strong><br>实验结果表明，Water4MU 在图像分类和图像生成任务中均能有效进行 MU。值得注意的是，它在具有挑战性的 MU 场景（即所谓的“挑战性遗忘”）中的表现优于现有方法。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="LUR-Learning-to-Unlearn-while-Retaining"><a href="#LUR-Learning-to-Unlearn-while-Retaining" class="headerlink" title="LUR (Learning to Unlearn while Retaining)"></a>LUR (Learning to Unlearn while Retaining)</h4><p><em>Learning to Unlearn while Retaining: Combating Gradient Conflicts in Machine Unlearning</em></p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2503.06339" >pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/2659" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://youtu.be/dRaQt1YCnTo" >video<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>机器学习的 Unlearning 最近备受关注，其目标是选择性地移除与特定数据相关的知识，同时保留模型在剩余数据上的性能。<br>这一过程中的一个根本挑战是 <strong>如何平衡有效的遗忘和知识保留</strong> ，因为对这些相互竞争的目标进行简单的优化可能会导致梯度冲突，从而阻碍收敛并降低整体性能。<br>为了解决这个问题，我们提出了 <strong>Learning to Unlearn while Retaining</strong> ，旨在 <strong>缓解遗忘和保留目标之间的梯度冲突</strong>。<br>我们的方法通过一种在所提框架内自然形成的 <strong>隐式梯度正则化机制，策略性地避免了冲突。</strong> 这可以防止遗忘和保留之间出现梯度冲突，从而实现有效的遗忘，同时保留模型的效用。<br>我们在判别任务和生成任务中验证了我们的方法，证明了它在不影响剩余数据性能的情况下实现Unlearn的有效性。我们的结果突出了避免此类梯度冲突的优势，优于未能考虑这些相互作用的现有方法。</p>
+</blockquote>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014195047053.png"
+                     
+                ></p>
 <h4 id="FG-OrIU"><a href="#FG-OrIU" class="headerlink" title="FG-OrIU"></a>FG-OrIU</h4><p><em>FG-OrIU: Towards Better Forgetting via Feature-Gradient Orthogonality for Incremental Unlearning</em></p>
 <ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/2627" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>暂无公开pdf</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://iccv.thecvf.com/virtual/2025/poster/2627" >poster<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>Incremental unlearning (IU) 对于预训练模型满足顺序数据删除要求至关重要，但现有方法主要抑制参数或混淆知识，而没有在特征和梯度层面进行明确的约束，导致 <strong>superficial forgetting（表面遗忘），残留信息仍然可恢复。</strong><br>这种不完全遗忘存在安全漏洞风险，并破坏了保留平衡，尤其是在 IU 场景中。<br>我们提出了 <strong>FG-OrIU（Feature-Gradient Orthogonality for Incremental Unlearning）</strong> ，这是第一个 <strong>统一特征和梯度层面正交约束以实现深度遗忘的框架，其中遗忘效应是不可逆的。</strong><br>FG-OrIU <strong>通过奇异值分解 (SVD) 对特征空间进行分解，将遗忘特征和剩余类别特征分离到不同的子空间中。</strong><br>然后，它强制实施双重约束：对遗忘类和剩余类进行 <strong>特征正交投影</strong> ，而 <strong>梯度正交投影</strong> 则防止在更新过程中重新引入遗忘知识并干扰剩余类。<br>此外，<strong>动态子空间自适应</strong> 会合并新遗忘的子空间并收缩剩余子空间，从而确保在连续的反学习任务中，移除和保留之间保持稳定的平衡。<br>大量实验证明了我们方法的有效性。</p>
+</blockquote>
+</li>
 </ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20251014195432896.png"
+                     
+                ></p>
 
 		</div>
 
@@ -1220,7 +1375,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-10-14 16:36:08
+                    :</strong> 2025-10-14 20:00:32
             </li>
         
         <li>
@@ -1299,7 +1454,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">Paper Collection of Safe Diffusion</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NeurIPS2024"><span class="nav-text">NeurIPS2024</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack"><span class="nav-text">Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Backdoors-Attack"><span class="nav-text">Backdoors Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BiBadDiff"><span class="nav-text">BiBadDiff</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adversarial-Attack"><span class="nav-text">Adversarial Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PAP"><span class="nav-text">PAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AdvAD"><span class="nav-text">AdvAD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MIA-Member-Inference-Attack"><span class="nav-text">MIA (Member Inference Attack)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CLiD"><span class="nav-text">CLiD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermark"><span class="nav-text">Watermark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZoDiac"><span class="nav-text">ZoDiac</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Federated-Learning"><span class="nav-text">Federated Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DataStealing"><span class="nav-text">DataStealing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defence"><span class="nav-text">Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anti-Adversarial-Prompt"><span class="nav-text">Anti-Adversarial Prompt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GuardT2I"><span class="nav-text">GuardT2I</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlearn"><span class="nav-text">Unlearn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AdvUnlearn"><span class="nav-text">AdvUnlearn</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Leveraging-Catastrophic-Forgetting"><span class="nav-text">Leveraging Catastrophic Forgetting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-Editing"><span class="nav-text">Memory Editing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Finding-NeMo"><span class="nav-text">Finding NeMo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#P-ESD-P-AC-SGAW-Wrokshop"><span class="nav-text">P-ESD&#x2F;P-AC [SGAW Wrokshop]</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CVPR-2025"><span class="nav-text">CVPR 2025</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack-1"><span class="nav-text">Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adversarial-Attack-1"><span class="nav-text">Adversarial Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FastProtect"><span class="nav-text">FastProtect</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Poisoning-Attack"><span class="nav-text">Data Poisoning Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Silent-Branding-Attack"><span class="nav-text">Silent Branding Attack</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MIA"><span class="nav-text">MIA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CDI-Copyrighted-Data-Identification"><span class="nav-text">CDI (Copyrighted Data Identification)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias"><span class="nav-text">Bias</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IBI-Implicit-Bias-Injection-Attacks"><span class="nav-text">IBI (Implicit Bias Injection Attacks)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermarks"><span class="nav-text">Watermarks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Black-Box-Forgery-Attacks-on-Semantic-Watermarks"><span class="nav-text">Black-Box Forgery Attacks on Semantic Watermarks</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defence-1"><span class="nav-text">Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Guidence"><span class="nav-text">Guidence</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DAG-Detect-and-Guide"><span class="nav-text">DAG (Detect-and-Guide)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Concept-Replacer"><span class="nav-text">Concept Replacer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlern"><span class="nav-text">Unlern</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EraseDiff"><span class="nav-text">EraseDiff</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Localized-Concept-Erasure-GLoCE"><span class="nav-text">Localized Concept Erasure (GLoCE)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ACE-Anti-editing-Concept-Erasure"><span class="nav-text">ACE (Anti-editing Concept Erasure)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STEREO-Search-Thoroughly-Enough-Robustly-Erase-Once"><span class="nav-text">STEREO (Search Thoroughly Enough, Robustly Erase Once)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RIIDL-Responsible-Interpretable-Intermediate-Diffusion-Latents"><span class="nav-text">RIIDL (Responsible Interpretable Intermediate Diffusion Latents)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AdaVD-Adaptive-Vaule-Decomposer"><span class="nav-text">AdaVD (Adaptive Vaule Decomposer)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FADE-Fine-grained-Attenuation-for-Diffusion-Erasure"><span class="nav-text">FADE (Fine-grained Attenuation for Diffusion Erasure)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TIU-The-Illusion-of-Unlearning"><span class="nav-text">TIU (The Illusion of Unlearning)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Six-CD-Benchmark"><span class="nav-text">Six-CD Benchmark</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias-1"><span class="nav-text">Bias</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MPR-Multi-group-Proportional-Representation"><span class="nav-text">MPR (Multi-group Proportional Representation)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rethinking-Training-for-De-biasing-Text-to-Image-Generation"><span class="nav-text">Rethinking Training for De-biasing Text-to-Image Generation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermarks-1"><span class="nav-text">Watermarks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SleeperMark"><span class="nav-text">SleeperMark</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ICCV-2025"><span class="nav-text">ICCV 2025</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack-2"><span class="nav-text">Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adversarial-Attack-2"><span class="nav-text">Adversarial Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DIA"><span class="nav-text">DIA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZIUM"><span class="nav-text">ZIUM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backdoor-Attack"><span class="nav-text">Backdoor Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BadVideo"><span class="nav-text">BadVideo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defence-2"><span class="nav-text">Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anomaly-Detection-for-Adversarial-and-Backdoor-Attacks"><span class="nav-text">Anomaly Detection for Adversarial and Backdoor Attacks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DADet"><span class="nav-text">DADet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlearn-1"><span class="nav-text">Unlearn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TRCE-Towards-Reliable-Malicious-Concept-Erasure"><span class="nav-text">TRCE (Towards Reliable Malicious Concept Erasure)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SuMa-Subspace-Mapping"><span class="nav-text">SuMa (Subspace Mapping)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MUNBa-Machine-Unlearning-via-Nash-Bargaining"><span class="nav-text">MUNBa (Machine Unlearning via Nash Bargaining)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Water4MU"><span class="nav-text">Water4MU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Meta-Unlearning"><span class="nav-text">Meta-Unlearning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EraseBench"><span class="nav-text">EraseBench</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Holistic-Unlearning-Benchmark"><span class="nav-text">Holistic Unlearning Benchmark</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermark-1"><span class="nav-text">Watermark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PlugMark"><span class="nav-text">PlugMark</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Copyright"><span class="nav-text">Copyright</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyrightShield"><span class="nav-text">CopyrightShield</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other"><span class="nav-text">Other</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlearn-2"><span class="nav-text">Unlearn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Learning-to-Unlearn-while-Retaining"><span class="nav-text">Learning to Unlearn while Retaining</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FG-OrIU"><span class="nav-text">FG-OrIU</span></a></li></ol></li></ol></li></ol></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NeurIPS2024"><span class="nav-text">NeurIPS2024</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack"><span class="nav-text">Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Backdoors-Attack"><span class="nav-text">Backdoors Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BiBadDiff"><span class="nav-text">BiBadDiff</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adversarial-Attack"><span class="nav-text">Adversarial Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PAP"><span class="nav-text">PAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AdvAD"><span class="nav-text">AdvAD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MIA-Member-Inference-Attack"><span class="nav-text">MIA (Member Inference Attack)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CLiD"><span class="nav-text">CLiD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermark"><span class="nav-text">Watermark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZoDiac"><span class="nav-text">ZoDiac</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Federated-Learning"><span class="nav-text">Federated Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DataStealing"><span class="nav-text">DataStealing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defence"><span class="nav-text">Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anti-Adversarial-Prompt"><span class="nav-text">Anti-Adversarial Prompt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GuardT2I"><span class="nav-text">GuardT2I</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlearn"><span class="nav-text">Unlearn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AdvUnlearn"><span class="nav-text">AdvUnlearn</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Leveraging-Catastrophic-Forgetting"><span class="nav-text">Leveraging Catastrophic Forgetting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-Editing"><span class="nav-text">Memory Editing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Finding-NeMo"><span class="nav-text">Finding NeMo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#P-ESD-P-AC-SGAW-Wrokshop"><span class="nav-text">P-ESD&#x2F;P-AC [SGAW Wrokshop]</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CVPR-2025"><span class="nav-text">CVPR 2025</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack-1"><span class="nav-text">Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adversarial-Attack-1"><span class="nav-text">Adversarial Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FastProtect"><span class="nav-text">FastProtect</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#I2VGuard"><span class="nav-text">I2VGuard</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Poisoning-Attack"><span class="nav-text">Data Poisoning Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Silent-Branding-Attack"><span class="nav-text">Silent Branding Attack</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MIA"><span class="nav-text">MIA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CDI-Copyrighted-Data-Identification"><span class="nav-text">CDI (Copyrighted Data Identification)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias"><span class="nav-text">Bias</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IBI-Implicit-Bias-Injection-Attacks"><span class="nav-text">IBI (Implicit Bias Injection Attacks)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermarks"><span class="nav-text">Watermarks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Black-Box-Forgery-Attacks-on-Semantic-Watermarks"><span class="nav-text">Black-Box Forgery Attacks on Semantic Watermarks</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defence-1"><span class="nav-text">Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Guidence"><span class="nav-text">Guidence</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DAG-Detect-and-Guide"><span class="nav-text">DAG (Detect-and-Guide)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Concept-Replacer"><span class="nav-text">Concept Replacer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlern"><span class="nav-text">Unlern</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EraseDiff"><span class="nav-text">EraseDiff</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Localized-Concept-Erasure-GLoCE"><span class="nav-text">Localized Concept Erasure (GLoCE)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ACE-Anti-editing-Concept-Erasure"><span class="nav-text">ACE (Anti-editing Concept Erasure)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STEREO-Search-Thoroughly-Enough-Robustly-Erase-Once"><span class="nav-text">STEREO (Search Thoroughly Enough, Robustly Erase Once)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RIIDL-Responsible-Interpretable-Intermediate-Diffusion-Latents"><span class="nav-text">RIIDL (Responsible Interpretable Intermediate Diffusion Latents)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AdaVD-Adaptive-Vaule-Decomposer"><span class="nav-text">AdaVD (Adaptive Vaule Decomposer)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FADE-Fine-grained-Attenuation-for-Diffusion-Erasure"><span class="nav-text">FADE (Fine-grained Attenuation for Diffusion Erasure)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TIU-The-Illusion-of-Unlearning"><span class="nav-text">TIU (The Illusion of Unlearning)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Six-CD-Benchmark"><span class="nav-text">Six-CD Benchmark</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias-1"><span class="nav-text">Bias</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MPR-Multi-group-Proportional-Representation"><span class="nav-text">MPR (Multi-group Proportional Representation)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rethinking-Training-for-De-biasing-Text-to-Image-Generation"><span class="nav-text">Rethinking Training for De-biasing Text-to-Image Generation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermarks-1"><span class="nav-text">Watermarks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SleeperMark"><span class="nav-text">SleeperMark</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ICCV-2025"><span class="nav-text">ICCV 2025</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack-2"><span class="nav-text">Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adversarial-Attack-2"><span class="nav-text">Adversarial Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DIA-DDIM-Inversion-Attack"><span class="nav-text">DIA (DDIM Inversion Attack)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZIUM-Zero-shot-Intent-aware-adversarial-attack-on-Unlearned-Models"><span class="nav-text">ZIUM (Zero-shot Intent-aware adversarial attack on Unlearned Models)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backdoor-Attack"><span class="nav-text">Backdoor Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BadVideo"><span class="nav-text">BadVideo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defence-2"><span class="nav-text">Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anomaly-Detection-for-Adversarial-and-Backdoor-Attacks"><span class="nav-text">Anomaly Detection for Adversarial and Backdoor Attacks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DADet-Diffusion-Anomaly-Detection"><span class="nav-text">DADet (Diffusion Anomaly Detection)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlearn-1"><span class="nav-text">Unlearn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TRCE-Towards-Reliable-Malicious-Concept-Erasure"><span class="nav-text">TRCE (Towards Reliable Malicious Concept Erasure)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SuMa-Subspace-Mapping"><span class="nav-text">SuMa (Subspace Mapping)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Meta-Unlearning"><span class="nav-text">Meta-Unlearning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EraseBench"><span class="nav-text">EraseBench</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Holistic-Unlearning-Benchmark"><span class="nav-text">Holistic Unlearning Benchmark</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermark-1"><span class="nav-text">Watermark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PlugMark"><span class="nav-text">PlugMark</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Copyright"><span class="nav-text">Copyright</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyrightShield"><span class="nav-text">CopyrightShield</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other"><span class="nav-text">Other</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlearn-2"><span class="nav-text">Unlearn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MUNBa-Machine-Unlearning-via-Nash-Bargaining"><span class="nav-text">MUNBa (Machine Unlearning via Nash Bargaining)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Water4MU"><span class="nav-text">Water4MU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LUR-Learning-to-Unlearn-while-Retaining"><span class="nav-text">LUR (Learning to Unlearn while Retaining)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FG-OrIU"><span class="nav-text">FG-OrIU</span></a></li></ol></li></ol></li></ol></li></ol>
 
 	</div>
 </div>
@@ -1330,7 +1485,7 @@
                     </span>
                     
                         <span>
-                            30.7k words in total
+                            35.3k words in total
                         </span>
                     
                 </p>
