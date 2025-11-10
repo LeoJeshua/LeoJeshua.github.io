@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="LeoJeshua">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://registry.npmmirror.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://leojeshua.github.io/dms/paper-collection-of-safe-diffusion_neurips-2024/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Paper Collection of Safe Diffusion at NeurIPS 2024">
+<meta property="og:url" content="https://leojeshua.github.io/DMs/Paper-Collection-of-Safe-Diffusion_NeurIPS-2024/index.html">
+<meta property="og:site_name" content="The Blog of LeoJeshua">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://leojeshua.github.io/images/redefine-og.webp">
+<meta property="article:published_time" content="2024-09-26T07:49:09.000Z">
+<meta property="article:modified_time" content="2025-11-10T10:08:23.345Z">
+<meta property="article:author" content="LeoJeshua">
+<meta property="article:tag" content="DMs">
+<meta property="article:tag" content="Paper Collection">
+<meta property="article:tag" content="NeurIPS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://leojeshua.github.io/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/avatar.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/avatar.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Paper Collection of Safe Diffusion at NeurIPS 2024 | Academic Blog of LeoJeshua
+        
+    </title>
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"leojeshua.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"2px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.5rem","h3":"1.8rem","h4":"1.3rem","h5":"1.2rem","h6":"1.1rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":4,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1200px","sidebar_width":"30%","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"static","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"从-1开始的科研训练之路","subtitle":{"text":["If you shed tears when you miss the sun, you also miss the stars.","Reading maketh a full man; conference a ready man; and writing an exact man. (Francis Bacon)","Who drives me forward like fate? The Myself striding on my back."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/LeoJeshua","instagram":null,"zhihu":null,"twitter":null,"email":"jiaxu.liu.ai@gmail.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"Tags":{"icon":"fa-regular fa-tags","path":"/tags/"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":"Aspiring to contribute to cutting-edge AI security research with a focus on offensive strategies to uncover and mitigate AI vulnerabilities.","show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/12/20 21:33:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Academic Blog of LeoJeshua
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">22</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">11</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://nips.cc/static/core/img/NeurIPS-logo.svg" alt="Paper Collection of Safe Diffusion at NeurIPS 2024" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">Paper Collection of Safe Diffusion at NeurIPS 2024</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/avatar.png">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">LeoJeshua</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-09-26 15:49:09</span>
+        <span class="mobile">2024-09-26 15:49:09</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-11-10 18:08:23</span>
+            <span class="mobile">2025-11-10 18:08:23</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/AI/">AI</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/AI/Security-in-AI/">Security in AI</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/AI/Security-in-AI/DMs/">DMs</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/DMs/">DMs</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Paper-Collection/">Paper Collection</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/NeurIPS/">NeurIPS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.7k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>17 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="NeurIPS-2024"><a href="#NeurIPS-2024" class="headerlink" title="NeurIPS 2024"></a>NeurIPS 2024</h1><p>Submission Deadline: 2024.05.23</p>
+<p>Official Site: </p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/papers.html?filter=titles&search=diffusion" >NeurIPS 2024 Papers<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://safegenaiworkshop.github.io/" >Safe Generative AI Workshop @ NeurIPS 2024<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><ul>
+<li>openreview: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/group?id=NeurIPS.cc/2024/Workshop/SafeGenAi#tab-accept-oral" >https://openreview.net/group?id=NeurIPS.cc/2024/Workshop/SafeGenAi#tab-accept-oral<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
+</ul>
+<p>Tools:</p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://neurips.exa.ai/" >neurips.exa.ai<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://papers.cool/arxiv/search?highlight=1&query=attack+on+diffusion+model" >papers.cool<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+<h2 id="Attack"><a href="#Attack" class="headerlink" title="Attack"></a>Attack</h2><h3 id="Backdoors-Attack"><a href="#Backdoors-Attack" class="headerlink" title="Backdoors Attack"></a>Backdoors Attack</h3><h4 id="BiBadDiff"><a href="#BiBadDiff" class="headerlink" title="BiBadDiff"></a>BiBadDiff</h4><p><em>From Trojan Horses to Castle Walls: Unveiling Bilateral Data Poisoning Effects in Diffusion Models</em></p>
+<ul>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2311.02373" >https://arxiv.org/pdf/2311.02373<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/OPTML-Group/BiBadDiff" >https://github.com/OPTML-Group/BiBadDiff<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/92999" >https://nips.cc/virtual/2024/poster/92999<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>尽管最先进的扩散模型 (DM) 在图像生成方面表现出色，但对其安全性的担忧依然存在。早期的研究强调了 DM 容易受到数据中毒攻击，但这些研究对图像分类提出了比传统方法 (如 BadNets) 更严格的要求。这是因为技术需要修改扩散训练和取样程序。<br>与之前的工作不同，我们研究了类 BadNet 的数据中毒方法是否可以直接降低 DM 的生成。换句话说，如果只有训练数据集被污染 (没有操纵扩散过程) ，这将如何影响学习的 DM 的性能？在这个设置中，我们揭示了双边数据中毒效应，它不仅服务于对抗目的 (损害 DM 的功能) ，而且还提供了防御优势 (可以在针对中毒攻击的分类任务中利用这一优势进行防御)。<br>我们展示了类似 BadNet 的数据中毒攻击在 DM 中对于产生不正确的图像 (与预期的文本条件不一致) 仍然有效。与此同时，中毒的 DM 在生成的图像中表现出更高的触发比率，这种现象我们称之为 “触发放大”。然后，可以使用这种洞察力来增强中毒训练数据的检测。此外，即使在低中毒率的情况下，研究 DM 的中毒效应对于设计针对此类攻击的鲁棒图像分类器也是有价值的。<br>最后，我们通过研究 DM 固有的数据记忆倾向，在数据中毒和数据复制现象之间建立了有意义的联系。代码可于 <a class="link"   target="_blank" rel="noopener" href="https://github.com/optml-group/bibaddiff" >https://github.com/optml-group/bibaddiff<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 索取。</p>
+</blockquote>
+</li>
+</ul>
+<!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/92999.png) -->
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250106140414.png"
+                      alt="20250106140414"
+                ></p>
+<h3 id="Adversarial-Attack"><a href="#Adversarial-Attack" class="headerlink" title="Adversarial Attack"></a>Adversarial Attack</h3><h4 id="PAP"><a href="#PAP" class="headerlink" title="PAP"></a>PAP</h4><p><em>Prompt-Agnostic Adversarial Perturbation for Customized Diffusion Models</em></p>
+<ul>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2408.10571v1" >https://arxiv.org/pdf/2408.10571v1<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>project-page: <a class="link"   target="_blank" rel="noopener" href="https://vancyland.github.io/PAP.github.io/" >https://vancyland.github.io/PAP.github.io/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/93631" >https://nips.cc/virtual/2024/poster/93631<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>扩散模型彻底改变了定制文本到图像的生成，允许高效地从带有文本描述的个人数据合成照片。然而，这些进步带来了风险，包括隐私泄露和未经授权的艺术品复制。<br>先前的研究主要围绕使用特定于提示的方法来生成对抗性示例以保护个人图像，但现有方法的有效性受到对不同提示的适应性限制的阻碍。<br>在本文中，我们介绍了一种用于定制扩散模型的 <strong>prompt无关的对抗扰动 (PAP) 方法</strong>。PAP 首先使用拉普拉斯近似对prompt分布进行建模，然后通过基于建模分布最大化扰动期望来产生即时不可知扰动。这种方法有效地解决了prompt不可知攻击，从而提高了防御稳定性。<br>在人脸隐私和艺术风格保护方面的大量实验表明，与现有技术相比，我们的方法具有更优越的泛化能力。</p>
+</blockquote>
+</li>
+</ul>
+<!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/93631.png) -->
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250106140739.png"
+                      alt="20250106140739"
+                ></p>
+<h4 id="AdvAD"><a href="#AdvAD" class="headerlink" title="AdvAD"></a>AdvAD</h4><p><em>AdvAD: Exploring Non-Parametric Diffusion for Imperceptible Adversarial Attacks</em></p>
+<ul>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/pdf/edd586d663019327dfd268abca5445420d0591fa.pdf" >https://openreview.net/pdf/edd586d663019327dfd268abca5445420d0591fa.pdf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/XianguiKang/AdvAD" >https://github.com/XianguiKang/AdvAD<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/93401" >https://nips.cc/virtual/2024/poster/93401<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/93401.png) --></li>
+<li>idea: 探索非参数扩散以实现不可察觉的对抗性攻击</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250106140755.png"
+                      alt="20250106140755"
+                ></p>
+<h3 id="MIA-Member-Inference-Attack"><a href="#MIA-Member-Inference-Attack" class="headerlink" title="MIA (Member Inference Attack)"></a>MIA (Member Inference Attack)</h3><h4 id="CLiD"><a href="#CLiD" class="headerlink" title="CLiD"></a>CLiD</h4><p><em>Membership Inference on Text-to-Image Diffusion Models via Conditional Likelihood Discrepancy</em></p>
+<ul>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2405.14800" >https://arxiv.org/pdf/2405.14800<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/zhaisf/CLiD" >https://github.com/zhaisf/CLiD<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/96064" >https://nips.cc/virtual/2024/poster/96064<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/96064.png) --></li>
+<li>idea: 基于条件似然差异的T2I扩散模型的成员推断<blockquote>
+<p>T2I扩散模型在可控图像生成领域取得了巨大的成功，同时也伴随着隐私泄露和数据版权问题。<br>在这些上下文中，成员推断作为一种潜在的审计方法，用于检测未经授权的数据使用。尽管在扩散模型方面已经做了一些努力，但由于计算开销较大和泛化能力增强，它们不适用于文本到图像的扩散模型。<br>在本文中，我们首先确定了文本到图像扩散模型中的条件过拟合现象，表明这些模型倾向于过拟合给定相应文本的图像的条件分布，而不仅仅是图像的边缘分布。在此基础上，我们推导出一个分析指标，即 <strong>条件似然差异 (CLiD)</strong> ，以执行成员推理，从而降低了估计个体样本记忆的随机性。<br>实验结果表明，该方法在不同的数据分布和数据集尺度上都明显优于以前的方法。此外，我们的方法显示出优越的抵抗过度拟合缓解策略，如早期停止和数据增强。</p>
+</blockquote>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250106140848.png"
+                      alt="20250106140848"
+                ></p>
+<h3 id="Watermark"><a href="#Watermark" class="headerlink" title="Watermark"></a>Watermark</h3><h4 id="ZoDiac"><a href="#ZoDiac" class="headerlink" title="ZoDiac"></a>ZoDiac</h4><p><em>Attack-Resilient Image Watermarking Using Stable Diffusion</em></p>
+<ul>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2401.04247" >https://arxiv.org/pdf/2401.04247<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/zhanglijun95/ZoDiac" >https://github.com/zhanglijun95/ZoDiac<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/94294" >https://nips.cc/virtual/2024/poster/94294<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>图像水印对于追踪图像来源和证明所有权至关重要。随着稳定扩散等生成模型的出现，这些模型可以创建虚假但逼真的图像，水印对于确保人工创建的图像可可靠识别变得尤为重要。<br>遗憾的是，同样的稳定扩散技术可以去除使用现有方法注入的水印。<br>为了解决这个问题，我们提出了 <strong>ZoDiac</strong>，它 <strong>使用预先训练的稳定扩散模型将水印注入可训练的潜在空间，从而使水印即使在受到攻击时也能在潜在向量中被可靠地检测到</strong>。<br>我们在 MS-COCO、DiffusionDB 和 WikiArt 三个基准测试上对 ZoDiac 进行了评估，发现 ZoDiac 能够抵御最先进的水印攻击，水印检测率超过 98%，误报率低于 6.4%，优于最先进的水印方法。我们假设，扩散模型中的往复式去噪过程可能在面对强攻击时固有地增强水印的鲁棒性，并验证了这一假设。我们的研究表明，稳定扩散是一种很有前景的鲁棒水印方法，甚至能够抵御基于稳定扩散的攻击方法。</p>
+</blockquote>
+</li>
+</ul>
+<!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/94294.png) -->
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250106140912.png"
+                      alt="20250106140912"
+                ></p>
+<h3 id="Federated-Learning"><a href="#Federated-Learning" class="headerlink" title="Federated Learning"></a>Federated Learning</h3><h4 id="DataStealing"><a href="#DataStealing" class="headerlink" title="DataStealing"></a>DataStealing</h4><p><em>DataStealing: Steal Data from Diffusion Models in Federated Learning with Multiple Trojans</em></p>
+<ul>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/pdf?id=792txRlKit" >https://openreview.net/pdf?id=792txRlKit<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/yuangan/DataStealing" >https://github.com/yuangan/DataStealing<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>openreview: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/forum?id=792txRlKit" >https://openreview.net/forum?id=792txRlKit<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/96480" >https://nips.cc/virtual/2024/poster/96480<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>联邦学习（FL）通常用于协同训练具有隐私保护的模型。<br>在本文中，我们发现<strong>流行的扩散模型为 FL 引入了新的漏洞</strong>，这带来了严重的隐私威胁。尽管采取了严格的数据管理措施，攻击者仍然可以 <strong>通过多个木马从本地客户端窃取大量隐私数据，这些木马通过多个触发器控制生成行为。</strong> 我们将这项新任务称为 <strong>DataStealing</strong>，并证明攻击者可以基于我们在原始 FL 系统中提出的组合触发器（ComboT）实现目的。<br>然而，基于距离的高级 FL 防御仍然能够根据每个本地更新之间的距离有效地过滤恶意更新。因此，我们提出了一种自适应尺度关键参数（AdaSCP）攻击来绕过防御并将恶意更新无缝地合并到全局模型中。具体而言，AdaSCP 使用扩散模型主要时间步中的梯度来评估参数的重要性。随后，它会自适应地寻求最佳比例因子并在将关键参数更新上传到服务器之前将其放大。因此，恶意更新变得与良性更新相似，使得基于距离的防御难以识别。<br>大量实验表明，使用 FL 训练扩散模型存在泄露数千张图像的风险。此外，这些实验证明了 AdaSCP 在击败高级基于距离的防御方面的有效性。我们希望这项工作能够引起 FL 社区对扩散模型关键隐私安全问题的更多关注。</p>
+</blockquote>
+</li>
+</ul>
+<!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/96480.png) -->
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250106140956.png"
+                      alt="20250106140956"
+                ></p>
+<h2 id="Defence"><a href="#Defence" class="headerlink" title="Defence"></a>Defence</h2><h3 id="Anti-Adversarial-Prompt"><a href="#Anti-Adversarial-Prompt" class="headerlink" title="Anti-Adversarial Prompt"></a>Anti-Adversarial Prompt</h3><h4 id="GuardT2I"><a href="#GuardT2I" class="headerlink" title="GuardT2I"></a>GuardT2I</h4><p><em>GuardT2I: Defending Text-to-Image Models from Adversarial Prompts</em></p>
+<ul>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2403.01446" >https://arxiv.org/pdf/2403.01446<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/cure-lab/GuardT2I" >https://github.com/cure-lab/GuardT2I<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>model: <a class="link"   target="_blank" rel="noopener" href="https://huggingface.co/YijunYang280/GuardT2I/" >https://huggingface.co/YijunYang280/GuardT2I/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/95982" >https://nips.cc/virtual/2024/poster/95982<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>尽管现有的对策如NSFW分类器或模型微调以<strong>去除不适当的概念</strong>，但T2I模型的最新进展已经引起了人们对其可能被滥用以产生不适当或不适合工作的内容的重大安全担忧。<br>为了应对这一挑战，我们的研究揭示了 <strong>GuardT2I</strong>，这是一个新的调节框架，采用生成方法来 <strong>增强T2I模型对对抗性提示的鲁棒性</strong>。<br>GuardT2I 没有进行二元分类，而是<strong>利用大型语言模型有条件地将T2I模型中的 文本引导embedding 转换为 自然语言</strong>，以实现有效的对对性提示检测，同时不影响模型的固有性能。<br>我们广泛的实验表明，GuardT2I在不同的对抗场景中表现优于领先的商业解决方案，如OpenAI-Moderation和Microsoft Azure Moderator。</p>
+</blockquote>
+</li>
+</ul>
+<!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/95982.png) -->
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250106141013.png"
+                      alt="20250106141013"
+                ></p>
+<ul>
+<li>Stage1: LLM Generation. <ul>
+<li>借助 <code>c·LLM</code> ，将T2I模型中的text guidance embedding转换为natural language ( <code>Prompt Interpretation</code> )</li>
+<li>将该任务视为一个条件生成任务</li>
+<li>合并cross-attention modules 到 pre-trained LLMs，得到一个conditional LLM ( <code>c·LLM</code> )</li>
+</ul>
+</li>
+<li>Stage2: Generation Parsing. 对 <code>Prompt Interpretation</code> 进行双层分析：<ul>
+<li><strong>Verbalizer</strong> 检测 <code>Prompt Interpretation</code> 中是否含有NSFW词汇 (简单直接)。<ul>
+<li>NSFW词汇是开发者 predefine 的，文中使用了25个常见的NSFW词汇。</li>
+</ul>
+</li>
+<li><strong>Sentence Similarity Checker</strong> 检测生成的 <code>Prompt Interpretation</code> 与 <code>initial prompt</code> 之间的相似度，如果相似度低于某个阈值，则判定是 <strong>潜在恶意(potential malicious)</strong> 的。<ul>
+<li>使用了现有的sentence similarity model -&gt; <code>SentenceBERT</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Decision &amp; Reason:<ul>
+<li>根据stage2的结果综合判断，来做出是否reject的决定（中止T2I的推理过程）</li>
+<li>GuardT2I于T2I是并行运行的，所以没有额外的性能损失。（只要GuardT2I的运行速度大于T2I的推理速度）<ul>
+<li>比Safety Checker快300倍</li>
+<li>对模型原有的生成性能影响很小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>实验部分，也对MMA-Diffusion做了针对性改进，以测试GuardT2I的面对Adaptive Attacks时的能力。</p>
+<h3 id="Unlearn"><a href="#Unlearn" class="headerlink" title="Unlearn"></a>Unlearn</h3><h4 id="AdvUnlearn"><a href="#AdvUnlearn" class="headerlink" title="AdvUnlearn"></a>AdvUnlearn</h4><p><em>Defensive Unlearning with Adversarial Training for Robust Concept Erasure in Diffusion Models</em></p>
+<ul>
+<li>idea: 对抗性训练 + Unlearning</li>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2405.15234" >https://arxiv.org/pdf/2405.15234<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/OPTML-Group/AdvUnlearn" >https://github.com/OPTML-Group/AdvUnlearn<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>demo: <a class="link"   target="_blank" rel="noopener" href="https://huggingface.co/spaces/Intel/AdvUnlearn" >https://huggingface.co/spaces/Intel/AdvUnlearn<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>Unlearned DM Benchmark: <a class="link"   target="_blank" rel="noopener" href="https://huggingface.co/spaces/Intel/UnlearnDiffAtk-Benchmark" >https://huggingface.co/spaces/Intel/UnlearnDiffAtk-Benchmark<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>HF Model: <a class="link"   target="_blank" rel="noopener" href="https://huggingface.co/OPTML-Group/AdvUnlearn" >https://huggingface.co/OPTML-Group/AdvUnlearn<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/94320" >https://nips.cc/virtual/2024/poster/94320<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>扩散模型 (DM) 在文本转图像生成方面取得了显著成功，但也存在安全风险，例如可能生成有害内容和侵犯版权。<br>Machine Unlearning（也称为概念擦除）技术已被开发用于应对这些风险。然而，这些技术仍然容易受到对抗性提示攻击，这种攻击可能导致机器学习模型在完成机器学习后重新生成包含本应擦除的概念（例如裸体）的不良图像。<br>本研究旨在通过将 <strong>对抗性训练 (AT) 的原理</strong> 融入Machine Unlearn，增强概念擦除的鲁棒性，从而 <strong>构建了称为 AdvUnlearn 的鲁棒机器学习框架</strong>。<br>然而，有效且高效地实现这一目标并非易事。首先，我们发现直接实施对抗性训练 (AT) 会损害机器学习模型在完成机器学习后的图像生成质量。为了解决这个问题，我们在一个额外的保留集上开发了一个效用保留正则化，以优化 AdvUnlearn 中概念擦除鲁棒性和模型效用之间的权衡。此外，我们认为文本编码器比 UNet 更适合进行鲁棒化，从而确保了去学习的有效性。并且，所获得的文本编码器可以作为各种数据挖掘类型的即插即用型鲁棒去学习器。<br>从实证角度来看，我们进行了大量实验，以证明 AdvUnlearn 在各种数据挖掘去学习场景中的鲁棒性优势，包括裸体、物体和风格概念的擦除。除了鲁棒性之外，AdvUnlearn 还在模型效用之间实现了平衡。<br>据我们所知，这是<strong>第一篇系统地探索通过 AT 进行鲁棒数据挖掘unlearn的研究</strong>，使其有别于现有那些忽视概念擦除鲁棒性的方法。代码可在 <a class="link"   target="_blank" rel="noopener" href="https://github.com/OPTML-Group/AdvUnlearn" >https://github.com/OPTML-Group/AdvUnlearn<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 获取。警告：本文包含的模型输出可能具有冒犯性。</p>
+</blockquote>
+</li>
+</ul>
+<!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/94320.png) -->
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250106141035.png"
+                      alt="20250106141035"
+                ></p>
+<h4 id="Leveraging-Catastrophic-Forgetting"><a href="#Leveraging-Catastrophic-Forgetting" class="headerlink" title="Leveraging Catastrophic Forgetting"></a>Leveraging Catastrophic Forgetting</h4><p><em>Leveraging Catastrophic Forgetting to Develop Safe Diffusion Models against Malicious Finetuning</em></p>
+<ul>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/pdf?id=pR37AmwbOt" >https://openreview.net/pdf?id=pR37AmwbOt<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>openreview: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/forum?id=pR37AmwbOt" >https://openreview.net/forum?id=pR37AmwbOt<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/93554" >https://nips.cc/virtual/2024/poster/93554<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>idea: 利用灾难性遗忘开发安全扩散模型以抵御恶意微调<blockquote>
+<p>扩散模型 (DM) 在基于文本提示的图像生成方面表现出显著的能力。人们提出了许多方法来确保这些模型生成安全的图像。<br>早期的方法试图将安全过滤器纳入模型，以减少产生有害图像的风险，但这种外部过滤器本身并不能解除模型的毒性，可以很容易地绕过。因此，考虑到 <strong>模型Unlearn</strong> 和 <strong>数据清洗</strong> 对模型参数的影响，它们是维护模型安全的最基本的方法。然而，即使使用这些方法，恶意的微调仍然会使模型倾向于生成有害或不良的图像。<br>受<strong>灾难性遗忘现象</strong>的启发，我们提出了一种使用 <strong>对比学习</strong> 的训练策略，以 <strong>增加清洁和有害数据分布之间的潜在空间距离，从而保护模型不被微调以生成由于遗忘引起的有害图像。</strong><br>实验结果表明，我们的方法不仅在恶意微调之前保持了清晰的图像生成能力，而且<strong>在恶意微调之后有效地防止了 DM 产生有害的图像。</strong> 我们的方法还可以与其他安全方法相结合，以进一步保持其安全性，防止恶意微调。</p>
+</blockquote>
+</li>
+</ul>
+<!-- ![](https://nips.cc/media/PosterPDFs/NeurIPS%202024/93554.png) -->
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250110161946.png"
+                      alt="20250110161946"
+                ></p>
+<h3 id="Memory-Concept-Location"><a href="#Memory-Concept-Location" class="headerlink" title="Memory&#x2F;Concept Location"></a>Memory&#x2F;Concept Location</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/%E5%9B%BE%E7%89%871.png"
+                      alt="图片1"
+                ></p>
+<h4 id="Finding-NeMo"><a href="#Finding-NeMo" class="headerlink" title="Finding NeMo"></a>Finding NeMo</h4><p><em>Finding NeMo: Localizing Neurons Responsible For Memorization in Diffusion Models</em></p>
+<ul>
+<li>pdf: <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/2406.02366" >https://arxiv.org/pdf/2406.02366<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>project page: <a class="link"   target="_blank" rel="noopener" href="https://ml-research.github.io/localizing_memorization_in_diffusion_models/" >https://ml-research.github.io/localizing_memorization_in_diffusion_models/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>code: <a class="link"   target="_blank" rel="noopener" href="https://github.com/ml-research/localizing_memorization_in_diffusion_models" >https://github.com/ml-research/localizing_memorization_in_diffusion_models<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>poster: <a class="link"   target="_blank" rel="noopener" href="https://nips.cc/virtual/2024/poster/94713" >https://nips.cc/virtual/2024/poster/94713<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><blockquote>
+<p>扩散模型（DMs）产生非常详细和高质量的图像。他们的能力来自于对大量数据的广泛训练——这些数据通常是从互联网上抓取的，没有适当的归属或内容创作者的同意。不幸的是，这种做法引起了隐私和知识产权问题，因为DMs可以记住并在推理时再现其潜在的敏感或受版权保护的训练图像。<br>之前的努力通过改变扩散过程的输入来防止这个问题，从而防止DM在推理过程中生成记忆的样本，或者从训练中完全删除记忆的数据。虽然当DMs被开发和部署在一个安全且持续监控的环境中时，这些解决方案是可行的，但它们存在攻击者规避保护措施的风险，并且当DMs本身被公开发布时，这些解决方案是无效的。<br>为了解决这个问题，我们引入了 <strong>NeMo</strong>，这是 <strong>第一种将单个数据样本的记忆定位到DMs的交叉注意层神经元水平的方法。</strong><br>通过我们的实验，我们发现在许多情况下，单个神经元负责记忆特定的训练样本。<strong>通过停用这些记忆神经元，我们可以避免在推理时重复训练数据，增加生成输出的多样性，并减轻私有和版权数据的泄漏。</strong> 通过这种方式，我们的NEMO有助于更负责任的部署DMs。</p>
+</blockquote>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://nips.cc/media/PosterPDFs/NeurIPS%202024/94713.png"
+                     
+                ></p>
+<ul>
+<li>Privacy&#x2F;Copyright issue</li>
+<li><strong>Data-Sample-Level Memory</strong></li>
+<li>2 kind of Memory: <ul>
+<li>Verbatim Memory(VM)：逐字记忆，神经元记忆整个训练样本。</li>
+<li>Template Memory(TM)：模板记忆，神经元记忆训练样本的主体构成。</li>
+</ul>
+</li>
+<li>基于：MIA的启发，扩散模型对记忆样本和非记忆样本的相应不同。<ul>
+<li>对于记忆的样本，模型预测的initial nosie(根据$X_T$预测的$X_{T-1}$)趋向一致，与seed无关。 &#x3D;&gt; 即预测噪声之于seed的分布是一致且平缓的。</li>
+<li>对于非记忆的样本，模型预测的initial nosie更加多样，分布更加陡峭。</li>
+</ul>
+</li>
+<li>方法：随机停用（先随机停用layer筛选出可能的layer，然后对可能的layer随机停用神经元，筛选出可能的memory neuron）</li>
+<li>most training data samples are memorized by just <strong>a few or even a single neuron</strong>.</li>
+</ul>
+<h4 id="P-ESD-P-AC-SGAW-Wrokshop"><a href="#P-ESD-P-AC-SGAW-Wrokshop" class="headerlink" title="P-ESD&#x2F;P-AC [SGAW Wrokshop]"></a>P-ESD&#x2F;P-AC [SGAW Wrokshop]</h4><p><em>Pruning for Robust Concept Erasing in Diffusion Models</em></p>
+<ul>
+<li><p>pdf: <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/pdf?id=jD1eWpUMOf" >https://openreview.net/pdf?id=jD1eWpUMOf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p>poster in workshop: <a class="link"   target="_blank" rel="noopener" href="https://neurips.cc/virtual/2024/106210" >https://neurips.cc/virtual/2024/106210<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p>openreview(8-5-8): <a class="link"   target="_blank" rel="noopener" href="https://openreview.net/forum?id=jD1eWpUMOf" >https://openreview.net/forum?id=jD1eWpUMOf<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<blockquote>
+<p>我们引入了一个简单而有效的 <strong>基于剪枝的概念擦除框架</strong>。<br>通过 <strong>将概念擦除和剪枝集成到一个目标中</strong> ，我们的方法有效地消除了模型中的概念知识，同时切断了可能重新激活概念相关隐藏状态的路径，确保了 <strong>对抗性提示的稳健性</strong>。<br>实验结果表明，我们的模型对对抗性攻击的抵御能力得到了显著增强。与现有的概念擦除方法相比，我们的方法在 NSFW 内容和艺术作品风格的擦除方面取得了约 30% 的提升。</p>
+</blockquote>
+</li>
+<li><p>NSFW&#x2F;Copyright issue</p>
+</li>
+<li><p><strong>Concept-Level Memory</strong></p>
+</li>
+<li><p>Background: fine-tuning-based erasing is vulnerable to adversarial attacks !</p>
+<ul>
+<li>Existing erasing methods fine-tune parameters to “deactivate” such neurons to achieve removal in training data. However, these neurons might be “reactivated” when inputs are cleverly designed（对擦除概念很重要的神经元对明确设计的对抗性提示很敏 感。因此，它们可以被”重新激活”以重新生成要删除的概念。）</li>
+</ul>
+</li>
+<li><p>Hypothesis: the generation of a specific concept is correlated with <strong>a subset of neurons in diffusion models</strong>, which we refer to as concept neurons in this paper</p>
+<ul>
+<li>the generation of a specific concept is correlated with a subset of neurons in diffusion models, which we refer to as <code>concept neurons</code> in this paper</li>
+</ul>
+</li>
+<li><p>基于：神经元的激活程度与概念的生成相关。</p>
+</li>
+<li><p>设计了两种方法：</p>
+<ul>
+<li>NP-ESD （直接剪除变化最大的top1神经元；擦除效果差，干扰大）（只能说明这些是构成该concept的重要神经元，但是不能说明是区别于其他concept的关键神经元）</li>
+<li>P-ESD （hard掩码优化；擦除更好，干扰更小）</li>
+</ul>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/LeoJeshua/PicGo/main/images/20250110160709.png"
+                      alt="20250110160709"
+                ></p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Paper Collection of Safe Diffusion at NeurIPS 2024</li>
+        <li><strong>Author:</strong> LeoJeshua</li>
+        <li><strong>Created at
+                :</strong> 2024-09-26 15:49:09</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-11-10 18:08:23
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://leojeshua.github.io/DMs/Paper-Collection-of-Safe-Diffusion_NeurIPS-2024/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/DMs/">#DMs</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Paper-Collection/">#Paper Collection</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/NeurIPS/">#NeurIPS</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/CV/Patch-Level-Adversarial-Attacks-in-Computer-Vision/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">Patch-Level Adversarial Attacks on Computer Vision</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">Paper Collection of Safe Diffusion at NeurIPS 2024</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NeurIPS-2024"><span class="nav-text">NeurIPS 2024</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack"><span class="nav-text">Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Backdoors-Attack"><span class="nav-text">Backdoors Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BiBadDiff"><span class="nav-text">BiBadDiff</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adversarial-Attack"><span class="nav-text">Adversarial Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PAP"><span class="nav-text">PAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AdvAD"><span class="nav-text">AdvAD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MIA-Member-Inference-Attack"><span class="nav-text">MIA (Member Inference Attack)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CLiD"><span class="nav-text">CLiD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watermark"><span class="nav-text">Watermark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ZoDiac"><span class="nav-text">ZoDiac</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Federated-Learning"><span class="nav-text">Federated Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DataStealing"><span class="nav-text">DataStealing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defence"><span class="nav-text">Defence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anti-Adversarial-Prompt"><span class="nav-text">Anti-Adversarial Prompt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GuardT2I"><span class="nav-text">GuardT2I</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlearn"><span class="nav-text">Unlearn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AdvUnlearn"><span class="nav-text">AdvUnlearn</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Leveraging-Catastrophic-Forgetting"><span class="nav-text">Leveraging Catastrophic Forgetting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-Concept-Location"><span class="nav-text">Memory&#x2F;Concept Location</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Finding-NeMo"><span class="nav-text">Finding NeMo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#P-ESD-P-AC-SGAW-Wrokshop"><span class="nav-text">P-ESD&#x2F;P-AC [SGAW Wrokshop]</span></a></li></ol></li></ol></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-cog fa-spin" style="--fa-animation-duration:15s"></i>&nbsp;&nbsp;<a href="/">LeoJeshua</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        18 posts in total
+                    </span>
+                    
+                        <span>
+                            40.2k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+                
+
+                    
+                        <script data-swup-reload-script>var url_1736="https://api.cdnorg.cn:666";var token_1736="8d393e3086e1d2d48267460f67b7bf8d1a09f23f231d32de4f3fb3a12f3af020";var cltj_1736=document.createElement("script");cltj_1736.src=url_1736+"/tj/tongji.js?v=2.201";var s_1736=document.getElementsByTagName("script")[0];s_1736.parentNode.insertBefore(cltj_1736,s_1736);</script>
+                    
+        
+                
+
+                    
+                        <script data-swup-reload-script type="text/javascript">(function(){var baidu=document.createElement("script");baidu.src="//i.6v6.work/v/?uid=388547";var cnzz=document.getElementsByTagName("script")[0];cnzz.parentNode.insertBefore(baidu,cnzz)})();</script>
+                    
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/Swup.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/utils.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/main.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/layouts/categoryList.js" ></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.5/files/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+</body>
+
+</html>
